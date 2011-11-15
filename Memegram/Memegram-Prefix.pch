@@ -1,0 +1,32 @@
+//
+// Prefix header for all source files of the 'Memegram' target in the 'Memegram' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+  #import <UIKit/UIKit.h>
+  #import <Foundation/Foundation.h>
+  #import <CoreData/CoreData.h>
+#endif
+
+
+#ifdef DEBUG
+  #define DLOG(fmt, ...) NSLog(@"%s(%d): " fmt, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+  #define DLOG(fmt, ...) ((void)0)
+#endif
+
+
+#ifdef DEBUG
+// make an assertion, throw a signal if it fails.
+#define DASSERT(con) { if (!(con)) { TTDPRINT(@"TTDASSERT failed: %s", #con); \
+{ __asm__("int $3\n" : : ); }; } \
+} ((void)0)
+#else
+  #define DASSERT(con) ((void)0)
+#endif
