@@ -1,0 +1,24 @@
+# Generally good-to-ignore files
+.DS_Store
+*~
+.#*
+*.sqlite
+*.sqlite3
+*.sqlite3-journal
+*.db
+*.tmproj
+.hgignore
+.hg/*
+.svn/*
+# Rails files to ignore
+.bundle
+config/database.yml
+config/instagram.yml
+db/schema.rb
+db/sphinx
+db/*.sqlite3
+log/
+public/javascripts/bundles/
+public/stylesheets/bundles/
+public/uploads/*
+tmp/*
