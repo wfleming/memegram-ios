@@ -79,7 +79,15 @@ Class initialViewClass = NULL;
 }
 
 #pragma mark - UIWebViewDelegate Implementations
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+- (BOOL)webView:(UIWebView *)wv shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+  // Determine if we want the system to handle it.
+  NSURL *url = request.URL;
+  if (![url.scheme isEqual:@"http"] && ![url.scheme isEqual:@"https"]) {
+    if ([[UIApplication sharedApplication]canOpenURL:url]) {
+      [[UIApplication sharedApplication]openURL:url];
+      return NO;
+    }
+  }
   return YES;
 }
 
@@ -96,9 +104,18 @@ Class initialViewClass = NULL;
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+  // Ignore NSURLErrorDomain error -999.
+  if (error.code == NSURLErrorCancelled) return;
+  
+  // Ignore "Frame Load Interrupted" errors. Seen after app URLs
+  if (error.code == 102 && [error.domain isEqual:@"WebKitErrorDomain"]) return;
+  
+  // normal error response
   [_activityIndicator stopAnimating];
   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
   _statusLabel.text = @"ERROR";
+  
+  //TODO - give the user some way to restart the flow or get out of here
 }
 
 

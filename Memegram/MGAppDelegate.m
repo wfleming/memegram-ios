@@ -12,12 +12,15 @@
 
 #import "MGDetailViewController.h"
 #import "IGInstagramAPI.h"
+#import "NSURL+WillFleming.h"
 
 #pragma mark - constants
 
 NSString * const kDefaultsInstagramToken = @"InstagramToken";
 NSString * const kDefaultsMemegramToken = @"MemegramToken";
-
+NSString * const kAuthCallbackURL = @"auth_callback";
+NSString * const kAuthCallbackURLInstagramTokenParam = @"instagram_token";
+NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
 
 #pragma mark -
 @interface MGAppDelegate (Private)
@@ -68,7 +71,6 @@ NSString * const kDefaultsMemegramToken = @"MemegramToken";
   
   [self.window makeKeyAndVisible];
   
-  
   [self ensureUserLoggedIn];
   
   return YES;
@@ -111,27 +113,37 @@ NSString * const kDefaultsMemegramToken = @"MemegramToken";
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  //TODO - handle auth coming in
+  if ([kAuthCallbackURL isEqual:[url host]]) {
+    NSDictionary *params = [url queryDictionary];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[params objectForKey:kAuthCallbackURLApiTokenParam] forKey:kDefaultsMemegramToken];
+    [defaults setObject:[params objectForKey:kAuthCallbackURLInstagramTokenParam] forKey:kDefaultsInstagramToken];
+    [IGInstagramAPI setAccessToken:[params objectForKey:kAuthCallbackURLInstagramTokenParam]];
+    //TODO handle failure here (params not present, etc. passed error codes?)
+    
+    // dismiss our auth controller, get back to the application
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    UIViewController *rootController = [keyWindow rootViewController];
+    if (rootController.modalViewController) {
+      [rootController dismissModalViewControllerAnimated:YES];
+    }
+    
+    return YES;
+  }
   return NO;
 }
 
 - (void)saveContext
 {
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil)
+  NSError *error = nil;
+  NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+  if (managedObjectContext != nil)
+  {
+    if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
     {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
-        {
-            /*
-             Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-             */
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 
-    }
+      DLOG(@"Unresolved error %@, %@", error, [error userInfo]);
+    } 
+  }
 }
 
 #pragma mark - Core Data stack

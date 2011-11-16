@@ -43,5 +43,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.willfleming.memegram</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>memegram</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
