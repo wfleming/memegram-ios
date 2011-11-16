@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE26F087147418E200192403 /* NSString+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F086147418E200192403 /* NSString+WillFleming.m */; };
+		BE26F08A1474266B00192403 /* NSURL+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0891474266B00192403 /* NSURL+WillFleming.m */; };
 		BE799D901471962600CFC615 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D8F1471962600CFC615 /* UIKit.framework */; };
 		BE799D921471962600CFC615 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D911471962600CFC615 /* Foundation.framework */; };
 		BE799D941471962600CFC615 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D931471962600CFC615 /* CoreGraphics.framework */; };
@@ -50,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE26F085147418E200192403 /* NSString+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WillFleming.h"; sourceTree = "<group>"; };
+		BE26F086147418E200192403 /* NSString+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WillFleming.m"; sourceTree = "<group>"; };
+		BE26F0881474266B00192403 /* NSURL+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+WillFleming.h"; sourceTree = "<group>"; };
+		BE26F0891474266B00192403 /* NSURL+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+WillFleming.m"; sourceTree = "<group>"; };
 		BE799D8B1471962600CFC615 /* Memegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memegram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE799D8F1471962600CFC615 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE799D911471962600CFC615 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,7 +98,7 @@
 		BEE7A6A314720C8F002CB0C0 /* IGConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGConnectionDelegate.m; path = Memegram/IGConnectionDelegate.m; sourceTree = "<group>"; };
 		BEE7A6A614721638002CB0C0 /* IGAuthDefaultInitialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGAuthDefaultInitialView.h; sourceTree = "<group>"; };
 		BEE7A6A714721638002CB0C0 /* IGAuthDefaultInitialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGAuthDefaultInitialView.m; sourceTree = "<group>"; };
-		BEE7A6AA1472255F002CB0C0 /* UIView+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "UIView+WillFleming.h"; sourceTree = "<group>"; };
+		BEE7A6AA1472255F002CB0C0 /* UIView+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WillFleming.h"; sourceTree = "<group>"; };
 		BEE7A6AB1472255F002CB0C0 /* UIView+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WillFleming.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,6 +295,10 @@
 			children = (
 				BEE7A6AA1472255F002CB0C0 /* UIView+WillFleming.h */,
 				BEE7A6AB1472255F002CB0C0 /* UIView+WillFleming.m */,
+				BE26F085147418E200192403 /* NSString+WillFleming.h */,
+				BE26F086147418E200192403 /* NSString+WillFleming.m */,
+				BE26F0881474266B00192403 /* NSURL+WillFleming.h */,
+				BE26F0891474266B00192403 /* NSURL+WillFleming.m */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -418,6 +428,8 @@
 				BEE7A6A414720C8F002CB0C0 /* IGConnectionDelegate.m in Sources */,
 				BEE7A6A814721639002CB0C0 /* IGAuthDefaultInitialView.m in Sources */,
 				BEE7A6AC1472255F002CB0C0 /* UIView+WillFleming.m in Sources */,
+				BE26F087147418E200192403 /* NSString+WillFleming.m in Sources */,
+				BE26F08A1474266B00192403 /* NSURL+WillFleming.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "IGInstagramAPI.h"
 #import "IGInstagramAuthController.h"
+#import "NSString+WillFleming.h"
 
 //TODO: how does ARC handle globals? Do I need to custom handle these?
 static NSString *g_instagramClientId = nil;
@@ -51,7 +52,7 @@ static NSString *g_instagramAccessToken = nil;
   return [NSString stringWithFormat:@"%@/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=code&display=touch",
           [self endpoint],
           [self clientId],
-          [self oauthRedirectURL]];
+          [[self oauthRedirectURL] urlEncodedString]];
 }
 
 
