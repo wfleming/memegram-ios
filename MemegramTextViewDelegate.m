@@ -10,7 +10,14 @@
 
 #import "MemegramTextView.h"
 #import "CreateMemegramView.h"
+#import "UIView+WillFleming.h"
 
+@interface MemegramTextViewDelegate (Private)
+- (NSUInteger) _trailingEmptyLines:(NSString*)text;
+@end
+
+
+#pragma mark -
 @implementation MemegramTextViewDelegate
 
 @synthesize textView;
@@ -42,8 +49,57 @@
   }
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+  // do not allow empty lines at the beginning of the text
+  if (0 == range.location && [@"\n" isEqual:text]) {
+    //TODO - this won't handle copy/paste well
+    return NO;
+  }
+  return YES;
+}
+
 - (void)textViewDidChange:(UITextView *)textView {
-  //TODO - resize ourself to fit content
+  NSString *text = self.textView.text;
+  
+  // resize our frame to match our content
+  CGSize maxSize = CGSizeMake(self.textView.parentView.width, self.textView.parentView.height);
+  CGSize textSize = [text sizeWithFont:self.textView.font constrainedToSize:maxSize lineBreakMode:UILineBreakModeClip];
+  self.textView.width = textSize.width + 40.0;
+  self.textView.height = textSize.height + 10.0;
+  
+  /* -sizeWithFont: doesn't include the height of trailing 'empty' lines.
+   * so we scan for empty lines at the end and add height for them */
+  NSUInteger numEmptyLines = [self _trailingEmptyLines:text];
+  if (numEmptyLines > 0) {
+    self.textView.height = self.textView.height + (numEmptyLines * self.textView.font.lineHeight);
+  }
+}
+
+@end
+
+
+#pragma mark -
+@implementation MemegramTextViewDelegate (Private)
+
+- (NSUInteger) _trailingEmptyLines:(NSString*)text {
+  if (0 == [text length]) {
+    return 0;
+  }
+  
+  BOOL foundContent = NO;
+  NSUInteger index = [text length] - 1;
+  NSUInteger lines = 0;
+  while (!foundContent && index > 0) {
+    NSString *ch = [text substringWithRange:NSMakeRange(index, 1)];
+    if ([@"\n" isEqual:ch]) {
+      lines++;
+    }
+    if ([ch stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length > 0) {
+      foundContent = YES;
+    }
+    index--;
+  }
+  return lines;
 }
 
 @end
