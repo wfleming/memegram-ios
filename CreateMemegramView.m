@@ -175,7 +175,7 @@
 @implementation CreateMemegramView (Actions)
 
 - (void) addTextView {
-  CGRect defaultFrame = CGRectMake(10.0, 10.0, self.width, 50.0);
+  CGRect defaultFrame = CGRectMake(10.0, 10.0, (self.width / 2.0), 30.0);
   MemegramTextView *newTextView = [[MemegramTextView alloc] initWithFrame:defaultFrame];
   newTextView.parentView = self;
   [_container addSubview:newTextView];

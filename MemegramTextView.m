@@ -41,7 +41,7 @@
 
 - (void) layoutSubviews {
   if (self.selected && ![self isFirstResponder]) {
-    self.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+    self.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.7];
   } else {
     self.backgroundColor = [UIColor clearColor];
   }
