@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "KKGridView.h"
 
-@class MGDetailViewController, InstagramMediaDataSource;
+@class InstagramMediaDataSource;
 
 @interface SelectInstagramMediaController : UIViewController {
   InstagramMediaDataSource *_dataSource;
@@ -17,7 +17,6 @@
   UIView *_overlayView; // for loading & errors
 }
 
-@property (strong, nonatomic) MGDetailViewController *detailViewController;
 @property (readonly, nonatomic) InstagramMediaDataSource *dataSource;
 
 - (void) datasourceDidFinishLoad;

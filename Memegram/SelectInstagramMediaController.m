@@ -9,8 +9,9 @@
 #import "SelectInstagramMediaController.h"
 
 #import "InstagramMediaDataSource.h"
-#import "MGDetailViewController.h"
 #import "IGInstagramAPI.h"
+#import "IGInstagramMedia.h"
+#import "CreateMemegramController.h"
 #import "UIView+WillFleming.h"
 
 @interface SelectInstagramMediaController (Private)
@@ -23,8 +24,6 @@
 @end
 
 @implementation SelectInstagramMediaController
-
-@synthesize detailViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -83,6 +82,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+//  FIXME: this isn't called after finishing auth.
   [super viewDidAppear:animated];
   if (![self dataSource].isLoaded) {
     [[self dataSource] doLoad];
@@ -151,6 +151,13 @@
     
     [self.gridView setCellBlock:^(KKGridView *gridView, KKIndexPath *indexPath) {
       return [[blockSelf dataSource] gridView:gridView cellForItemAtIndexPath:indexPath];
+    }];
+    
+    [self.gridView setDidSelectIndexPathBlock:^(KKGridView *gridView, KKIndexPath *indexPath) {
+      IGInstagramMedia *media = [[self dataSource] objectAtIndexPath:indexPath];
+      CreateMemegramController *controller = [[CreateMemegramController alloc] init];
+      controller.sourceMedia = media;
+      [self.navigationController pushViewController:controller animated:YES];
     }];
   }
   return _gridView;

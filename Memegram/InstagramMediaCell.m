@@ -58,6 +58,6 @@
 }
 
 - (void) prepareForReuse {
-//  _imageView.image = nil;
+  _imageView.image = nil;
 }
 @end

@@ -34,7 +34,6 @@
 		BE799DA21471962700CFC615 /* MGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE799DA11471962700CFC615 /* MGAppDelegate.m */; };
 		BE799DA51471962700CFC615 /* Memegram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE799DA31471962700CFC615 /* Memegram.xcdatamodeld */; };
 		BE799DA81471962700CFC615 /* SelectInstagramMediaController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE799DA71471962700CFC615 /* SelectInstagramMediaController.m */; };
-		BE799DAB1471962700CFC615 /* MGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE799DAA1471962700CFC615 /* MGDetailViewController.m */; };
 		BE799DBF1471962700CFC615 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799DBE1471962700CFC615 /* SenTestingKit.framework */; };
 		BE799DC01471962700CFC615 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D8F1471962600CFC615 /* UIKit.framework */; };
 		BE799DC11471962700CFC615 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D911471962600CFC615 /* Foundation.framework */; };
@@ -48,6 +47,12 @@
 		BE7CFCF81474B97200062002 /* KKGridViewUpdateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCEF1474B97200062002 /* KKGridViewUpdateStack.m */; };
 		BE7CFCF91474B97200062002 /* KKGridViewViewInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCF11474B97200062002 /* KKGridViewViewInfo.m */; };
 		BE7CFCFA1474B97200062002 /* KKIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCF31474B97200062002 /* KKIndexPath.m */; };
+		BE7CFCFE1474C1D300062002 /* CreateMemegramController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCFD1474C1D300062002 /* CreateMemegramController.m */; };
+		BE7CFD021475938300062002 /* CreateMemegramView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD011475938300062002 /* CreateMemegramView.m */; };
+		BE7CFD051475940200062002 /* MemegramTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD041475940200062002 /* MemegramTextView.m */; };
+		BE7CFD081475A3BE00062002 /* UIToolbar+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD071475A3BE00062002 /* UIToolbar+WillFleming.m */; };
+		BE7CFD0B1475A84C00062002 /* MemegramTextViewInputAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD0A1475A84B00062002 /* MemegramTextViewInputAccessory.m */; };
+		BE7CFD0E1475A91000062002 /* MemegramTextViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD0D1475A91000062002 /* MemegramTextViewDelegate.m */; };
 		BEB4B8481474A6BE0096A563 /* InstagramMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */; };
 		BEE7A64A1471EB58002CB0C0 /* IGInstagramAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A6491471EB58002CB0C0 /* IGInstagramAPI.m */; };
 		BEE7A64D1471EBB2002CB0C0 /* IGInstagramAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A64C1471EBB2002CB0C0 /* IGInstagramAuthController.m */; };
@@ -123,8 +128,6 @@
 		BE799DA41471962700CFC615 /* Memegram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memegram.xcdatamodel; sourceTree = "<group>"; };
 		BE799DA61471962700CFC615 /* SelectInstagramMediaController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectInstagramMediaController.h; sourceTree = "<group>"; };
 		BE799DA71471962700CFC615 /* SelectInstagramMediaController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectInstagramMediaController.m; sourceTree = "<group>"; };
-		BE799DA91471962700CFC615 /* MGDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGDetailViewController.h; sourceTree = "<group>"; };
-		BE799DAA1471962700CFC615 /* MGDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGDetailViewController.m; sourceTree = "<group>"; };
 		BE799DBD1471962700CFC615 /* MemegramTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemegramTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE799DBE1471962700CFC615 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		BE799DC71471962700CFC615 /* MemegramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MemegramTests-Info.plist"; sourceTree = "<group>"; };
@@ -146,6 +149,18 @@
 		BE7CFCF11474B97200062002 /* KKGridViewViewInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGridViewViewInfo.m; sourceTree = "<group>"; };
 		BE7CFCF21474B97200062002 /* KKIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKIndexPath.h; sourceTree = "<group>"; };
 		BE7CFCF31474B97200062002 /* KKIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKIndexPath.m; sourceTree = "<group>"; };
+		BE7CFCFC1474C1D300062002 /* CreateMemegramController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMemegramController.h; sourceTree = "<group>"; };
+		BE7CFCFD1474C1D300062002 /* CreateMemegramController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemegramController.m; sourceTree = "<group>"; };
+		BE7CFD001475938300062002 /* CreateMemegramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMemegramView.h; sourceTree = "<group>"; };
+		BE7CFD011475938300062002 /* CreateMemegramView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemegramView.m; sourceTree = "<group>"; };
+		BE7CFD031475940200062002 /* MemegramTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemegramTextView.h; sourceTree = "<group>"; };
+		BE7CFD041475940200062002 /* MemegramTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramTextView.m; sourceTree = "<group>"; };
+		BE7CFD061475A3BE00062002 /* UIToolbar+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+WillFleming.h"; sourceTree = "<group>"; };
+		BE7CFD071475A3BE00062002 /* UIToolbar+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+WillFleming.m"; sourceTree = "<group>"; };
+		BE7CFD091475A84B00062002 /* MemegramTextViewInputAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemegramTextViewInputAccessory.h; sourceTree = "<group>"; };
+		BE7CFD0A1475A84B00062002 /* MemegramTextViewInputAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramTextViewInputAccessory.m; sourceTree = "<group>"; };
+		BE7CFD0C1475A91000062002 /* MemegramTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemegramTextViewDelegate.h; sourceTree = "<group>"; };
+		BE7CFD0D1475A91000062002 /* MemegramTextViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramTextViewDelegate.m; sourceTree = "<group>"; };
 		BEB4B8461474A6BE0096A563 /* InstagramMediaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramMediaCell.h; sourceTree = "<group>"; };
 		BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramMediaCell.m; sourceTree = "<group>"; };
 		BEE7A6481471EB58002CB0C0 /* IGInstagramAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramAPI.h; sourceTree = "<group>"; };
@@ -266,6 +281,8 @@
 				BE26F0891474266B00192403 /* NSURL+WillFleming.m */,
 				BE26F0D01474774200192403 /* UIViewController+WillFleming.h */,
 				BE26F0D11474774200192403 /* UIViewController+WillFleming.m */,
+				BE7CFD061475A3BE00062002 /* UIToolbar+WillFleming.h */,
+				BE7CFD071475A3BE00062002 /* UIToolbar+WillFleming.m */,
 			);
 			name = "Class Additions";
 			sourceTree = "<group>";
@@ -306,14 +323,13 @@
 		BE799D971471962600CFC615 /* Memegram */ = {
 			isa = PBXGroup;
 			children = (
-				BEE7A6901472061B002CB0C0 /* Your Memegrams */,
-				BEE7A68F1472057E002CB0C0 /* Instagram Media */,
+				BE7CFCFB1474C18900062002 /* Memegram Create Controller */,
+				BEE7A6901472061B002CB0C0 /* Your Memegrams Controller */,
+				BEE7A68F1472057E002CB0C0 /* Instagram Media Controller */,
 				BEE7A6471471EB06002CB0C0 /* MemegramAPI */,
 				BEE7A6451471EAF2002CB0C0 /* InstagramAPI */,
 				BE799DA01471962700CFC615 /* MGAppDelegate.h */,
 				BE799DA11471962700CFC615 /* MGAppDelegate.m */,
-				BE799DA91471962700CFC615 /* MGDetailViewController.h */,
-				BE799DAA1471962700CFC615 /* MGDetailViewController.m */,
 				BE799D981471962600CFC615 /* Supporting Files */,
 			);
 			path = Memegram;
@@ -372,6 +388,32 @@
 			path = KKGridView;
 			sourceTree = "<group>";
 		};
+		BE7CFCFB1474C18900062002 /* Memegram Create Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE7CFCFF1475935600062002 /* MemegramCreateView */,
+				BE7CFCFC1474C1D300062002 /* CreateMemegramController.h */,
+				BE7CFCFD1474C1D300062002 /* CreateMemegramController.m */,
+			);
+			name = "Memegram Create Controller";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		BE7CFCFF1475935600062002 /* MemegramCreateView */ = {
+			isa = PBXGroup;
+			children = (
+				BE7CFD001475938300062002 /* CreateMemegramView.h */,
+				BE7CFD011475938300062002 /* CreateMemegramView.m */,
+				BE7CFD031475940200062002 /* MemegramTextView.h */,
+				BE7CFD041475940200062002 /* MemegramTextView.m */,
+				BE7CFD091475A84B00062002 /* MemegramTextViewInputAccessory.h */,
+				BE7CFD0A1475A84B00062002 /* MemegramTextViewInputAccessory.m */,
+				BE7CFD0C1475A91000062002 /* MemegramTextViewDelegate.h */,
+				BE7CFD0D1475A91000062002 /* MemegramTextViewDelegate.m */,
+			);
+			name = MemegramCreateView;
+			sourceTree = "<group>";
+		};
 		BEE7A6451471EAF2002CB0C0 /* InstagramAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,7 +445,7 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
-		BEE7A68F1472057E002CB0C0 /* Instagram Media */ = {
+		BEE7A68F1472057E002CB0C0 /* Instagram Media Controller */ = {
 			isa = PBXGroup;
 			children = (
 				BE799DA61471962700CFC615 /* SelectInstagramMediaController.h */,
@@ -413,14 +455,14 @@
 				BEB4B8461474A6BE0096A563 /* InstagramMediaCell.h */,
 				BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */,
 			);
-			name = "Instagram Media";
+			name = "Instagram Media Controller";
 			sourceTree = "<group>";
 		};
-		BEE7A6901472061B002CB0C0 /* Your Memegrams */ = {
+		BEE7A6901472061B002CB0C0 /* Your Memegrams Controller */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "Your Memegrams";
+			name = "Your Memegrams Controller";
 			sourceTree = "<group>";
 		};
 		BEE7A69114720903002CB0C0 /* Auth Flow */ = {
@@ -583,7 +625,6 @@
 				BE799DA21471962700CFC615 /* MGAppDelegate.m in Sources */,
 				BE799DA51471962700CFC615 /* Memegram.xcdatamodeld in Sources */,
 				BE799DA81471962700CFC615 /* SelectInstagramMediaController.m in Sources */,
-				BE799DAB1471962700CFC615 /* MGDetailViewController.m in Sources */,
 				BEE7A64A1471EB58002CB0C0 /* IGInstagramAPI.m in Sources */,
 				BEE7A64D1471EBB2002CB0C0 /* IGInstagramAuthController.m in Sources */,
 				BEE7A68E14720322002CB0C0 /* IGInstagramMedia.m in Sources */,
@@ -618,6 +659,12 @@
 				BE7CFCF81474B97200062002 /* KKGridViewUpdateStack.m in Sources */,
 				BE7CFCF91474B97200062002 /* KKGridViewViewInfo.m in Sources */,
 				BE7CFCFA1474B97200062002 /* KKIndexPath.m in Sources */,
+				BE7CFCFE1474C1D300062002 /* CreateMemegramController.m in Sources */,
+				BE7CFD021475938300062002 /* CreateMemegramView.m in Sources */,
+				BE7CFD051475940200062002 /* MemegramTextView.m in Sources */,
+				BE7CFD081475A3BE00062002 /* UIToolbar+WillFleming.m in Sources */,
+				BE7CFD0B1475A84C00062002 /* MemegramTextViewInputAccessory.m in Sources */,
+				BE7CFD0E1475A91000062002 /* MemegramTextViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

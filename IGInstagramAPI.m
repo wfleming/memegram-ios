@@ -20,6 +20,7 @@ static NSString *g_instagramOAuthRedirectURL = nil;
 static NSString *g_instagramAccessToken = nil;
 static Class<IGSerializer> g_instagramSerializer = nil;
 static IGInstagramUser *g_instagramCurrentUser = nil;
+static UIWindow *g_authWindow = nil;
 
 @interface IGInstagramAPI (Private)
 + (NSString*) signedURLForPath:(NSString*)path;
@@ -64,6 +65,14 @@ static IGInstagramUser *g_instagramCurrentUser = nil;
 
 + (Class<IGSerializer>) serializer {
   return g_instagramSerializer;
+}
+
++ (UIWindow*) authWindow {
+  return g_authWindow;
+}
+
++ (UIWindow*) setAuthWindow:(UIWindow*)window {
+  g_authWindow = window;
 }
 
 
@@ -119,11 +128,16 @@ static IGInstagramUser *g_instagramCurrentUser = nil;
   
   // established that we're not valid yet - show the auth controller
   IGInstagramAuthController *authController = [[IGInstagramAuthController alloc] init];
+  UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:authController];
+  navController.navigationBarHidden = YES;
   
-  // get the current root controller
+  // swap out current window for a window containing our auth view
   UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-  UIWindow *authWindow = [[UIWindow alloc] initWithFrame:[keyWindow frame]];
-  authWindow.rootViewController = authController;
+  UIWindow *authWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+  authWindow.rootViewController = navController;
+  [self setAuthWindow:authWindow];  // otherwise it get's released silently...
+  [keyWindow resignKeyWindow];
+  keyWindow.hidden = YES;
   [authWindow makeKeyAndVisible];
 }
 
