@@ -22,6 +22,8 @@
      forControlEvents:UIControlEventTouchUpInside];
     button.frame = CGRectMake(0, 0, 200, 80);
     [self addSubview:button];
+    
+    self.backgroundColor = [UIColor yellowColor];
   }
   return self;
 }
@@ -37,14 +39,5 @@
   }
   return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

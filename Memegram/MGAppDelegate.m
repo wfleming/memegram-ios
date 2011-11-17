@@ -10,7 +10,6 @@
 
 #import "SelectInstagramMediaController.h"
 
-#import "MGDetailViewController.h"
 #import "IGInstagramAPI.h"
 #import "NSURL+WillFleming.h"
 
@@ -53,6 +52,7 @@ NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
     SelectInstagramMediaController *masterViewController = [[SelectInstagramMediaController alloc] initWithNibName:nil bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.window.rootViewController = self.navigationController;
   } else {
 //    iPad not currently supported!
@@ -124,7 +124,11 @@ NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
     //TODO handle failure here (params not present, etc. passed error codes?)
     
     // dismiss our auth controller, get back to the regular application
-    [[[UIApplication sharedApplication] keyWindow] resignKeyWindow];
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    [keyWindow resignKeyWindow];
+    keyWindow.hidden = YES;
+    [IGInstagramAPI setAuthWindow:nil];
+    [self.window makeKeyAndVisible];
     
     return YES;
   }

@@ -58,6 +58,7 @@ Class initialViewClass = NULL;
   _activityIndicator = nil;
   _statusLabel = nil;
   _initialView = nil;
+  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

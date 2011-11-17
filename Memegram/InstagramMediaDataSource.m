@@ -77,11 +77,15 @@
 }
 
 - (KKGridViewCell*) gridView:(KKGridView*)gridView cellForItemAtIndexPath:(KKIndexPath*)indexPath; {
-  IGInstagramMedia *media = [self.mediaItems objectAtIndex:indexPath.index];
+  IGInstagramMedia *media = [self objectAtIndexPath:indexPath]; 
   InstagramMediaCell *cell = [InstagramMediaCell cellForGridView:gridView];
   cell.media = media;
   
   return cell;
+}
+
+- (IGInstagramMedia*) objectAtIndexPath:(KKIndexPath*)indexPath {
+  return [self.mediaItems objectAtIndex:indexPath.index];
 }
 
 @end
