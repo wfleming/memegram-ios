@@ -21,6 +21,8 @@
 -(void) displayLoadingView;
 -(void) displayErrorView;
 -(void) displayGridView;
+
+- (void) windowDidBecomeKey:(id)sender;
 @end
 
 @implementation SelectInstagramMediaController
@@ -33,6 +35,8 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidBecomeKey:) name:UIWindowDidBecomeKeyNotification object:self.view.window];
   }
   return self;
 }
@@ -82,7 +86,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-//  FIXME: this isn't called after finishing auth.
   [super viewDidAppear:animated];
   if (![self dataSource].isLoaded) {
     [[self dataSource] doLoad];
@@ -224,6 +227,16 @@
   [self.view bringSubviewToFront:self.gridView];
   // KKGridView is a little odd with how it implements reloadData...
   [self.gridView setNeedsLayout];
+}
+
+- (void) windowDidBecomeKey:(NSNotification*)notification {
+  // gets called after user finishes auth flow
+  if ([self isViewLoaded] && self.view.window == notification.object) {
+    if (![self dataSource].isLoaded) {
+      [[self dataSource] doLoad];
+      [self displayLoadingView];
+    }
+  }
 }
 
 @end
