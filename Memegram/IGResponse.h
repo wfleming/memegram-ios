@@ -10,13 +10,14 @@
 
 @interface IGResponse : NSObject {
   NSData *_rawBody;
-  NSDictionary *_body; // parsed JSON
+  NSDictionary *_parsedBody;
 	NSDictionary *_headers;
 	NSInteger _statusCode;
 	NSError *_error;
 }
 
-@property (nonatomic, readonly) NSDictionary *body;
+@property (nonatomic, readonly) NSData *rawBody;
+@property (nonatomic, readonly) NSDictionary *parsedBody;
 @property (nonatomic, readonly) NSDictionary *headers;
 @property (nonatomic, readonly) NSInteger statusCode;
 @property (nonatomic, readonly) NSError *error;
@@ -25,7 +26,7 @@
 - (id)initFrom:(NSHTTPURLResponse *)response withBody:(NSData *)data andError:(NSError *)aError;
 - (BOOL)isSuccess;
 - (BOOL)isError;
-- (NSString*)debugDescription;
+- (NSString*)bodyAsString;
 
 
 @end

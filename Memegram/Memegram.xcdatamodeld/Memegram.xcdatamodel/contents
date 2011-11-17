@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Memegram" syncable="YES">
+        <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="instagramSourceId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="memegramDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="memegramId" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="photoData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
@@ -15,7 +15,7 @@
         <attribute name="userId" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="261" positionY="189" width="128" height="120"/>
         <element name="Memegram" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="User" positionX="261" positionY="189" width="128" height="120"/>
     </elements>
 </model>

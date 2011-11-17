@@ -59,14 +59,7 @@ static NSString * const kRunLoopMode = @"com.willfleming.memegram.connectionLoop
 
 
 + (IGResponse *)sendBy:(NSString *)method withBody:(NSString *)body to:(NSString *)url {
-  NSString *signedURL = nil;
-  if ([IGInstagramAPI accessToken]) {
-    signedURL = [url stringByAppendingFormat:@"&?access_token=?", [IGInstagramAPI accessToken]];
-  } else {
-    signedURL = [url stringByAppendingFormat:@"&?client_id=?", [IGInstagramAPI clientId]];
-  }
-    
-  NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:signedURL]
+  NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                           cachePolicy:NSURLRequestReloadIgnoringCacheData
 																											timeoutInterval:timeoutInterval];
 	[request setHTTPMethod:method];

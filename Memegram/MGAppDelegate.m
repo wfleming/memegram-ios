@@ -8,7 +8,7 @@
 
 #import "MGAppDelegate.h"
 
-#import "MGMasterViewController.h"
+#import "SelectInstagramMediaController.h"
 
 #import "MGDetailViewController.h"
 #import "IGInstagramAPI.h"
@@ -45,28 +45,29 @@ NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
   // Setup API base stuff
   [IGInstagramAPI setClientId:OAUTH_INSTAGRAM_KEY];
   [IGInstagramAPI setOAuthRedirctURL:OAUTH_INSTAGRAM_REDIRECT_URL];
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  [IGInstagramAPI setAccessToken:[defaults stringForKey:kDefaultsInstagramToken]];
   
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   // Override point for customization after application launch.
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    MGMasterViewController *masterViewController = [[MGMasterViewController alloc] initWithNibName:@"MGMasterViewController_iPhone" bundle:nil];
+    SelectInstagramMediaController *masterViewController = [[SelectInstagramMediaController alloc] initWithNibName:nil bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     self.window.rootViewController = self.navigationController;
-    masterViewController.managedObjectContext = self.managedObjectContext;
   } else {
-    MGMasterViewController *masterViewController = [[MGMasterViewController alloc] initWithNibName:@"MGMasterViewController_iPad" bundle:nil];
-    UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-    
-    MGDetailViewController *detailViewController = [[MGDetailViewController alloc] initWithNibName:@"MGDetailViewController_iPad" bundle:nil];
-    UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
-
-    self.splitViewController = [[UISplitViewController alloc] init];
-    self.splitViewController.delegate = detailViewController;
-    self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
-    
-    self.window.rootViewController = self.splitViewController;
-    masterViewController.detailViewController = detailViewController;
-    masterViewController.managedObjectContext = self.managedObjectContext;
+//    iPad not currently supported!
+//    SelectInstagramMediaController *masterViewController = [[SelectInstagramMediaController alloc] initWithNibName:@"MGMasterViewController_iPad" bundle:nil];
+//    UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+//    
+//    MGDetailViewController *detailViewController = [[MGDetailViewController alloc] initWithNibName:@"MGDetailViewController_iPad" bundle:nil];
+//    UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+//
+//    self.splitViewController = [[UISplitViewController alloc] init];
+//    self.splitViewController.delegate = detailViewController;
+//    self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
+//    
+//    self.window.rootViewController = self.splitViewController;
+//    masterViewController.detailViewController = detailViewController;
   }
   
   [self.window makeKeyAndVisible];
@@ -118,15 +119,12 @@ NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:[params objectForKey:kAuthCallbackURLApiTokenParam] forKey:kDefaultsMemegramToken];
     [defaults setObject:[params objectForKey:kAuthCallbackURLInstagramTokenParam] forKey:kDefaultsInstagramToken];
+    [defaults synchronize];
     [IGInstagramAPI setAccessToken:[params objectForKey:kAuthCallbackURLInstagramTokenParam]];
     //TODO handle failure here (params not present, etc. passed error codes?)
     
-    // dismiss our auth controller, get back to the application
-    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-    UIViewController *rootController = [keyWindow rootViewController];
-    if (rootController.modalViewController) {
-      [rootController dismissModalViewControllerAnimated:YES];
-    }
+    // dismiss our auth controller, get back to the regular application
+    [[[UIApplication sharedApplication] keyWindow] resignKeyWindow];
     
     return YES;
   }
@@ -207,7 +205,7 @@ NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
       __persistentStoreCoordinator = nil;
       [self persistentStoreCoordinator];
 #else
-      abort();
+      // there was an issue we failed to address
 #endif
     }    
     
@@ -234,7 +232,6 @@ NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
 - (void) ensureUserLoggedIn {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   
-  NSString *instagramToken = [defaults stringForKey:kDefaultsInstagramToken];
   NSString *memegramToken = [defaults stringForKey:kDefaultsMemegramToken];
   
   BOOL clearInstagramToken = NO;
@@ -246,12 +243,11 @@ NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
   }
   
   if (clearInstagramToken) {
-    instagramToken = nil;
+    // make sure we end up re-authing, because we don't have a valid memegram taken
+    [IGInstagramAPI setAccessToken:nil];
   }
   
-  // give the instagram token to IGInstagramAPI & let it check authenticity
-  [IGInstagramAPI setAccessToken:instagramToken];
-  
+  // IG API will check IG token, and prompt for reauth if not valid
   [IGInstagramAPI authenticateUser];
 }
 

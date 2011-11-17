@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#import "IGDefaultSerializer.h"
+
+@class IGInstagramUser, IGResponse;
+
 @interface IGInstagramAPI : NSObject
 
 + (void) setClientId:(NSString*)clientId;
@@ -16,9 +20,18 @@
 + (NSString*)oauthRedirectURL;
 + (void) setAccessToken:(NSString*)accessToken;
 + (NSString*) accessToken;
++ (void) setSerializer:(Class<IGSerializer>)serializer;
++ (Class<IGSerializer>) serializer;
 
 + (NSString*) endpoint;
++ (NSString*) versionedEndpoint;
 + (NSString*) authURL;
++ (IGResponse *)post:(NSString *)body to:(NSString *)path;
++ (IGResponse *)get:(NSString *)path;
++ (IGResponse *)put:(NSString *)body to:(NSString *)path;
++ (IGResponse *)delete:(NSString *)path;
+
++ (IGInstagramUser*)currentUser;
 
 + (void) authenticateUser; // enter the OAuth flow
 
