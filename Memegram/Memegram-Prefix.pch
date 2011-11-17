@@ -24,7 +24,7 @@
 
 #ifdef DEBUG
 // make an assertion, throw a signal if it fails.
-#define DASSERT(con) { if (!(con)) { TTDPRINT(@"TTDASSERT failed: %s", #con); \
+#define DASSERT(con) { if (!(con)) { DLOG(@"DASSERT failed: %s", #con); \
 { __asm__("int $3\n" : : ); }; } \
 } ((void)0)
 #else

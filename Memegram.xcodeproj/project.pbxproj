@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		BE26F087147418E200192403 /* NSString+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F086147418E200192403 /* NSString+WillFleming.m */; };
 		BE26F08A1474266B00192403 /* NSURL+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0891474266B00192403 /* NSURL+WillFleming.m */; };
+		BE26F08D14742C1400192403 /* IGInstagramUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F08C14742C1400192403 /* IGInstagramUser.m */; };
+		BE26F09014742F8F00192403 /* IGDefaultSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F08F14742F8F00192403 /* IGDefaultSerializer.m */; };
+		BE26F0A8147430D900192403 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F093147430D900192403 /* CDataScanner.m */; };
+		BE26F0A9147430D900192403 /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F096147430D900192403 /* CFilteringJSONSerializer.m */; };
+		BE26F0AA147430D900192403 /* CJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F098147430D900192403 /* CJSONSerialization.m */; };
+		BE26F0AB147430D900192403 /* CJSONSerializedData.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F09A147430D900192403 /* CJSONSerializedData.m */; };
+		BE26F0AC147430D900192403 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F09D147430D900192403 /* CDataScanner_Extensions.m */; };
+		BE26F0AD147430D900192403 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F09F147430D900192403 /* NSDictionary_JSONExtensions.m */; };
+		BE26F0AE147430D900192403 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0A2147430D900192403 /* CJSONDeserializer.m */; };
+		BE26F0AF147430D900192403 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0A4147430D900192403 /* CJSONScanner.m */; };
+		BE26F0B0147430D900192403 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0A6147430D900192403 /* CJSONSerializer.m */; };
+		BE26F0B214744BB500192403 /* IGInstagramFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0B114744BB500192403 /* IGInstagramFunctions.m */; };
+		BE26F0C4147459E200192403 /* StatusCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0C3147459E200192403 /* StatusCenter.m */; };
+		BE26F0C914745A7D00192403 /* StatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0C814745A7D00192403 /* StatusItem.m */; };
+		BE26F0CC14745B4600192403 /* InstagramMediaDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0CB14745B4600192403 /* InstagramMediaDataSource.m */; };
+		BE26F0D21474774200192403 /* UIViewController+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0D11474774200192403 /* UIViewController+WillFleming.m */; };
 		BE799D901471962600CFC615 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D8F1471962600CFC615 /* UIKit.framework */; };
 		BE799D921471962600CFC615 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D911471962600CFC615 /* Foundation.framework */; };
 		BE799D941471962600CFC615 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D931471962600CFC615 /* CoreGraphics.framework */; };
@@ -17,18 +33,22 @@
 		BE799D9E1471962600CFC615 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE799D9D1471962600CFC615 /* main.m */; };
 		BE799DA21471962700CFC615 /* MGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE799DA11471962700CFC615 /* MGAppDelegate.m */; };
 		BE799DA51471962700CFC615 /* Memegram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE799DA31471962700CFC615 /* Memegram.xcdatamodeld */; };
-		BE799DA81471962700CFC615 /* MGMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE799DA71471962700CFC615 /* MGMasterViewController.m */; };
+		BE799DA81471962700CFC615 /* SelectInstagramMediaController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE799DA71471962700CFC615 /* SelectInstagramMediaController.m */; };
 		BE799DAB1471962700CFC615 /* MGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE799DAA1471962700CFC615 /* MGDetailViewController.m */; };
-		BE799DAE1471962700CFC615 /* MGMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE799DAC1471962700CFC615 /* MGMasterViewController_iPhone.xib */; };
-		BE799DB11471962700CFC615 /* MGMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE799DAF1471962700CFC615 /* MGMasterViewController_iPad.xib */; };
-		BE799DB41471962700CFC615 /* MGDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE799DB21471962700CFC615 /* MGDetailViewController_iPhone.xib */; };
-		BE799DB71471962700CFC615 /* MGDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE799DB51471962700CFC615 /* MGDetailViewController_iPad.xib */; };
 		BE799DBF1471962700CFC615 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799DBE1471962700CFC615 /* SenTestingKit.framework */; };
 		BE799DC01471962700CFC615 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D8F1471962600CFC615 /* UIKit.framework */; };
 		BE799DC11471962700CFC615 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D911471962600CFC615 /* Foundation.framework */; };
 		BE799DC21471962700CFC615 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D951471962600CFC615 /* CoreData.framework */; };
 		BE799DCA1471962700CFC615 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE799DC81471962700CFC615 /* InfoPlist.strings */; };
 		BE799DCD1471962700CFC615 /* MemegramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE799DCC1471962700CFC615 /* MemegramTests.m */; };
+		BE7CFCF41474B97200062002 /* KKGridView.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCE71474B97200062002 /* KKGridView.mm */; };
+		BE7CFCF51474B97200062002 /* KKGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCE91474B97200062002 /* KKGridViewCell.m */; };
+		BE7CFCF61474B97200062002 /* KKGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCEB1474B97200062002 /* KKGridViewController.m */; };
+		BE7CFCF71474B97200062002 /* KKGridViewUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCED1474B97200062002 /* KKGridViewUpdate.m */; };
+		BE7CFCF81474B97200062002 /* KKGridViewUpdateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCEF1474B97200062002 /* KKGridViewUpdateStack.m */; };
+		BE7CFCF91474B97200062002 /* KKGridViewViewInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCF11474B97200062002 /* KKGridViewViewInfo.m */; };
+		BE7CFCFA1474B97200062002 /* KKIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCF31474B97200062002 /* KKIndexPath.m */; };
+		BEB4B8481474A6BE0096A563 /* InstagramMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */; };
 		BEE7A64A1471EB58002CB0C0 /* IGInstagramAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A6491471EB58002CB0C0 /* IGInstagramAPI.m */; };
 		BEE7A64D1471EBB2002CB0C0 /* IGInstagramAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A64C1471EBB2002CB0C0 /* IGInstagramAuthController.m */; };
 		BEE7A6891471F3AB002CB0C0 /* Development.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE7A6881471F3AB002CB0C0 /* Development.xcconfig */; };
@@ -56,6 +76,39 @@
 		BE26F086147418E200192403 /* NSString+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WillFleming.m"; sourceTree = "<group>"; };
 		BE26F0881474266B00192403 /* NSURL+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+WillFleming.h"; sourceTree = "<group>"; };
 		BE26F0891474266B00192403 /* NSURL+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+WillFleming.m"; sourceTree = "<group>"; };
+		BE26F08B14742C1400192403 /* IGInstagramUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramUser.h; sourceTree = "<group>"; };
+		BE26F08C14742C1400192403 /* IGInstagramUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInstagramUser.m; sourceTree = "<group>"; };
+		BE26F08E14742F8F00192403 /* IGDefaultSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDefaultSerializer.h; sourceTree = "<group>"; };
+		BE26F08F14742F8F00192403 /* IGDefaultSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGDefaultSerializer.m; sourceTree = "<group>"; };
+		BE26F092147430D900192403 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
+		BE26F093147430D900192403 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
+		BE26F095147430D900192403 /* CFilteringJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFilteringJSONSerializer.h; sourceTree = "<group>"; };
+		BE26F096147430D900192403 /* CFilteringJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFilteringJSONSerializer.m; sourceTree = "<group>"; };
+		BE26F097147430D900192403 /* CJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerialization.h; sourceTree = "<group>"; };
+		BE26F098147430D900192403 /* CJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerialization.m; sourceTree = "<group>"; };
+		BE26F099147430D900192403 /* CJSONSerializedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializedData.h; sourceTree = "<group>"; };
+		BE26F09A147430D900192403 /* CJSONSerializedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializedData.m; sourceTree = "<group>"; };
+		BE26F09C147430D900192403 /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner_Extensions.h; sourceTree = "<group>"; };
+		BE26F09D147430D900192403 /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner_Extensions.m; sourceTree = "<group>"; };
+		BE26F09E147430D900192403 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		BE26F09F147430D900192403 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		BE26F0A1147430D900192403 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		BE26F0A2147430D900192403 /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		BE26F0A3147430D900192403 /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONScanner.h; sourceTree = "<group>"; };
+		BE26F0A4147430D900192403 /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONScanner.m; sourceTree = "<group>"; };
+		BE26F0A5147430D900192403 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		BE26F0A6147430D900192403 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		BE26F0A7147430D900192403 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		BE26F0B114744BB500192403 /* IGInstagramFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInstagramFunctions.m; sourceTree = "<group>"; };
+		BE26F0B314744BCA00192403 /* IGInstagramFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramFunctions.h; sourceTree = "<group>"; };
+		BE26F0C2147459E200192403 /* StatusCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCenter.h; sourceTree = "<group>"; };
+		BE26F0C3147459E200192403 /* StatusCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCenter.m; sourceTree = "<group>"; };
+		BE26F0C714745A7D00192403 /* StatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItem.h; sourceTree = "<group>"; };
+		BE26F0C814745A7D00192403 /* StatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItem.m; sourceTree = "<group>"; };
+		BE26F0CA14745B4600192403 /* InstagramMediaDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramMediaDataSource.h; sourceTree = "<group>"; };
+		BE26F0CB14745B4600192403 /* InstagramMediaDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramMediaDataSource.m; sourceTree = "<group>"; };
+		BE26F0D01474774200192403 /* UIViewController+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WillFleming.h"; sourceTree = "<group>"; };
+		BE26F0D11474774200192403 /* UIViewController+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WillFleming.m"; sourceTree = "<group>"; };
 		BE799D8B1471962600CFC615 /* Memegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memegram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE799D8F1471962600CFC615 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE799D911471962600CFC615 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,20 +121,33 @@
 		BE799DA01471962700CFC615 /* MGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGAppDelegate.h; sourceTree = "<group>"; };
 		BE799DA11471962700CFC615 /* MGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGAppDelegate.m; sourceTree = "<group>"; };
 		BE799DA41471962700CFC615 /* Memegram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memegram.xcdatamodel; sourceTree = "<group>"; };
-		BE799DA61471962700CFC615 /* MGMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGMasterViewController.h; sourceTree = "<group>"; };
-		BE799DA71471962700CFC615 /* MGMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGMasterViewController.m; sourceTree = "<group>"; };
+		BE799DA61471962700CFC615 /* SelectInstagramMediaController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectInstagramMediaController.h; sourceTree = "<group>"; };
+		BE799DA71471962700CFC615 /* SelectInstagramMediaController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectInstagramMediaController.m; sourceTree = "<group>"; };
 		BE799DA91471962700CFC615 /* MGDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGDetailViewController.h; sourceTree = "<group>"; };
 		BE799DAA1471962700CFC615 /* MGDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGDetailViewController.m; sourceTree = "<group>"; };
-		BE799DAD1471962700CFC615 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MGMasterViewController_iPhone.xib; sourceTree = "<group>"; };
-		BE799DB01471962700CFC615 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MGMasterViewController_iPad.xib; sourceTree = "<group>"; };
-		BE799DB31471962700CFC615 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MGDetailViewController_iPhone.xib; sourceTree = "<group>"; };
-		BE799DB61471962700CFC615 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MGDetailViewController_iPad.xib; sourceTree = "<group>"; };
 		BE799DBD1471962700CFC615 /* MemegramTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemegramTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE799DBE1471962700CFC615 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		BE799DC71471962700CFC615 /* MemegramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MemegramTests-Info.plist"; sourceTree = "<group>"; };
 		BE799DC91471962700CFC615 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE799DCB1471962700CFC615 /* MemegramTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemegramTests.h; sourceTree = "<group>"; };
 		BE799DCC1471962700CFC615 /* MemegramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemegramTests.m; sourceTree = "<group>"; };
+		BE7CFCE41474B97200062002 /* KKGridViewDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGridViewDefinitions.h; sourceTree = "<group>"; };
+		BE7CFCE61474B97200062002 /* KKGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGridView.h; sourceTree = "<group>"; };
+		BE7CFCE71474B97200062002 /* KKGridView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KKGridView.mm; sourceTree = "<group>"; };
+		BE7CFCE81474B97200062002 /* KKGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGridViewCell.h; sourceTree = "<group>"; };
+		BE7CFCE91474B97200062002 /* KKGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGridViewCell.m; sourceTree = "<group>"; };
+		BE7CFCEA1474B97200062002 /* KKGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGridViewController.h; sourceTree = "<group>"; };
+		BE7CFCEB1474B97200062002 /* KKGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGridViewController.m; sourceTree = "<group>"; };
+		BE7CFCEC1474B97200062002 /* KKGridViewUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGridViewUpdate.h; sourceTree = "<group>"; };
+		BE7CFCED1474B97200062002 /* KKGridViewUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGridViewUpdate.m; sourceTree = "<group>"; };
+		BE7CFCEE1474B97200062002 /* KKGridViewUpdateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGridViewUpdateStack.h; sourceTree = "<group>"; };
+		BE7CFCEF1474B97200062002 /* KKGridViewUpdateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGridViewUpdateStack.m; sourceTree = "<group>"; };
+		BE7CFCF01474B97200062002 /* KKGridViewViewInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGridViewViewInfo.h; sourceTree = "<group>"; };
+		BE7CFCF11474B97200062002 /* KKGridViewViewInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGridViewViewInfo.m; sourceTree = "<group>"; };
+		BE7CFCF21474B97200062002 /* KKIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKIndexPath.h; sourceTree = "<group>"; };
+		BE7CFCF31474B97200062002 /* KKIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKIndexPath.m; sourceTree = "<group>"; };
+		BEB4B8461474A6BE0096A563 /* InstagramMediaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramMediaCell.h; sourceTree = "<group>"; };
+		BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramMediaCell.m; sourceTree = "<group>"; };
 		BEE7A6481471EB58002CB0C0 /* IGInstagramAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramAPI.h; sourceTree = "<group>"; };
 		BEE7A6491471EB58002CB0C0 /* IGInstagramAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInstagramAPI.m; sourceTree = "<group>"; };
 		BEE7A64B1471EBB2002CB0C0 /* IGInstagramAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramAuthController.h; sourceTree = "<group>"; };
@@ -128,6 +194,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE26F091147430D900192403 /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				BE26F092147430D900192403 /* CDataScanner.h */,
+				BE26F093147430D900192403 /* CDataScanner.m */,
+				BE26F094147430D900192403 /* Experimental */,
+				BE26F09B147430D900192403 /* Extensions */,
+				BE26F0A0147430D900192403 /* JSON */,
+			);
+			path = TouchJSON;
+			sourceTree = "<group>";
+		};
+		BE26F094147430D900192403 /* Experimental */ = {
+			isa = PBXGroup;
+			children = (
+				BE26F095147430D900192403 /* CFilteringJSONSerializer.h */,
+				BE26F096147430D900192403 /* CFilteringJSONSerializer.m */,
+				BE26F097147430D900192403 /* CJSONSerialization.h */,
+				BE26F098147430D900192403 /* CJSONSerialization.m */,
+				BE26F099147430D900192403 /* CJSONSerializedData.h */,
+				BE26F09A147430D900192403 /* CJSONSerializedData.m */,
+			);
+			path = Experimental;
+			sourceTree = "<group>";
+		};
+		BE26F09B147430D900192403 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BE26F09C147430D900192403 /* CDataScanner_Extensions.h */,
+				BE26F09D147430D900192403 /* CDataScanner_Extensions.m */,
+				BE26F09E147430D900192403 /* NSDictionary_JSONExtensions.h */,
+				BE26F09F147430D900192403 /* NSDictionary_JSONExtensions.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BE26F0A0147430D900192403 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				BE26F0A1147430D900192403 /* CJSONDeserializer.h */,
+				BE26F0A2147430D900192403 /* CJSONDeserializer.m */,
+				BE26F0A3147430D900192403 /* CJSONScanner.h */,
+				BE26F0A4147430D900192403 /* CJSONScanner.m */,
+				BE26F0A5147430D900192403 /* CJSONSerializer.h */,
+				BE26F0A6147430D900192403 /* CJSONSerializer.m */,
+				BE26F0A7147430D900192403 /* JSONRepresentation.h */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		BE26F0C5147459E600192403 /* StatusCenter */ = {
+			isa = PBXGroup;
+			children = (
+				BE26F0C2147459E200192403 /* StatusCenter.h */,
+				BE26F0C3147459E200192403 /* StatusCenter.m */,
+				BE26F0C714745A7D00192403 /* StatusItem.h */,
+				BE26F0C814745A7D00192403 /* StatusItem.m */,
+			);
+			name = StatusCenter;
+			sourceTree = "<group>";
+		};
+		BE26F0C6147459F400192403 /* Class Additions */ = {
+			isa = PBXGroup;
+			children = (
+				BEE7A6AA1472255F002CB0C0 /* UIView+WillFleming.h */,
+				BEE7A6AB1472255F002CB0C0 /* UIView+WillFleming.m */,
+				BE26F085147418E200192403 /* NSString+WillFleming.h */,
+				BE26F086147418E200192403 /* NSString+WillFleming.m */,
+				BE26F0881474266B00192403 /* NSURL+WillFleming.h */,
+				BE26F0891474266B00192403 /* NSURL+WillFleming.m */,
+				BE26F0D01474774200192403 /* UIViewController+WillFleming.h */,
+				BE26F0D11474774200192403 /* UIViewController+WillFleming.m */,
+			);
+			name = "Class Additions";
+			sourceTree = "<group>";
+		};
 		BE799D801471962600CFC615 = {
 			isa = PBXGroup;
 			children = (
@@ -165,19 +307,13 @@
 			isa = PBXGroup;
 			children = (
 				BEE7A6901472061B002CB0C0 /* Your Memegrams */,
-				BEE7A68F1472057E002CB0C0 /* Instagram Feed */,
+				BEE7A68F1472057E002CB0C0 /* Instagram Media */,
 				BEE7A6471471EB06002CB0C0 /* MemegramAPI */,
 				BEE7A6451471EAF2002CB0C0 /* InstagramAPI */,
 				BE799DA01471962700CFC615 /* MGAppDelegate.h */,
 				BE799DA11471962700CFC615 /* MGAppDelegate.m */,
-				BE799DA61471962700CFC615 /* MGMasterViewController.h */,
-				BE799DA71471962700CFC615 /* MGMasterViewController.m */,
 				BE799DA91471962700CFC615 /* MGDetailViewController.h */,
 				BE799DAA1471962700CFC615 /* MGDetailViewController.m */,
-				BE799DAC1471962700CFC615 /* MGMasterViewController_iPhone.xib */,
-				BE799DAF1471962700CFC615 /* MGMasterViewController_iPad.xib */,
-				BE799DB21471962700CFC615 /* MGDetailViewController_iPhone.xib */,
-				BE799DB51471962700CFC615 /* MGDetailViewController_iPad.xib */,
 				BE799D981471962600CFC615 /* Supporting Files */,
 			);
 			path = Memegram;
@@ -214,6 +350,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BE7CFCE31474B97200062002 /* KKGridView */ = {
+			isa = PBXGroup;
+			children = (
+				BE7CFCE41474B97200062002 /* KKGridViewDefinitions.h */,
+				BE7CFCE61474B97200062002 /* KKGridView.h */,
+				BE7CFCE71474B97200062002 /* KKGridView.mm */,
+				BE7CFCE81474B97200062002 /* KKGridViewCell.h */,
+				BE7CFCE91474B97200062002 /* KKGridViewCell.m */,
+				BE7CFCEA1474B97200062002 /* KKGridViewController.h */,
+				BE7CFCEB1474B97200062002 /* KKGridViewController.m */,
+				BE7CFCEC1474B97200062002 /* KKGridViewUpdate.h */,
+				BE7CFCED1474B97200062002 /* KKGridViewUpdate.m */,
+				BE7CFCEE1474B97200062002 /* KKGridViewUpdateStack.h */,
+				BE7CFCEF1474B97200062002 /* KKGridViewUpdateStack.m */,
+				BE7CFCF01474B97200062002 /* KKGridViewViewInfo.h */,
+				BE7CFCF11474B97200062002 /* KKGridViewViewInfo.m */,
+				BE7CFCF21474B97200062002 /* KKIndexPath.h */,
+				BE7CFCF31474B97200062002 /* KKIndexPath.m */,
+			);
+			path = KKGridView;
+			sourceTree = "<group>";
+		};
 		BEE7A6451471EAF2002CB0C0 /* InstagramAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +380,8 @@
 				BEE7A69114720903002CB0C0 /* Auth Flow */,
 				BEE7A6481471EB58002CB0C0 /* IGInstagramAPI.h */,
 				BEE7A6491471EB58002CB0C0 /* IGInstagramAPI.m */,
+				BE26F0B314744BCA00192403 /* IGInstagramFunctions.h */,
+				BE26F0B114744BB500192403 /* IGInstagramFunctions.m */,
 			);
 			name = InstagramAPI;
 			path = ..;
@@ -243,11 +403,17 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
-		BEE7A68F1472057E002CB0C0 /* Instagram Feed */ = {
+		BEE7A68F1472057E002CB0C0 /* Instagram Media */ = {
 			isa = PBXGroup;
 			children = (
+				BE799DA61471962700CFC615 /* SelectInstagramMediaController.h */,
+				BE799DA71471962700CFC615 /* SelectInstagramMediaController.m */,
+				BE26F0CA14745B4600192403 /* InstagramMediaDataSource.h */,
+				BE26F0CB14745B4600192403 /* InstagramMediaDataSource.m */,
+				BEB4B8461474A6BE0096A563 /* InstagramMediaCell.h */,
+				BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */,
 			);
-			name = "Instagram Feed";
+			name = "Instagram Media";
 			sourceTree = "<group>";
 		};
 		BEE7A6901472061B002CB0C0 /* Your Memegrams */ = {
@@ -273,6 +439,8 @@
 			children = (
 				BEE7A68C14720322002CB0C0 /* IGInstagramMedia.h */,
 				BEE7A68D14720322002CB0C0 /* IGInstagramMedia.m */,
+				BE26F08B14742C1400192403 /* IGInstagramUser.h */,
+				BE26F08C14742C1400192403 /* IGInstagramUser.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -286,6 +454,8 @@
 				BEE7A69814720A3A002CB0C0 /* IGResponse.m */,
 				BEE7A6A214720C8F002CB0C0 /* IGConnectionDelegate.h */,
 				BEE7A6A314720C8F002CB0C0 /* IGConnectionDelegate.m */,
+				BE26F08E14742F8F00192403 /* IGDefaultSerializer.h */,
+				BE26F08F14742F8F00192403 /* IGDefaultSerializer.m */,
 			);
 			name = HTTP;
 			sourceTree = "<group>";
@@ -293,12 +463,10 @@
 		BEE7A6A91472255F002CB0C0 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				BEE7A6AA1472255F002CB0C0 /* UIView+WillFleming.h */,
-				BEE7A6AB1472255F002CB0C0 /* UIView+WillFleming.m */,
-				BE26F085147418E200192403 /* NSString+WillFleming.h */,
-				BE26F086147418E200192403 /* NSString+WillFleming.m */,
-				BE26F0881474266B00192403 /* NSURL+WillFleming.h */,
-				BE26F0891474266B00192403 /* NSURL+WillFleming.m */,
+				BE7CFCE31474B97200062002 /* KKGridView */,
+				BE26F0C6147459F400192403 /* Class Additions */,
+				BE26F0C5147459E600192403 /* StatusCenter */,
+				BE26F091147430D900192403 /* TouchJSON */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -375,10 +543,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE799D9C1471962600CFC615 /* InfoPlist.strings in Resources */,
-				BE799DAE1471962700CFC615 /* MGMasterViewController_iPhone.xib in Resources */,
-				BE799DB11471962700CFC615 /* MGMasterViewController_iPad.xib in Resources */,
-				BE799DB41471962700CFC615 /* MGDetailViewController_iPhone.xib in Resources */,
-				BE799DB71471962700CFC615 /* MGDetailViewController_iPad.xib in Resources */,
 				BEE7A6891471F3AB002CB0C0 /* Development.xcconfig in Resources */,
 				BEE7A68B1471F4A1002CB0C0 /* Production.xcconfig in Resources */,
 			);
@@ -418,7 +582,7 @@
 				BE799D9E1471962600CFC615 /* main.m in Sources */,
 				BE799DA21471962700CFC615 /* MGAppDelegate.m in Sources */,
 				BE799DA51471962700CFC615 /* Memegram.xcdatamodeld in Sources */,
-				BE799DA81471962700CFC615 /* MGMasterViewController.m in Sources */,
+				BE799DA81471962700CFC615 /* SelectInstagramMediaController.m in Sources */,
 				BE799DAB1471962700CFC615 /* MGDetailViewController.m in Sources */,
 				BEE7A64A1471EB58002CB0C0 /* IGInstagramAPI.m in Sources */,
 				BEE7A64D1471EBB2002CB0C0 /* IGInstagramAuthController.m in Sources */,
@@ -430,6 +594,30 @@
 				BEE7A6AC1472255F002CB0C0 /* UIView+WillFleming.m in Sources */,
 				BE26F087147418E200192403 /* NSString+WillFleming.m in Sources */,
 				BE26F08A1474266B00192403 /* NSURL+WillFleming.m in Sources */,
+				BE26F08D14742C1400192403 /* IGInstagramUser.m in Sources */,
+				BE26F09014742F8F00192403 /* IGDefaultSerializer.m in Sources */,
+				BE26F0A8147430D900192403 /* CDataScanner.m in Sources */,
+				BE26F0A9147430D900192403 /* CFilteringJSONSerializer.m in Sources */,
+				BE26F0AA147430D900192403 /* CJSONSerialization.m in Sources */,
+				BE26F0AB147430D900192403 /* CJSONSerializedData.m in Sources */,
+				BE26F0AC147430D900192403 /* CDataScanner_Extensions.m in Sources */,
+				BE26F0AD147430D900192403 /* NSDictionary_JSONExtensions.m in Sources */,
+				BE26F0AE147430D900192403 /* CJSONDeserializer.m in Sources */,
+				BE26F0AF147430D900192403 /* CJSONScanner.m in Sources */,
+				BE26F0B0147430D900192403 /* CJSONSerializer.m in Sources */,
+				BE26F0B214744BB500192403 /* IGInstagramFunctions.m in Sources */,
+				BE26F0C4147459E200192403 /* StatusCenter.m in Sources */,
+				BE26F0C914745A7D00192403 /* StatusItem.m in Sources */,
+				BE26F0CC14745B4600192403 /* InstagramMediaDataSource.m in Sources */,
+				BE26F0D21474774200192403 /* UIViewController+WillFleming.m in Sources */,
+				BEB4B8481474A6BE0096A563 /* InstagramMediaCell.m in Sources */,
+				BE7CFCF41474B97200062002 /* KKGridView.mm in Sources */,
+				BE7CFCF51474B97200062002 /* KKGridViewCell.m in Sources */,
+				BE7CFCF61474B97200062002 /* KKGridViewController.m in Sources */,
+				BE7CFCF71474B97200062002 /* KKGridViewUpdate.m in Sources */,
+				BE7CFCF81474B97200062002 /* KKGridViewUpdateStack.m in Sources */,
+				BE7CFCF91474B97200062002 /* KKGridViewViewInfo.m in Sources */,
+				BE7CFCFA1474B97200062002 /* KKIndexPath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,38 +646,6 @@
 				BE799D9B1471962600CFC615 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		BE799DAC1471962700CFC615 /* MGMasterViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BE799DAD1471962700CFC615 /* en */,
-			);
-			name = MGMasterViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		BE799DAF1471962700CFC615 /* MGMasterViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BE799DB01471962700CFC615 /* en */,
-			);
-			name = MGMasterViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		BE799DB21471962700CFC615 /* MGDetailViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BE799DB31471962700CFC615 /* en */,
-			);
-			name = MGDetailViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		BE799DB51471962700CFC615 /* MGDetailViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BE799DB61471962700CFC615 /* en */,
-			);
-			name = MGDetailViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 		BE799DC81471962700CFC615 /* InfoPlist.strings */ = {
@@ -524,9 +680,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = "lib/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -544,10 +701,11 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = "lib/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -558,7 +716,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
+				"HEADER_SEARCH_PATHS[arch=*]" = "";
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -570,7 +732,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
+				"HEADER_SEARCH_PATHS[arch=*]" = "";
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

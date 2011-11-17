@@ -7,15 +7,31 @@
 //
 
 #import "IGInstagramAPI.h"
+
 #import "IGInstagramAuthController.h"
+#import "IGInstagramUser.h"
+#import "IGConnection.h"
+
 #import "NSString+WillFleming.h"
 
 //TODO: how does ARC handle globals? Do I need to custom handle these?
 static NSString *g_instagramClientId = nil;
 static NSString *g_instagramOAuthRedirectURL = nil;
 static NSString *g_instagramAccessToken = nil;
+static Class<IGSerializer> g_instagramSerializer = nil;
+static IGInstagramUser *g_instagramCurrentUser = nil;
 
+@interface IGInstagramAPI (Private)
++ (NSString*) signedURLForPath:(NSString*)path;
+@end
+
+
+#pragma mark -
 @implementation IGInstagramAPI
+
++ (void) initialize {
+  g_instagramSerializer = [IGDefaultSerializer class];
+}
 
 #pragma mark - configuration
 + (void) setClientId:(NSString*)clientId {
@@ -42,10 +58,22 @@ static NSString *g_instagramAccessToken = nil;
   return g_instagramAccessToken;
 }
 
++ (void) setSerializer:(Class<IGSerializer>)serializer {
+  g_instagramSerializer = serializer;
+}
+
++ (Class<IGSerializer>) serializer {
+  return g_instagramSerializer;
+}
+
 
 #pragma mark - URLs
 + (NSString*) endpoint {
   return @"https://api.instagram.com";
+}
+
++ (NSString*) versionedEndpoint {
+  return [NSString stringWithFormat:@"%@/v1", [self endpoint]];
 }
 
 + (NSString*) authURL {
@@ -55,21 +83,70 @@ static NSString *g_instagramAccessToken = nil;
           [[self oauthRedirectURL] urlEncodedString]];
 }
 
++ (IGResponse *)post:(NSString *)body to:(NSString *)path {
+  return [IGConnection post:body to:[self signedURLForPath:path]];
+}
+
++ (IGResponse *)get:(NSString *)path {
+  return [IGConnection get:[self signedURLForPath:path]];
+}
+
++ (IGResponse *)put:(NSString *)body to:(NSString *)path {
+  return [IGConnection put:body to:[self signedURLForPath:path]];
+}
+
++ (IGResponse *)delete:(NSString *)path {
+  return [IGConnection delete:[self signedURLForPath:path]];
+}
+
+
+#pragma mark -
++ (IGInstagramUser*)currentUser {
+  if (!g_instagramCurrentUser) {
+    g_instagramCurrentUser = [IGInstagramUser remoteUserWithId:@"self" error:NULL];
+  }
+  return g_instagramCurrentUser;
+}
+
 
 #pragma mark -
 + (void) authenticateUser {
   // first, if we actually have an access token, check it for validity
-  if ([self accessToken]) {
-    //TODO
+  if ([self accessToken] && [self currentUser]) {
+    // if these two things exist, we're valid
+    return;
   }
   
   // established that we're not valid yet - show the auth controller
-  IGInstagramAuthController *instagramController = [[IGInstagramAuthController alloc] init];
+  IGInstagramAuthController *authController = [[IGInstagramAuthController alloc] init];
   
   // get the current root controller
-  UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-  UIViewController *rootController = [window rootViewController];
-  [rootController presentModalViewController:instagramController animated:YES];
+  UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+  UIWindow *authWindow = [[UIWindow alloc] initWithFrame:[keyWindow frame]];
+  authWindow.rootViewController = authController;
+  [authWindow makeKeyAndVisible];
 }
 
+@end
+
+
+
+
+#pragma mark -
+@implementation IGInstagramAPI (Private)
++ (NSString*) signedURLForPath:(NSString*)path {
+  NSMutableString *url = [NSMutableString stringWithFormat:@"%@%@%@",
+                   [self versionedEndpoint],
+                   ('/' == [path characterAtIndex:0] ? @"" : @"/"),
+                   path];
+  // append whichever token we have access to
+  // append a ? if there are no query params, otherwise a &
+  [url appendString:(NSNotFound == [url rangeOfString:@"?"].location ? @"?" : @"&")];
+  if ([IGInstagramAPI accessToken]) {
+    [url appendFormat:@"access_token=%@", [IGInstagramAPI accessToken]];
+  } else {
+    [url appendFormat:@"client_id=%@", [IGInstagramAPI clientId]];
+  }
+  return [NSString stringWithString:url];
+}
 @end

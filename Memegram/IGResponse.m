@@ -8,9 +8,11 @@
 
 #import "IGResponse.h"
 
+#import "IGInstagramAPI.h"
+
 @implementation IGResponse
 
-@synthesize body=_body, headers=_headers, statusCode=_statusCode, error=_error;
+@synthesize rawBody=_rawBody, headers=_headers, statusCode=_statusCode, error=_error;
 
 + (id)responseFrom:(NSHTTPURLResponse *)response withBody:(NSData *)data andError:(NSError *)aError {
 	return [[self alloc] initFrom:response withBody:data andError:aError];
@@ -31,7 +33,6 @@
 - (id)initFrom:(NSHTTPURLResponse *)response withBody:(NSData *)data andError:(NSError *)aError {
   if ((self = [self init])) {
     _rawBody = data;
-    //TODO: parse the data
     if(response) {
       _statusCode = [response statusCode];
       _headers = [response allHeaderFields];		
@@ -50,8 +51,20 @@
 	return ![self isSuccess];
 }
 
-- (NSString*)debugDescription {
-  DLOG(@"<= %@", [[NSString alloc] initWithData:_rawBody encoding:NSUTF8StringEncoding]);
+- (NSString*)bodyAsString {
+  return [[NSString alloc] initWithData:_rawBody encoding:NSUTF8StringEncoding];
+}
+
+- (NSDictionary*) parsedBody {
+  if (!_parsedBody) {
+    NSError *parseError = nil;
+    _parsedBody = [[IGInstagramAPI serializer] deserializeJSON:self.rawBody error:&parseError];
+    if (!_parsedBody && parseError) {
+      DLOG(@"ERROR parsing response body: %@", parseError);
+      DLOG(@"original body was: %@", [self bodyAsString]);
+    }
+  }
+  return _parsedBody;
 }
 
 @end
