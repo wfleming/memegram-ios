@@ -53,12 +53,17 @@
     _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 0.0, self.width, 47.0)];
     _toolbar.barStyle = UIBarStyleBlack;
     
+    _addTextViewButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTextView)];
+    _addTextViewButtonItem.enabled = NO;
+    
     _fontSizeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"font size" style:UIBarButtonItemStylePlain target:self action:@selector(toggleFontSize)];
+    _fontSizeButtonItem.enabled = NO;
     
     _boldButtomItem = [[UIBarButtonItem alloc] initWithTitle:@"Bold Is On" style:UIBarButtonItemStylePlain target:self action:@selector(toggleBold)];
+    _fontSizeButtonItem.enabled = NO;
     
     _toolbar.items = [NSArray arrayWithObjects:
-                      [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTextView)],
+                      _addTextViewButtonItem,
                       [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                       _boldButtomItem,
                       _fontSizeButtonItem,
@@ -119,6 +124,7 @@
 - (void) layoutSubviews {
   // first, start loading the image in if it's not already loaded
   if (!_imageView.image) {
+    _addTextViewButtonItem.enabled = NO;
     [_activityIndicator startAnimating];
     [self addSubview:_activityIndicator];
     
@@ -126,12 +132,14 @@
     [_originalMedia imageCompletionBlock:^(IGInstagramMedia *media, UIImage *image) {
       __block UIImage *blockImage = image;
       dispatch_async(dispatch_get_main_queue(), ^{
-        blockSelf->_toolbar.enabled = YES;
+        blockSelf->_addTextViewButtonItem.enabled = YES;
         [blockSelf->_activityIndicator stopAnimating];
         [blockSelf->_activityIndicator removeFromSuperview];
         blockSelf->_imageView.image = blockImage;
       });
     }];
+  } else {
+    _addTextViewButtonItem.enabled = YES;
   }
   
   //TODO do...other work? if needed?
@@ -161,43 +169,50 @@
   
   for(UIView *v in _container.subviews) {
     if ([v isKindOfClass:[MemegramTextView class]]) {
-      // TODO - multiline text gets shifted to one line here. FIXME.
       MemegramTextView *tv = (MemegramTextView*)v;
       CGFontRef cgFont = CGFontCreateWithFontName((__bridge CFStringRef)tv.font.fontName);
       CGContextSetFont(g, cgFont);
       
       // translate coordinates and font size
       CGFloat scale = (_imageView.image.size.width / _imageView.width);
-      // TODO these values are still sliggggghtly off, and need testing with other font sizes
+      // TODO these values are still sliggggghtly off, and aren't perfect at all font sizes
       // You might ask, "Why 8?". Go fuck yourself, that's why 8.
       CGFloat x = (tv.left * scale) + (8.0 * scale),
-              y = _imageView.image.size.height - (tv.top * scale) - (tv.font.lineHeight * scale);  // because we inverted the y scale
+              initialY = _imageView.image.size.height - (tv.top * scale) - (tv.font.lineHeight * scale),  // because we inverted the y scale
+              y = initialY;
       CGFloat fontSize = (tv.font.pointSize * scale);
       
       CGContextSetFontSize(g, fontSize);
       CGContextSetFillColorWithColor(g, tv.textColor.CGColor);
       
-      // alternative to glyph capturing...it seems to be worse with characters
-      //CGContextSelectFont(g, [tv.font.fontName UTF8String], fontSize, kCGEncodingFontSpecific);
-      //CGContextShowTextAtPoint(g, x, y, [tv.text UTF8String], [tv.text length]);
-
-      
       // we need a CTFont to get glyphs
       CTFontRef ctFont = CTFontCreateWithName((__bridge CFStringRef)tv.font.fontName, fontSize, NULL);
-      unichar *utf8str = malloc(sizeof(unichar) * [tv.text length]);
-      [tv.text getCharacters:utf8str range:NSMakeRange(0, [tv.text length])];
-      CGGlyph *glyphs = malloc(sizeof(CGGlyph) * [tv.text length]);
-      BOOL result = CTFontGetGlyphsForCharacters(ctFont, utf8str, glyphs, [tv.text length]);
-      if (!result) {
-        DLOG(@"OH GOD OH GOD OH GOD");
+      
+      NSArray *lines = [tv.text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+      
+      for (NSString *line in lines) {
+        // skip this line if it's only whitespace
+        if ([line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length > 0) {
+          unichar *utf8str = malloc(sizeof(unichar) * [line length]);
+          [line getCharacters:utf8str range:NSMakeRange(0, [line length])];
+          CGGlyph *glyphs = malloc(sizeof(CGGlyph) * [line length]);
+          BOOL result = CTFontGetGlyphsForCharacters(ctFont, utf8str, glyphs, [line length]);
+          if (!result) {
+            DLOG(@"OH GOD OH GOD OH GOD");
+          }
+          
+          // lets see if we can for reals write this to the image context...
+          CGContextShowGlyphsAtPoint(g, x, y, glyphs, [line length]);
+          CGContextFlush(g);
+          
+          // malloc & free in ARC code... FUN!
+          free(utf8str);
+          free(glyphs);
+        }
+        
+        // increase y for the next line
+        y -= tv.font.lineHeight * scale;
       }
-      
-      // lets see if we can for reals write this to the image context...
-      CGContextShowGlyphsAtPoint(g, x, y, glyphs, [tv.text length]);
-      
-      // malloc & free in ARC code... FUN!
-      free(utf8str);
-      free(glyphs);
     }
   }
   
