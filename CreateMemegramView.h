@@ -19,7 +19,7 @@
   UIActivityIndicatorView *_activityIndicator; // for loading the image
   UIToolbar *_toolbar, *_fontSizeToolbar;
   UISlider *_fontSizeSlider;
-  UIBarButtonItem *_fontSizeButtonItem, *_boldButtomItem;
+  UIBarButtonItem *_addTextViewButtonItem, *_fontSizeButtonItem, *_boldButtomItem;
 }
 
 @property (strong, nonatomic) MemegramTextView *activeTextView;
