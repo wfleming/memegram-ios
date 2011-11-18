@@ -12,7 +12,7 @@
 #import "MemegramTextView.h"
 #import "UIView+WillFleming.h"
 #import "UIToolbar+WillFleming.h"
-#import <CoreText/CoreText.h>
+#import <QuartzCore/QuartzCore.h>
 
 
 #pragma mark -
@@ -157,80 +157,42 @@
 - (UIImage*) compositeMemegramImage {
   // hide things that shouldn't be visible
   [_fontSizeToolbar removeFromSuperview];
+  self.activeTextView = nil;
   
   // begin the real work
   UIGraphicsBeginImageContext(_imageView.image.size);
   CGContextRef g = UIGraphicsGetCurrentContext();
   [_imageView.image drawAtPoint:CGPointZero];
   
-  // translate the context, or all text will be Y inverted.
-  CGContextTranslateCTM(g, 0.0, _imageView.image.size.height);
-  CGContextScaleCTM(g, 1.0, -1.0);
+  // scale the coordinate size (image/context is bigger than actual view)
+  CGFloat scale = (_imageView.image.size.width / _imageView.width);
+  CGContextScaleCTM(g, scale, scale);
   
   for(UIView *v in _container.subviews) {
     if ([v isKindOfClass:[MemegramTextView class]]) {
       MemegramTextView *tv = (MemegramTextView*)v;
-      CGFontRef cgFont = CGFontCreateWithFontName((__bridge CFStringRef)tv.font.fontName);
-      CGContextSetFont(g, cgFont);
       
-      // translate coordinates and font size
-      CGFloat scale = (_imageView.image.size.width / _imageView.width);
-      // TODO these values are still sliggggghtly off, and aren't perfect at all font sizes
-      // You might ask, "Why 8?". Go fuck yourself, that's why 8.
-      CGFloat x = (tv.left * scale) + (8.0 * scale),
-              // subtract from total height because we inverted the y scale
-              initialY = _imageView.image.size.height - (tv.top * scale) - (tv.font.lineHeight * scale),
-              y = initialY;
-      CGFloat fontSize = (tv.font.pointSize * scale);
-      
-      CGContextSetFontSize(g, fontSize);
-      CGContextSetFillColorWithColor(g, tv.textColor.CGColor);
-      
-      // we need a CTFont to get glyphs
-      CTFontRef ctFont = CTFontCreateWithName((__bridge CFStringRef)tv.font.fontName, fontSize, NULL);
-      
-      NSArray *lines = [tv.text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-      
-      for (NSString *line in lines) {
-        // skip this line if it's only whitespace
-        if ([line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length > 0) {
-          unichar *utf8str = malloc(sizeof(unichar) * [line length]);
-          [line getCharacters:utf8str range:NSMakeRange(0, [line length])];
-          CGGlyph *glyphs = malloc(sizeof(CGGlyph) * [line length]);
-          BOOL result = CTFontGetGlyphsForCharacters(ctFont, utf8str, glyphs, [line length]);
-          if (!result) {
-            DLOG(@"OH GOD OH GOD OH GOD");
-          }
-          
-          // lets see if we can for reals write this to the image context...
-          CGContextShowGlyphsAtPoint(g, x, y, glyphs, [line length]);
-          CGContextFlush(g);
-          
-          // malloc & free in ARC code... FUN!
-          free(utf8str);
-          free(glyphs);
-        }
-        
-        // increase y for the next line
-        y -= tv.font.lineHeight * scale;
-      } // end loop over lines
-      
-      // CG/CF still needs retain/release, even in ARC code.
-      CGFontRelease(cgFont);
+      /* We translate the origin because CALayer draws at (0,0) all the time otherwise.
+       * Then we translate back so the next view gets the right coords.
+       * (I'm not sure why Y needs a static offset & X doesn't. Rounding error?) */
+      CGFloat dX = tv.left, dY = (tv.top - 2.0);
+      CGContextTranslateCTM(g, dX, dY);
+      [tv.layer renderInContext:g];
+      CGContextTranslateCTM(g, -dX, -dY);
     } // end if for subview class
   } // end loop over subviews
   
   UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
   UIGraphicsEndImageContext();
   
-  //DEBUGGING - set image on the imageView & delete all textviews
+  /* DEBUGGING - set image on the imageView & delete all textviews *
   _imageView.image = result;
   for(UIView *v in _container.subviews) {
     if ([v isKindOfClass:[MemegramTextView class]]) {
       [v removeFromSuperview];
     }
   }
-  //END DEBUGGING
+  // END DEBUGGING */
   
   return result;
 }
