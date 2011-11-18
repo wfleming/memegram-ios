@@ -178,7 +178,8 @@
       // TODO these values are still sliggggghtly off, and aren't perfect at all font sizes
       // You might ask, "Why 8?". Go fuck yourself, that's why 8.
       CGFloat x = (tv.left * scale) + (8.0 * scale),
-              initialY = _imageView.image.size.height - (tv.top * scale) - (tv.font.lineHeight * scale),  // because we inverted the y scale
+              // subtract from total height because we inverted the y scale
+              initialY = _imageView.image.size.height - (tv.top * scale) - (tv.font.lineHeight * scale),
               y = initialY;
       CGFloat fontSize = (tv.font.pointSize * scale);
       
@@ -212,13 +213,15 @@
         
         // increase y for the next line
         y -= tv.font.lineHeight * scale;
-      }
-    }
-  }
+      } // end loop over lines
+      
+      // CG/CF still needs retain/release, even in ARC code.
+      CGFontRelease(cgFont);
+    } // end if for subview class
+  } // end loop over subviews
   
   UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
   UIGraphicsEndImageContext();
-  
   
   //DEBUGGING - set image on the imageView & delete all textviews
   _imageView.image = result;
