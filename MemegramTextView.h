@@ -19,4 +19,7 @@
 @property (weak, nonatomic) CreateMemegramView *parentView;
 @property (assign, nonatomic) BOOL selected; // determine if gets 'selected' drawing style
 
++ (CGFloat) minimumFontSize;
++ (CGFloat) maximumFontSize;
+
 @end
