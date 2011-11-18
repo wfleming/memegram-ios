@@ -50,6 +50,7 @@
 }
 
 - (void) done {
+  UIImage *compositeImage = [(CreateMemegramView*)self.view compositeMemegramImage];
   //TODO - get the composite image, construct a Memegram instance, move on to upload/sharing
 }
 @end

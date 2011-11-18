@@ -18,6 +18,17 @@
 
 @synthesize parentView, selected = _selected;
 
+#pragma mark - class methods
++ (CGFloat) minimumFontSize {
+  return 8.0;
+}
+
++ (CGFloat) maximumFontSize {
+  return 80.0;
+}
+
+
+#pragma mark - instance overrides
 - (id) initWithFrame:(CGRect)frame {
   if ((self = [super initWithFrame:frame])) {
     _delegateReference = [MemegramTextViewDelegate delegateForTextView:self];
@@ -49,18 +60,14 @@
 
 // callback for gesture recognizer
 - (void) pan:(UIPanGestureRecognizer*)sender {
-  DLOG(@"pan size: %@", NSStringFromCGPoint([sender translationInView:self.superview]));
   CGPoint transform = [sender translationInView:self.superview];
-  CGRect oldFrame = self.frame;
   self.left = _originalFrame.origin.x + transform.x;
   self.top = _originalFrame.origin.y + transform.y;
-  DLOG(@"self frame %@ -> %@", NSStringFromCGRect(oldFrame), NSStringFromCGRect(self.frame));
   return;
 }
 
 
 #pragma mark - properties
-
 - (void) setSelected:(BOOL)selected {
   _selected = selected;
   [self.superview bringSubviewToFront:self];

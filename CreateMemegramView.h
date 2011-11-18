@@ -17,7 +17,9 @@
   UIImageView *_imageView;
   UIView *_container; // contain all text views & the image view
   UIActivityIndicatorView *_activityIndicator; // for loading the image
-  UIToolbar *_toolbar;
+  UIToolbar *_toolbar, *_fontSizeToolbar;
+  UISlider *_fontSizeSlider;
+  UIBarButtonItem *_fontSizeButtonItem, *_boldButtomItem;
 }
 
 @property (strong, nonatomic) MemegramTextView *activeTextView;

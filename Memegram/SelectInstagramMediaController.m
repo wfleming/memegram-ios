@@ -161,6 +161,8 @@
       CreateMemegramController *controller = [[CreateMemegramController alloc] init];
       controller.sourceMedia = media;
       [self.navigationController pushViewController:controller animated:YES];
+      KKGridViewCell *cell = self.gridView.cellBlock(gridView, indexPath);
+      cell.selected = NO;
     }];
   }
   return _gridView;

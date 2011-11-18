@@ -53,6 +53,7 @@
 		BE7CFD081475A3BE00062002 /* UIToolbar+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD071475A3BE00062002 /* UIToolbar+WillFleming.m */; };
 		BE7CFD0B1475A84C00062002 /* MemegramTextViewInputAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD0A1475A84B00062002 /* MemegramTextViewInputAccessory.m */; };
 		BE7CFD0E1475A91000062002 /* MemegramTextViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD0D1475A91000062002 /* MemegramTextViewDelegate.m */; };
+		BE7CFD101475CEAF00062002 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7CFD0F1475CEAE00062002 /* CoreText.framework */; };
 		BEB4B8481474A6BE0096A563 /* InstagramMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */; };
 		BEE7A64A1471EB58002CB0C0 /* IGInstagramAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A6491471EB58002CB0C0 /* IGInstagramAPI.m */; };
 		BEE7A64D1471EBB2002CB0C0 /* IGInstagramAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A64C1471EBB2002CB0C0 /* IGInstagramAuthController.m */; };
@@ -161,6 +162,7 @@
 		BE7CFD0A1475A84B00062002 /* MemegramTextViewInputAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramTextViewInputAccessory.m; sourceTree = "<group>"; };
 		BE7CFD0C1475A91000062002 /* MemegramTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemegramTextViewDelegate.h; sourceTree = "<group>"; };
 		BE7CFD0D1475A91000062002 /* MemegramTextViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramTextViewDelegate.m; sourceTree = "<group>"; };
+		BE7CFD0F1475CEAE00062002 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		BEB4B8461474A6BE0096A563 /* InstagramMediaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramMediaCell.h; sourceTree = "<group>"; };
 		BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramMediaCell.m; sourceTree = "<group>"; };
 		BEE7A6481471EB58002CB0C0 /* IGInstagramAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramAPI.h; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7CFD101475CEAF00062002 /* CoreText.framework in Frameworks */,
 				BE799D901471962600CFC615 /* UIKit.framework in Frameworks */,
 				BE799D921471962600CFC615 /* Foundation.framework in Frameworks */,
 				BE799D941471962600CFC615 /* CoreGraphics.framework in Frameworks */,
@@ -311,6 +314,7 @@
 		BE799D8E1471962600CFC615 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE7CFD0F1475CEAE00062002 /* CoreText.framework */,
 				BE799D8F1471962600CFC615 /* UIKit.framework */,
 				BE799D911471962600CFC615 /* Foundation.framework */,
 				BE799D931471962600CFC615 /* CoreGraphics.framework */,
