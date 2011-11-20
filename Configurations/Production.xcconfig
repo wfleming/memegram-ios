@@ -5,7 +5,7 @@
 // Used when you're developing locally - not on phone, but on simulator
 // (phone won't work thanks to DNS lookup of .dev host)
 
-GCC_PREPROCESSOR_DEFINITIONS = API_BASE_URL=@\"http:\/\/memegram.herokuapp.com\/api\/v1\" OAUTH_INSTAGRAM_REDIRECT_URL=@\"http:\/\/memegram.herokuapp.com/auth/instagram/callback\" OAUTH_INSTAGRAM_KEY=@\"TODO\" OAUTH_INSTAGRAM_SECRET=@\"TODO\"
+GCC_PREPROCESSOR_DEFINITIONS = API_BASE_URL=@\"http:\/\/meme-a-gram.com\/api\/v1\" OAUTH_INSTAGRAM_REDIRECT_URL=@\"http:\/\/meme-a-gram.com/auth/instagram/callback\" OAUTH_INSTAGRAM_KEY=@\"984ad336334446a6a25a6908fbe6babd\" OAUTH_INSTAGRAM_SECRET=@\"ff95cbd3fa484c958e79213029b16ff9\"
 
 // If you want to develop on your phone, copy the local.xccoconfig.example
 // to local.xcconfig and edit the settings there.
