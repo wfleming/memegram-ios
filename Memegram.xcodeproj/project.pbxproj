@@ -1053,6 +1053,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BEE7A6881471F3AB002CB0C0 /* Development.xcconfig */;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1061,6 +1062,7 @@
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1070,6 +1072,7 @@
 			baseConfigurationReference = BEE7A68A1471F4A1002CB0C0 /* Production.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1078,6 +1081,7 @@
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
