@@ -23,7 +23,7 @@
 + (void) setSerializer:(Class<IGSerializer>)serializer;
 + (Class<IGSerializer>) serializer;
 + (UIWindow*) authWindow;
-+ (UIWindow*) setAuthWindow:(UIWindow*)window;
++ (void) setAuthWindow:(UIWindow*)window;
 
 + (NSString*) endpoint;
 + (NSString*) versionedEndpoint;

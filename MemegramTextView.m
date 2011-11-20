@@ -8,7 +8,7 @@
 
 #import "MemegramTextView.h"
 
-#import "MemegramTextViewInputAccessory.h"
+#import "TextViewInputAccessory.h"
 #import "MemegramTextViewDelegate.h"
 #import "UIView+WillFleming.h"
 
@@ -35,7 +35,7 @@
     self.delegate = _delegateReference;
     self.scrollEnabled = NO;
     self.scrollsToTop = NO;
-    self.inputAccessoryView = [MemegramTextViewInputAccessory accessoryForTextView:self];
+    self.inputAccessoryView = [TextViewInputAccessory accessoryForTextView:self];
     
     // this will be helvetica by default - but maybe we should be explicit?
     self.font = [UIFont boldSystemFontOfSize:DEFAULT_FONT_SIZE];

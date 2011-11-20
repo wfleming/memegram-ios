@@ -6,17 +6,16 @@
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "MemegramTextViewInputAccessory.h"
+#import "TextViewInputAccessory.h"
 
-#import "MemegramTextView.h"
 #import "UIView+WillFleming.h"
 
-@implementation MemegramTextViewInputAccessory
+@implementation TextViewInputAccessory
 
 @synthesize textView;
 
-+ (id) accessoryForTextView:(MemegramTextView*)textView {
-  MemegramTextViewInputAccessory *accessory = [[self alloc] initWithFrame:CGRectMake(0, 0, 0, 40.0)];
++ (id) accessoryForTextView:(UITextView*)textView {
+  TextViewInputAccessory *accessory = [[self alloc] initWithFrame:CGRectMake(0, 0, 0, 40.0)];
   accessory.textView = textView;
   return accessory;
 }

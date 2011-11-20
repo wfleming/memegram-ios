@@ -10,6 +10,9 @@
 
 #import "IGInstagramMedia.h"
 #import "CreateMemegramView.h"
+#import "Memegram.h"
+#import "FinishMemegramController.h"
+#import "MGConstants.h"
 
 
 #pragma mark -
@@ -51,6 +54,19 @@
 
 - (void) done {
   UIImage *compositeImage = [(CreateMemegramView*)self.view compositeMemegramImage];
-  //TODO - get the composite image, construct a Memegram instance, move on to upload/sharing
+  Memegram *memegram = [[Memegram alloc] init];
+  memegram.image = compositeImage;
+  memegram.instagramSourceId = self.sourceMedia.instagramId;
+  memegram.instagramSourceLink = self.sourceMedia.instagramURL;
+  
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  memegram.shareToTwitter = [NSNumber numberWithBool:[defaults boolForKey:kDefaultsShareOnTwitter]];
+  memegram.shareToTumblr = [NSNumber numberWithBool:[defaults boolForKey:kDefaultsShareOnTumblr]];
+  memegram.shareToFacebook = [NSNumber numberWithBool:[defaults boolForKey:kDefaultsShareOnFacebook]];
+  
+  FinishMemegramController *next = [[FinishMemegramController alloc] init];
+  next.memegram = memegram;
+  
+  [self.navigationController pushViewController:next animated:YES];
 }
 @end

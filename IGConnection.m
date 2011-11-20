@@ -13,11 +13,11 @@
 
 @implementation IGConnection
 
-static float timeoutInterval = 5.0;
+static float timeoutInterval = 10.0;
 
 static NSMutableArray *activeDelegates = nil;
 
-static NSString * const kRunLoopMode = @"com.willfleming.memegram.connectionLoop";
+static NSString * const kRunLoopMode = @"com.willfleming.instagram.connectionLoop";
 
 #pragma mark - private methods
 
@@ -57,21 +57,32 @@ static NSString * const kRunLoopMode = @"com.willfleming.memegram.connectionLoop
 	return resp;
 }
 
-
-+ (IGResponse *)sendBy:(NSString *)method withBody:(NSString *)body to:(NSString *)url {
++ (NSMutableURLRequest*) requestForMethod:(NSString *)method to:(NSString *)url {
   NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                           cachePolicy:NSURLRequestReloadIgnoringCacheData
 																											timeoutInterval:timeoutInterval];
 	[request setHTTPMethod:method];
-	[request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
   [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];	
   [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+  return request;
+}
+
++ (IGResponse *)sendBy:(NSString *)method withDataBody:(NSData *)body to:(NSString *)url {
+  NSMutableURLRequest * request = [self requestForMethod:method to:url];
+	[request setHTTPBody:body];
   
 	return [self sendRequest:request];
 }
 
++ (IGResponse *)sendBy:(NSString *)method withBody:(NSString *)body to:(NSString *)url {
+  return [self sendBy:method withDataBody:[body dataUsingEncoding:NSUTF8StringEncoding] to:url];
+}
 
 #pragma mark - public methods
++ (IGResponse *)postData:(NSData *)body to:(NSString *)url {
+  return [self sendBy:@"POST" withDataBody:body to:url];
+}
+
 + (IGResponse *)post:(NSString *)body to:(NSString *)url {
   return [self sendBy:@"POST" withBody:body to:url];
 }

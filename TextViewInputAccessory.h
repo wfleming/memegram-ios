@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class MemegramTextView;
+@interface TextViewInputAccessory : UIView
 
-@interface MemegramTextViewInputAccessory : UIView
+@property (weak, nonatomic) UITextView *textView;
 
-@property (weak, nonatomic) MemegramTextView *textView;
-
-+ (id) accessoryForTextView:(MemegramTextView*)textView;
++ (id) accessoryForTextView:(UITextView*)textView;
 
 @end

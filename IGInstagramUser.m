@@ -23,7 +23,7 @@
 @synthesize username, userId, profilePicture, website, fullName, bio,
   followedByCount, followsCount, mediaCount;
 
-+ (IGInstagramUser*) remoteUserWithId:(NSString*)userId error:(NSError**)error {
++ (IGInstagramUser*) remoteUserWithId:(NSString*)userId error:(NSError* __autoreleasing*)error {
   IGInstagramUser *user = nil;
   IGResponse *response = [IGInstagramAPI get:[NSString stringWithFormat:@"/users/%@", userId]];
   if ([response isSuccess]) {
@@ -55,7 +55,7 @@
   return user;
 }
 
-- (NSArray*) recentMediaError:(NSError**)error; {
+- (NSArray*) recentMediaError:(NSError* __autoreleasing*)error; {
   NSArray *media = nil;
   IGResponse *response = [IGInstagramAPI get:[NSString stringWithFormat:@"/users/%@/media/recent", [self effectiveApiId]]];
   if ([response isSuccess]) {
