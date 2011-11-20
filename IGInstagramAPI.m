@@ -71,7 +71,7 @@ static UIWindow *g_authWindow = nil;
   return g_authWindow;
 }
 
-+ (UIWindow*) setAuthWindow:(UIWindow*)window {
++ (void) setAuthWindow:(UIWindow*)window {
   g_authWindow = window;
 }
 
@@ -112,7 +112,13 @@ static UIWindow *g_authWindow = nil;
 #pragma mark -
 + (IGInstagramUser*)currentUser {
   if (!g_instagramCurrentUser) {
-    g_instagramCurrentUser = [IGInstagramUser remoteUserWithId:@"self" error:NULL];
+    NSError *err = nil;
+    g_instagramCurrentUser = [IGInstagramUser remoteUserWithId:@"self" error:&err];
+#ifdef DEBUG
+    if (!g_instagramCurrentUser && err) {
+      DLOG(@"Error attempting to fetch current user: %@", err);
+    }
+#endif
   }
   return g_instagramCurrentUser;
 }

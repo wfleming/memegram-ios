@@ -19,6 +19,8 @@
 }
 
 - (void)normalizeError:(NSError *)aError {
+//  TODO: a 503 means down for maintenance
+//  TODO: change error to errors including 'meta' info where possible/appropriate
 	switch ([aError code]) {
 		case NSURLErrorUserCancelledAuthentication:
 			_statusCode = 401;

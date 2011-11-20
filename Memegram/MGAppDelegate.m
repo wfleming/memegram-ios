@@ -9,17 +9,13 @@
 #import "MGAppDelegate.h"
 
 #import "SelectInstagramMediaController.h"
+#import "YourMemegramsController.h"
 
 #import "IGInstagramAPI.h"
 #import "NSURL+WillFleming.h"
-
-#pragma mark - constants
-
-NSString * const kDefaultsInstagramToken = @"InstagramToken";
-NSString * const kDefaultsMemegramToken = @"MemegramToken";
-NSString * const kAuthCallbackURL = @"auth_callback";
-NSString * const kAuthCallbackURLInstagramTokenParam = @"instagram_token";
-NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
+#import "MGConstants.h"
+#import "MGUploader.h"
+#import "Reachability.h"
 
 #pragma mark -
 @interface MGAppDelegate (Private)
@@ -36,24 +32,45 @@ NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
-@synthesize navigationController = _navigationController;
+@synthesize tabBarController = __tabBarController;
 @synthesize splitViewController = _splitViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+#ifdef DEBUG
+  @autoreleasepool {
+    Reachability *memegramReachability = [Reachability reachabilityWithHostName:@"memegram.dev"];
+    DASSERT(NotReachable != [memegramReachability currentReachabilityStatus]);
+    Reachability *instagramReachability = [Reachability reachabilityWithHostName:@"api.instagram.com"];
+    DASSERT(NotReachable != [instagramReachability currentReachabilityStatus]);
+  }
+#endif
+  
+  // trigger uploader setup via the +initialize method
+  [MGUploader class];
+  
   // Setup API base stuff
   [IGInstagramAPI setClientId:OAUTH_INSTAGRAM_KEY];
   [IGInstagramAPI setOAuthRedirctURL:OAUTH_INSTAGRAM_REDIRECT_URL];
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   [IGInstagramAPI setAccessToken:[defaults stringForKey:kDefaultsInstagramToken]];
   
+  // set up the UI
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  // Override point for customization after application launch.
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    SelectInstagramMediaController *masterViewController = [[SelectInstagramMediaController alloc] initWithNibName:nil bundle:nil];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    self.window.rootViewController = self.navigationController;
+    self.tabBarController = [[UITabBarController alloc] init];
+    
+    SelectInstagramMediaController *tabOneRoot = [[SelectInstagramMediaController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *tabOne = [[UINavigationController alloc] initWithRootViewController:tabOneRoot];
+    tabOne.navigationBar.barStyle = UIBarStyleBlack;
+    
+    YourMemegramsController *tabTwoRoot = [[YourMemegramsController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *tabTwo = [[UINavigationController alloc] initWithRootViewController:tabTwoRoot];
+    tabTwo.navigationBar.barStyle = UIBarStyleBlack;
+    
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:tabOne, tabTwo, nil];
+    
+    self.window.rootViewController = self.tabBarController;
   } else {
 //    iPad not currently supported!
 //    SelectInstagramMediaController *masterViewController = [[SelectInstagramMediaController alloc] initWithNibName:@"MGMasterViewController_iPad" bundle:nil];
@@ -105,6 +122,8 @@ NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
   /*
    Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
    */
+  // restart the uploader (tell it to attempt another upload)
+  [MGUploader attemptUpload];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

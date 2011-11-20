@@ -74,7 +74,9 @@
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
+  [super viewDidUnload];
+  _gridView = nil;
+  _overlayView = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }

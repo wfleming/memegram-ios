@@ -19,8 +19,7 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-@property (strong, nonatomic) UINavigationController *navigationController;
-
+@property (strong, nonatomic) UITabBarController *tabBarController;
 @property (strong, nonatomic) UISplitViewController *splitViewController;
 
 @end

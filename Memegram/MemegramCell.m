@@ -1,19 +1,19 @@
 //
-//  InstagramMediaCell.m
+//  MemegramCell.m
 //  Memegram
 //
-//  Created by William Fleming on 11/16/11.
+//  Created by William Fleming on 11/19/11.
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "InstagramMediaCell.h"
+#import "MemegramCell.h"
 
-#import "IGInstagramMedia.h"
+#import "Memegram.h"
 #import "UIView+WillFleming.h"
 
-@implementation InstagramMediaCell
+@implementation MemegramCell
 
-@synthesize media=_media;
+@synthesize memegram=_memegram;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -26,22 +26,23 @@
     [self.contentView addSubview:_imageView];
     self.contentView.backgroundColor = [UIColor clearColor];
     self.backgroundView.backgroundColor = [UIColor greenColor];
+    
+    self.accessoryPosition = KKGridViewCellAccessoryPositionTopRight;
   }
   return self;
 }
 
 #pragma mark - Property override
-- (void) setMedia:(__block IGInstagramMedia *)media {
-  _media = media;
+- (void) setMemegram:(Memegram*)memegram {
+  _memegram = memegram;
+  _imageView.image = memegram.image;
   
-  __block typeof(self) blockSelf = self;
-  [_media thumbnailCompletionBlock:^(IGInstagramMedia *media, UIImage *image) {
-    if (media == blockSelf.media) {
-      blockSelf->_imageView.image = image;
-    } else {
-      DLOG(@"OOPS - wrong media for this cell %@", blockSelf);
-    }
-  }];
+  //TODO - render real accessory views
+  if ([_memegram isWaitingForUpload]) {
+    self.accessoryType = KKGridViewCellAccessoryTypeUnread;
+  } else if ([_memegram isUploading]) {
+    self.accessoryType = KKGridViewCellAccessoryTypeNew;
+  }
 }
 
 - (void)layoutSubviews
@@ -50,7 +51,8 @@
 }
 
 - (void) prepareForReuse {
-  _media = nil;
+  _memegram = nil;
   _imageView.image = nil;
 }
+
 @end

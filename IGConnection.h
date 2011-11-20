@@ -17,6 +17,10 @@
 + (IGResponse *)put:(NSString *)body to:(NSString *)url;
 + (IGResponse *)delete:(NSString *)url;
 
+// public so it can be overriden
++ (IGResponse *)sendRequest:(NSMutableURLRequest *)request;
++ (NSMutableURLRequest*) requestForMethod:(NSString *)method to:(NSString *)url;
+
 + (void) cancelAllActiveConnections;
 
 

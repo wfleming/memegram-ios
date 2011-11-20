@@ -12,12 +12,12 @@
 
 @implementation IGDefaultSerializer
 
-+ (id) deserializeJSON:(NSData*)jsonData error:(NSError**)error {
++ (id) deserializeJSON:(NSData*)jsonData error:(NSError*__autoreleasing*)error {
   return [[CJSONDeserializer deserializer] deserialize:jsonData error:error];
 }
 
 
-+ (NSData*) serializeJSON:(id)object error:(NSError**)error {
++ (NSData*) serializeJSON:(id)object error:(NSError* __autoreleasing*)error {
   return [[CJSONSerializer serializer] serializeObject:object error:error];
 }
 

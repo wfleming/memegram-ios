@@ -22,8 +22,8 @@
 @property (strong, nonatomic) NSNumber *followsCount;
 @property (strong, nonatomic) NSNumber *mediaCount;
 
-+ (IGInstagramUser*) remoteUserWithId:(NSString*)userId error:(NSError**)error;
++ (IGInstagramUser*) remoteUserWithId:(NSString*)userId error:(NSError* __autoreleasing*)error;
 
-- (NSArray*) recentMediaError:(NSError**)error;
+- (NSArray*) recentMediaError:(NSError* __autoreleasing*)error;
 
 @end
