@@ -16,6 +16,7 @@
 #import "MGConstants.h"
 #import "MGUploader.h"
 #import "Reachability.h"
+#import "ABNotifier.h"
 
 #pragma mark -
 @interface MGAppDelegate (Private)
@@ -37,6 +38,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [ABNotifier startNotifierWithAPIKey:@"910868358df722bc465af33bf346d098"
+                      environmentName:ABNotifierAutomaticEnvironment
+                               useSSL:YES
+                             delegate:nil];
+  
 #ifdef DEBUG
   @autoreleasepool {
     Reachability *memegramReachability = [Reachability reachabilityWithHostName:@"memegram.dev"];

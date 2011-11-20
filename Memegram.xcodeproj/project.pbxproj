@@ -25,6 +25,17 @@
 		BE26F0C914745A7D00192403 /* StatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0C814745A7D00192403 /* StatusItem.m */; };
 		BE26F0CC14745B4600192403 /* InstagramMediaDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0CB14745B4600192403 /* InstagramMediaDataSource.m */; };
 		BE26F0D21474774200192403 /* UIViewController+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0D11474774200192403 /* UIViewController+WillFleming.m */; };
+		BE76A232147948AE00B722F4 /* GCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A210147948AE00B722F4 /* GCAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE76A233147948AE00B722F4 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A214147948AE00B722F4 /* DDXMLElementAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE76A234147948AE00B722F4 /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A217147948AE00B722F4 /* NSString+DDXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE76A235147948AE00B722F4 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A21A147948AE00B722F4 /* DDXMLDocument.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE76A236147948AE00B722F4 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A21C147948AE00B722F4 /* DDXMLElement.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE76A237147948AE00B722F4 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A21E147948AE00B722F4 /* DDXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE76A238147948AE00B722F4 /* ABNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A223147948AE00B722F4 /* ABNotice.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE76A239147948AE00B722F4 /* ABNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A225147948AE00B722F4 /* ABNotifier.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE76A23A147948AE00B722F4 /* ABNotifierFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A228147948AE00B722F4 /* ABNotifierFunctions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE76A23B147948AE00B722F4 /* HTNotifier.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE76A229147948AE00B722F4 /* HTNotifier.strings */; };
+		BE76A23D1479499500B722F4 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BE76A23C1479499500B722F4 /* libxml2.dylib */; };
 		BE799D901471962600CFC615 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D8F1471962600CFC615 /* UIKit.framework */; };
 		BE799D921471962600CFC615 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D911471962600CFC615 /* Foundation.framework */; };
 		BE799D941471962600CFC615 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE799D931471962600CFC615 /* CoreGraphics.framework */; };
@@ -134,6 +145,36 @@
 		BE26F0CB14745B4600192403 /* InstagramMediaDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramMediaDataSource.m; sourceTree = "<group>"; };
 		BE26F0D01474774200192403 /* UIViewController+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WillFleming.h"; sourceTree = "<group>"; };
 		BE26F0D11474774200192403 /* UIViewController+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WillFleming.m"; sourceTree = "<group>"; };
+		BE76A20F147948AE00B722F4 /* GCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAlertView.h; sourceTree = "<group>"; };
+		BE76A210147948AE00B722F4 /* GCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAlertView.m; sourceTree = "<group>"; };
+		BE76A213147948AE00B722F4 /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
+		BE76A214147948AE00B722F4 /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElementAdditions.m; sourceTree = "<group>"; };
+		BE76A216147948AE00B722F4 /* NSString+DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDXML.h"; sourceTree = "<group>"; };
+		BE76A217147948AE00B722F4 /* NSString+DDXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDXML.m"; sourceTree = "<group>"; };
+		BE76A218147948AE00B722F4 /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
+		BE76A219147948AE00B722F4 /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
+		BE76A21A147948AE00B722F4 /* DDXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLDocument.m; sourceTree = "<group>"; };
+		BE76A21B147948AE00B722F4 /* DDXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElement.h; sourceTree = "<group>"; };
+		BE76A21C147948AE00B722F4 /* DDXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElement.m; sourceTree = "<group>"; };
+		BE76A21D147948AE00B722F4 /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
+		BE76A21E147948AE00B722F4 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
+		BE76A220147948AE00B722F4 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		BE76A222147948AE00B722F4 /* ABNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNotice.h; sourceTree = "<group>"; };
+		BE76A223147948AE00B722F4 /* ABNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNotice.m; sourceTree = "<group>"; };
+		BE76A224147948AE00B722F4 /* ABNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNotifier.h; sourceTree = "<group>"; };
+		BE76A225147948AE00B722F4 /* ABNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNotifier.m; sourceTree = "<group>"; };
+		BE76A226147948AE00B722F4 /* ABNotifierDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNotifierDelegate.h; sourceTree = "<group>"; };
+		BE76A227147948AE00B722F4 /* ABNotifierFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNotifierFunctions.h; sourceTree = "<group>"; };
+		BE76A228147948AE00B722F4 /* ABNotifierFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNotifierFunctions.m; sourceTree = "<group>"; };
+		BE76A22A147948AE00B722F4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/HTNotifier.strings; sourceTree = "<group>"; };
+		BE76A22B147948AE00B722F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HTNotifier.strings; sourceTree = "<group>"; };
+		BE76A22C147948AE00B722F4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/HTNotifier.strings; sourceTree = "<group>"; };
+		BE76A22D147948AE00B722F4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/HTNotifier.strings; sourceTree = "<group>"; };
+		BE76A22E147948AE00B722F4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/HTNotifier.strings; sourceTree = "<group>"; };
+		BE76A22F147948AE00B722F4 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/HTNotifier.strings; sourceTree = "<group>"; };
+		BE76A230147948AE00B722F4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/HTNotifier.strings; sourceTree = "<group>"; };
+		BE76A231147948AE00B722F4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HTNotifier.strings"; sourceTree = "<group>"; };
+		BE76A23C1479499500B722F4 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		BE799D8B1471962600CFC615 /* Memegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memegram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE799D8F1471962600CFC615 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE799D911471962600CFC615 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -245,6 +286,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE76A23D1479499500B722F4 /* libxml2.dylib in Frameworks */,
 				BE7CFD84147730B300062002 /* SystemConfiguration.framework in Frameworks */,
 				BE7CFD6F1476E1A700062002 /* Accounts.framework in Frameworks */,
 				BE7CFD6D1476DF3A00062002 /* Twitter.framework in Frameworks */,
@@ -348,6 +390,84 @@
 			name = "Class Additions";
 			sourceTree = "<group>";
 		};
+		BE76A20D147948AE00B722F4 /* Airbrake NOARC */ = {
+			isa = PBXGroup;
+			children = (
+				BE76A20E147948AE00B722F4 /* gcalertview */,
+				BE76A211147948AE00B722F4 /* kissxml */,
+				BE76A221147948AE00B722F4 /* notifier */,
+			);
+			name = "Airbrake NOARC";
+			path = Airbrake;
+			sourceTree = "<group>";
+		};
+		BE76A20E147948AE00B722F4 /* gcalertview */ = {
+			isa = PBXGroup;
+			children = (
+				BE76A20F147948AE00B722F4 /* GCAlertView.h */,
+				BE76A210147948AE00B722F4 /* GCAlertView.m */,
+			);
+			path = gcalertview;
+			sourceTree = "<group>";
+		};
+		BE76A211147948AE00B722F4 /* kissxml */ = {
+			isa = PBXGroup;
+			children = (
+				BE76A212147948AE00B722F4 /* Additions */,
+				BE76A215147948AE00B722F4 /* Categories */,
+				BE76A218147948AE00B722F4 /* DDXML.h */,
+				BE76A219147948AE00B722F4 /* DDXMLDocument.h */,
+				BE76A21A147948AE00B722F4 /* DDXMLDocument.m */,
+				BE76A21B147948AE00B722F4 /* DDXMLElement.h */,
+				BE76A21C147948AE00B722F4 /* DDXMLElement.m */,
+				BE76A21D147948AE00B722F4 /* DDXMLNode.h */,
+				BE76A21E147948AE00B722F4 /* DDXMLNode.m */,
+				BE76A21F147948AE00B722F4 /* Private */,
+			);
+			path = kissxml;
+			sourceTree = "<group>";
+		};
+		BE76A212147948AE00B722F4 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				BE76A213147948AE00B722F4 /* DDXMLElementAdditions.h */,
+				BE76A214147948AE00B722F4 /* DDXMLElementAdditions.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		BE76A215147948AE00B722F4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BE76A216147948AE00B722F4 /* NSString+DDXML.h */,
+				BE76A217147948AE00B722F4 /* NSString+DDXML.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		BE76A21F147948AE00B722F4 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				BE76A220147948AE00B722F4 /* DDXMLPrivate.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		BE76A221147948AE00B722F4 /* notifier */ = {
+			isa = PBXGroup;
+			children = (
+				BE76A222147948AE00B722F4 /* ABNotice.h */,
+				BE76A223147948AE00B722F4 /* ABNotice.m */,
+				BE76A224147948AE00B722F4 /* ABNotifier.h */,
+				BE76A225147948AE00B722F4 /* ABNotifier.m */,
+				BE76A226147948AE00B722F4 /* ABNotifierDelegate.h */,
+				BE76A227147948AE00B722F4 /* ABNotifierFunctions.h */,
+				BE76A228147948AE00B722F4 /* ABNotifierFunctions.m */,
+				BE76A229147948AE00B722F4 /* HTNotifier.strings */,
+			);
+			path = notifier;
+			sourceTree = "<group>";
+		};
 		BE799D801471962600CFC615 = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +492,7 @@
 		BE799D8E1471962600CFC615 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE76A23C1479499500B722F4 /* libxml2.dylib */,
 				BE7CFD83147730B100062002 /* SystemConfiguration.framework */,
 				BE7CFD6E1476E1A600062002 /* Accounts.framework */,
 				BE7CFD6C1476DF3900062002 /* Twitter.framework */,
@@ -501,13 +622,13 @@
 			name = "Finish Memegram Controller";
 			sourceTree = "<group>";
 		};
-		BE7CFD8214772F6500062002 /* Reachability */ = {
+		BE7CFD8214772F6500062002 /* Reachability NOARC */ = {
 			isa = PBXGroup;
 			children = (
 				BE7CFD7F14772F6000062002 /* Reachability.h */,
 				BE7CFD8014772F6000062002 /* Reachability.m */,
 			);
-			name = Reachability;
+			name = "Reachability NOARC";
 			sourceTree = "<group>";
 		};
 		BECEA328147870A200AF315C /* Memegram Detail Controller */ = {
@@ -624,7 +745,8 @@
 		BEE7A6A91472255F002CB0C0 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				BE7CFD8214772F6500062002 /* Reachability */,
+				BE76A20D147948AE00B722F4 /* Airbrake NOARC */,
+				BE7CFD8214772F6500062002 /* Reachability NOARC */,
 				BE7CFCE31474B97200062002 /* KKGridView */,
 				BE26F0C6147459F400192403 /* Class Additions */,
 				BE26F0C5147459E600192403 /* StatusCenter */,
@@ -689,6 +811,13 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
+				es,
+				fr,
+				nl,
+				ro,
+				ru,
+				"zh-Hant",
 			);
 			mainGroup = BE799D801471962600CFC615;
 			productRefGroup = BE799D8C1471962600CFC615 /* Products */;
@@ -709,6 +838,7 @@
 				BE799D9C1471962600CFC615 /* InfoPlist.strings in Resources */,
 				BEE7A6891471F3AB002CB0C0 /* Development.xcconfig in Resources */,
 				BEE7A68B1471F4A1002CB0C0 /* Production.xcconfig in Resources */,
+				BE76A23B147948AE00B722F4 /* HTNotifier.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,6 +933,15 @@
 				BECCAFF0147866CD0036BC16 /* MemegramCell.m in Sources */,
 				BECEA32F1478714700AF315C /* MemegramDetailController.m in Sources */,
 				BECEA332147873BA00AF315C /* ImageCell.m in Sources */,
+				BE76A232147948AE00B722F4 /* GCAlertView.m in Sources */,
+				BE76A233147948AE00B722F4 /* DDXMLElementAdditions.m in Sources */,
+				BE76A234147948AE00B722F4 /* NSString+DDXML.m in Sources */,
+				BE76A235147948AE00B722F4 /* DDXMLDocument.m in Sources */,
+				BE76A236147948AE00B722F4 /* DDXMLElement.m in Sources */,
+				BE76A237147948AE00B722F4 /* DDXMLNode.m in Sources */,
+				BE76A238147948AE00B722F4 /* ABNotice.m in Sources */,
+				BE76A239147948AE00B722F4 /* ABNotifier.m in Sources */,
+				BE76A23A147948AE00B722F4 /* ABNotifierFunctions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +964,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		BE76A229147948AE00B722F4 /* HTNotifier.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE76A22A147948AE00B722F4 /* de */,
+				BE76A22B147948AE00B722F4 /* en */,
+				BE76A22C147948AE00B722F4 /* es */,
+				BE76A22D147948AE00B722F4 /* fr */,
+				BE76A22E147948AE00B722F4 /* nl */,
+				BE76A22F147948AE00B722F4 /* ro */,
+				BE76A230147948AE00B722F4 /* ru */,
+				BE76A231147948AE00B722F4 /* zh-Hant */,
+			);
+			name = HTNotifier.strings;
+			sourceTree = "<group>";
+		};
 		BE799D9A1471962600CFC615 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -902,8 +1056,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "";
-				"HEADER_SEARCH_PATHS[arch=*]" = "";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -915,11 +1069,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BEE7A68A1471F4A1002CB0C0 /* Production.xcconfig */;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "";
-				"HEADER_SEARCH_PATHS[arch=*]" = "";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
