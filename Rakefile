@@ -1,32 +1,40 @@
+# TestFlight Rake utility
+# Will Fleming <will@jwock.org> 2011
+# https://github.com/wfleming/testflight-rake
+#
+# A collection of rake tasks for an iOS project to make building & deploying
+# builds to TestFlight much easier.
+
 require 'fileutils'
-# require 'net/http'
-# require 'uri'
 require 'rubygems'
 require 'httpclient'
 
 # utility functions
 def set(key, value)
-  ENV[key.to_s] = value
+  ENV[key.to_s.upcase] = value
 end
 
 def fetch(key)
-  ENV[key.to_s]
+  ENV[key.to_s.upcase]
 end
 
-set(:app_name, 'Memegram')
 
-# Tasks
-desc "set the staging environment"
-task :staging do
-  puts "=== In environment 'staging'"
-  set :environment, 'staging'
-  set :xcode_configuration, 'Release'
-  puts
+# Load up some default settings, then user environment
+set(:no_tag, false)
+set(:edit_release_notes, true)
+if File.exists? ('.rakeenv')
+  load '.rakeenv'
+else
+  puts "WARNING: no .rakeenv found. If you didn't set everything in your environment, you will be unhappy."
 end
+
+
+### TASKS ###
 
 task :require_environment do
   env = fetch(:environment)
   if env.nil? ||  0 == env.length
+    # TODO - do more checking here? or delete entirely?
     raise Exception.new("No environment specified. You need to specify an environment")
   end
 end
@@ -36,13 +44,14 @@ task :bump_version do
   puts "=== Bumping the build number"
   puts `agvtool bump -all`
   build_number = `agvtool vers -terse`.chomp
-  puts `git commit Memegram/Memegram-Info.plist aqualab-ios.xcodeproj/project.pbxproj -m "Bumping version number to #{build_number}"`
+  puts `git commit *-Info.plist */*-Info.plist *.xcodeproj/project.pbxproj -m "Bumping version number to #{build_number}"`
+  puts `git push`
   puts
 end
 
 desc 'Tag and push tag for current release'
 task :tag_release => [:require_environment] do
-  if ENV['NO_TAG'].nil?
+  if fetch(:no_tag).nil?
     puts "=== Tagging the current build"
     env = fetch(:environment)
 
@@ -69,12 +78,14 @@ end
 
 desc 'Make a best guess at what the release notes for a release should be.'
 task :release_notes => [:require_environment] do
+  #TODO - don't think this goes well if this is your first release (i.e. no -previous tag)
+  #TODO - also try to be smart & abandon ship if release notes for this version already exist
   env = fetch(:environment)
   previous_tag = "#{env}-previous"
   current_tag = "#{env}-current"
   log = `git log --pretty="* %s [%an, %h]" #{previous_tag}...#{current_tag}`
-  file_name = "/tmp/aqualab-rake-release-notes-#{Time.now.to_i}.txt"
-  File.rm_f(file_name) if File.exists?(file_name)
+  file_name = "/tmp/#{fetch(:app_name)}-rake-release-notes-#{`agvtool vers -terse`.chomp}.txt"
+  FileUtils.rm(file_name, :force => true) if File.exists?(file_name)
   File.open(file_name, 'w') { |f| f.write(log) }
   set(:release_notes_path, file_name)
   unless fetch(:skip_showing_release_notes)
@@ -114,8 +125,11 @@ task :sign_ipa => [:require_environment] do
 
   set(:ipa_path, ipa_path)
   FileUtils.rm_f(ipa_path) if File.exists?(ipa_path)
-  puts "* Going to run: `xcrun -sdk iphoneos PackageApplication -v \"#{app_path}\" -o \"#{ipa_path}\" --sign \"William Fleming\" --embed \"provision.mobileprovision\"`" #DEBUG
-  xcrun_output = `xcrun -sdk iphoneos PackageApplication -v "#{app_path}" -o "#{ipa_path}" --sign "William Fleming" --embed "provision.mobileprovision"`
+  codesign_id = fetch(:codesign_identity)
+  provisioning_profile = fetch(:provisioning_profile_path)
+  puts "* Going to run: `xcrun -sdk iphoneos PackageApplication -v \"#{app_path}\" -o \"#{ipa_path}\" --sign \"#{codesign_id}\" --embed \"#{provisioning_profile}\"`" #DEBUG
+  xcrun_output = `xcrun -sdk iphoneos PackageApplication -v "#{app_path}" -o "#{ipa_path}" --sign "#{codesign_id}" --embed "#{provisioning_profile}"`
+  puts "NB: this command will claim it failed, saying it was 'unable to create' the ipa. Don't worry, everything's fine unless you see errors after this."
   # xcrun is expected to fail because it's dumb...but it mostly gets there.
   # it just fails on the zip step because it's looking in the wrong place.
   # so we figure out the right path from the output and go after it.
@@ -149,13 +163,14 @@ task :upload_to_testflight do
 
   puts "=== Posting ipa to testflight"
 
-  testflight_api_token = '64f86839a999f7f2d2042a6c9284eb0c_MjIyOTg4MjAxMS0xMS0xOSAxODo1Nzo1Ny4xMzgxMjc'
-  testflight_team_token = '4524dec9cbbdc5c5c7d39838884e01c4_NDIxOTIyMDExLTExLTIwIDA5OjU5OjMwLjE3MjU4MQ'
   ipa_path = fetch(:ipa_path)
   release_notes_path = fetch(:release_notes_path)
-  
-  # allow user to edit the release notes before upload
-  `$EDITOR -w #{release_notes_path}`
+
+  if fetch(:edit_release_notes)
+    # TODO - insert #comment lines in release notes informing user they can edit,
+    # then strip them afterwards before uploading
+    `$EDITOR #{release_notes_path}`
+  end
 
   if ipa_path.nil? || !File.exists?(ipa_path)
     raise Exception.new("No .ipa was found! ipa_path is '#{ipa_path}'")
@@ -163,19 +178,17 @@ task :upload_to_testflight do
 
   testflight_endpoint = 'http://testflightapp.com/api/builds.json'
   notify_teammates = true
-  # distribution_lists = fetch('DISTRIBUTION_LISTS') || 'Mints,Syrup'
 
   # HTTPClient
   release_notes_string = File.open(release_notes_path, 'r').read
   response = HTTPClient.post(testflight_endpoint, {
     :file => File.new(ipa_path),
     :notes => release_notes_string,
-    :api_token => testflight_api_token,
-    :team_token => testflight_team_token,
-    :notify => notify_teammates #,
-    # :distribution_lists => distribution_lists
+    :api_token => fetch(:testflight_api_token),
+    :team_token => fetch(:testflight_api_token),
+    :notify => notify_teammates,
+    :distribution_lists => fetch(:testflight_distribution_lists)
   })
-#  puts "* our distribution lists are #{distribution_lists}" #DEBUG
   if (response.status != 200)
    puts "* ERROR posting file: got a #{response.status} response:"
   else
