@@ -1,24 +1,15 @@
-# Generally good-to-ignore files
-.DS_Store
-*~
-.#*
-*.sqlite
-*.sqlite3
-*.sqlite3-journal
-*.db
-*.tmproj
-.hgignore
-.hg/*
-.svn/*
-# Rails files to ignore
-.bundle
-config/database.yml
-config/instagram.yml
-db/schema.rb
-db/sphinx
-db/*.sqlite3
-log/
-public/javascripts/bundles/
-public/stylesheets/bundles/
-public/uploads/*
-tmp/*
+# Xcode
+build/*
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xcworkspace
+!default.xcworkspace
+xcuserdata
+profile
+*.moved-aside
