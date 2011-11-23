@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kIGErrorDomain;
+
+typedef enum {
+  IGErrorOAuthException,
+  IGErrorServerError,
+  IGErrorTimeout,
+  IGErrorDownForMaintenance
+} IGErrorCode;
+
 @interface IGResponse : NSObject {
   NSData *_rawBody;
   NSDictionary *_parsedBody;

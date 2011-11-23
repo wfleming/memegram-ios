@@ -10,6 +10,8 @@
 
 #import "IGInstagramAPI.h"
 
+NSString * const kIGErrorDomain = @"IGErrorDomain";
+
 @implementation IGResponse
 
 @synthesize rawBody=_rawBody, headers=_headers, statusCode=_statusCode, error=_error;
@@ -19,15 +21,34 @@
 }
 
 - (void)normalizeError:(NSError *)aError {
-//  TODO: a 503 means down for maintenance
-//  TODO: change error to errors including 'meta' info where possible/appropriate
 	switch ([aError code]) {
 		case NSURLErrorUserCancelledAuthentication:
 			_statusCode = 401;
       _error = aError;
 			break;
+    case NSURLErrorCannotFindHost:
+    case NSURLErrorCannotConnectToHost:
+    case NSURLErrorNetworkConnectionLost:
+    case NSURLErrorDNSLookupFailed:
+      break;
+    case 503: // means 'down for maintenance'
+      _error = [NSError errorWithDomain:kIGErrorDomain
+                                   code:IGErrorDownForMaintenance
+                               userInfo:[NSDictionary dictionaryWithObject:@"Down for maintenance"
+                                                                    forKey:NSLocalizedDescriptionKey]];
+    case 400:
+      _error = [NSError errorWithDomain:kIGErrorDomain
+                                   code:IGErrorOAuthException
+                               userInfo:[NSDictionary dictionaryWithObject:[[[self parsedBody] objectForKey:@"meta"] objectForKey:@"error_message"]
+                                                                    forKey:NSLocalizedDescriptionKey]];
 		default:
 			_error = aError;
+      if ([self parsedBody]) {
+        _error = [NSError errorWithDomain:kIGErrorDomain
+                                     code:aError.code
+                                 userInfo:[NSDictionary dictionaryWithObject:[[[self parsedBody] objectForKey:@"meta"] objectForKey:@"error_message"] 
+                                                                      forKey:NSLocalizedDescriptionKey]];
+      }
 			break;
 	}
 }
