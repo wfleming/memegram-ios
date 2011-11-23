@@ -41,7 +41,9 @@
   if ([_memegram isWaitingForUpload]) {
     self.accessoryType = KKGridViewCellAccessoryTypeUnread;
   } else if ([_memegram isUploading]) {
-    self.accessoryType = KKGridViewCellAccessoryTypeNew;
+    self.accessoryType = KKGridViewCellAccessoryTypeReadPartial;
+  } else {
+    self.accessoryType = KKGridViewCellAccessoryTypeNone;
   }
 }
 

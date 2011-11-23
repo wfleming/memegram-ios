@@ -83,16 +83,15 @@
 
 - (void) viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
-  
-  if (nil == _memegrams || 0 == [_memegrams count]) {
-    MGAppDelegate *appDelegate = (MGAppDelegate*)[UIApplication sharedApplication].delegate;
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[Memegram entityDescription]];
-    NSError *err;
-    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request error:&err];
-    if (results && [results count] > 0) {
-      _memegrams = results;
-    }
+
+  // always reload our data everytime we appear
+  MGAppDelegate *appDelegate = (MGAppDelegate*)[UIApplication sharedApplication].delegate;
+  NSFetchRequest *request = [[NSFetchRequest alloc] init];
+  [request setEntity:[Memegram entityDescription]];
+  NSError *err;
+  NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request error:&err];
+  if (results && [results count] > 0) {
+    _memegrams = results;
   }
 }
 
@@ -107,6 +106,7 @@
 
 #pragma mark - notification listeners
 - (void) _managedObjectContextDidSave:(NSNotification*)notification {
+//  TODO - force reload of the actual underlying data?
   [_gridView reloadData];
   // KKGridView is a little odd with how it implements reloadData...
   [_gridView setNeedsLayout];
