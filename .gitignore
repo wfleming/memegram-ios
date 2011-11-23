@@ -9,7 +9,9 @@ build/*
 *.perspectivev3
 !default.perspectivev3
 *.xcworkspace
+*.xcodeproj/*.xcworkspace
 !default.xcworkspace
 xcuserdata
+*.xcodeproj/xcuserdata
 profile
 *.moved-aside

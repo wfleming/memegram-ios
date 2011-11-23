@@ -11,11 +11,22 @@ require 'httpclient'
 
 # utility functions
 def set(key, value)
+  if false == value
+    value = 'FALSE'
+  elsif true == value
+    value = 'TRUE'
+  end
   ENV[key.to_s.upcase] = value
 end
 
 def fetch(key)
-  ENV[key.to_s.upcase]
+  val = ENV[key.to_s.upcase]
+  if 'FALSE' == val
+    val = false
+  elsif 'TRUE' == val
+    val = true
+  end
+  val
 end
 
 
