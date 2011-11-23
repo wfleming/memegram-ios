@@ -40,47 +40,56 @@
 @dynamic link;
 
 
-- (BOOL) uploadError:(NSError* __autoreleasing*)error {
-  NSMutableURLRequest *request = [MGConnection requestForMethod:@"POST" to:[MemegramAPI urlForEndpoint:@"/memegrams"]];
-  [request setTimeoutInterval:180.0]; // images over something like EDGE could be really painful, and this is in the background anyway
+- (BOOL) uploadError:(NSError* __autoreleasing*)error {  
+  BOOL success = NO;
   
-  NSString *boundary = @"MG01WF314x";
-  NSString* contentType = [NSString stringWithFormat:@"multipart/form-data, boundary=%@", boundary];
-  [request setValue:contentType forHTTPHeaderField: @"Content-type"];
-  NSData* boundaryMarker = [[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding];
-  NSMutableData *body = [NSMutableData data];
-  
-  [body appendData:boundaryMarker];
-  [body appendData:[@"Content-Disposition: form-data; name=\"memegram\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-  [body appendData:[@"Content-Type: application/json\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-  [body appendData:[self uploadRepresentation]];
-  
-  if (self.image) {
+  if (!self.memegramId) { // guard this to avoid repeat updates
+    NSMutableURLRequest *request = [MGConnection requestForMethod:@"POST" to:[MemegramAPI urlForEndpoint:@"/memegrams"]];
+    [request setTimeoutInterval:180.0]; // images over something like EDGE could be really painful, and this is in the background anyway
+    
+    NSString *boundary = @"MG01WF314x";
+    NSString* contentType = [NSString stringWithFormat:@"multipart/form-data, boundary=%@", boundary];
+    [request setValue:contentType forHTTPHeaderField: @"Content-type"];
+    NSData* boundaryMarker = [[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableData *body = [NSMutableData data];
+    
     [body appendData:boundaryMarker];
-    [body appendData:[@"Content-Disposition: form-data; name=\"imageData\"; filename=\"memegram.jpg\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:UIImageJPEGRepresentation(self.image, 1.0)];
-  }
-  
-  [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-  
-  [request setHTTPBody:body];
-  
-  IGResponse *response = [MGConnection sendRequest:request];
-  
-  BOOL success = [response isSuccess];
-  
-  if (!success) {
-    if (error) {
-      DLOG(@"UPLOAD FAILED.\n\terror => %@,\n\tbody => %@",
-           [response error],
-           [[NSString alloc] initWithData:[response rawBody] encoding:NSUTF8StringEncoding]);
-      *error = [response error];
+    [body appendData:[@"Content-Disposition: form-data; name=\"memegram\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Type: application/json\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[self uploadRepresentation]];
+    
+    if (self.image) {
+      [body appendData:boundaryMarker];
+      [body appendData:[@"Content-Disposition: form-data; name=\"imageData\"; filename=\"memegram.jpg\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+      [body appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+      [body appendData:UIImageJPEGRepresentation(self.image, 1.0)];
+    }
+    
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [request setHTTPBody:body];
+    
+    IGResponse *response = [MGConnection sendRequest:request];
+    
+    success = [response isSuccess];
+    
+    if (!success) {
+      if (error) {
+        DLOG(@"UPLOAD FAILED.\n\terror => %@,\n\tbody => %@",
+             [response error],
+             [[NSString alloc] initWithData:[response rawBody] encoding:NSUTF8StringEncoding]);
+        *error = [response error];
+      }
+    } else {
+      DLOG(@"UPLOAD SUCCEEDED of %@", self);
+      [self updateFromJSON:[response parsedBody]];
     }
   } else {
-    DLOG(@"UPLOAD SUCCEEDED of %@", self);
-    [self updateFromJSON:[response parsedBody]];
-    
+    // possible to attempt to upload something that already was. just assume we succeded
+    success = YES;
+  }
+  
+  if (success) {
     [self doSharing];
   }
   
@@ -179,16 +188,14 @@
   
   [postRequest setAccount:[MGAccountHelper defaultTwitterAccount]];
   
-  // Block handler to manage the response
-  [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) 
-   {
+  [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
      if ([urlResponse statusCode] > 300) {
-       DLOG(@"twitter post failed (status %d): data => %@\nerror => %@",
+       DLOG(@"twitter post failed (status %x): data => %@\nerror => %@",
             [urlResponse statusCode],
             [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding],
             error);
      }
-   }];
+  }];
 }
 
 - (NSString*) statusForTwitter {

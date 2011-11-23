@@ -12,6 +12,6 @@
 
 @interface MGAccountHelper : NSObject
 
-+ (ACAccount*) defaultTwitterAccount;
++ (ACAccount*) __attribute__((ns_returns_autoreleased)) defaultTwitterAccount;
 
 @end

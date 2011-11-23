@@ -78,7 +78,6 @@
 		BE7CFD781477025300062002 /* MGUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD771477025000062002 /* MGUploader.m */; };
 		BE7CFD7B14770D1700062002 /* MGConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD7A14770D1700062002 /* MGConnection.m */; };
 		BE7CFD7E147711A900062002 /* MemegramAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD7D147711A800062002 /* MemegramAPI.m */; };
-		BE7CFD8114772F6100062002 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD8014772F6000062002 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE7CFD84147730B300062002 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7CFD83147730B100062002 /* SystemConfiguration.framework */; };
 		BE95EEA61478635300452A35 /* YourMemegramsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE95EEA51478635300452A35 /* YourMemegramsController.m */; };
 		BEB4B8481474A6BE0096A563 /* InstagramMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */; };
@@ -248,8 +247,6 @@
 		BE7CFD7A14770D1700062002 /* MGConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGConnection.m; sourceTree = "<group>"; };
 		BE7CFD7C147711A700062002 /* MemegramAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemegramAPI.h; sourceTree = "<group>"; };
 		BE7CFD7D147711A800062002 /* MemegramAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramAPI.m; sourceTree = "<group>"; };
-		BE7CFD7F14772F6000062002 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		BE7CFD8014772F6000062002 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		BE7CFD83147730B100062002 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BE95EEA41478635300452A35 /* YourMemegramsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourMemegramsController.h; sourceTree = "<group>"; };
 		BE95EEA51478635300452A35 /* YourMemegramsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourMemegramsController.m; sourceTree = "<group>"; };
@@ -622,15 +619,6 @@
 			name = "Finish Memegram Controller";
 			sourceTree = "<group>";
 		};
-		BE7CFD8214772F6500062002 /* Reachability NOARC */ = {
-			isa = PBXGroup;
-			children = (
-				BE7CFD7F14772F6000062002 /* Reachability.h */,
-				BE7CFD8014772F6000062002 /* Reachability.m */,
-			);
-			name = "Reachability NOARC";
-			sourceTree = "<group>";
-		};
 		BECEA328147870A200AF315C /* Memegram Detail Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,7 +734,6 @@
 			isa = PBXGroup;
 			children = (
 				BE76A20D147948AE00B722F4 /* Airbrake NOARC */,
-				BE7CFD8214772F6500062002 /* Reachability NOARC */,
 				BE7CFCE31474B97200062002 /* KKGridView */,
 				BE26F0C6147459F400192403 /* Class Additions */,
 				BE26F0C5147459E600192403 /* StatusCenter */,
@@ -928,7 +915,6 @@
 				BE7CFD781477025300062002 /* MGUploader.m in Sources */,
 				BE7CFD7B14770D1700062002 /* MGConnection.m in Sources */,
 				BE7CFD7E147711A900062002 /* MemegramAPI.m in Sources */,
-				BE7CFD8114772F6100062002 /* Reachability.m in Sources */,
 				BE95EEA61478635300452A35 /* YourMemegramsController.m in Sources */,
 				BECCAFF0147866CD0036BC16 /* MemegramCell.m in Sources */,
 				BECEA32F1478714700AF315C /* MemegramDetailController.m in Sources */,

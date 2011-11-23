@@ -15,7 +15,6 @@
 #import "NSURL+WillFleming.h"
 #import "MGConstants.h"
 #import "MGUploader.h"
-#import "Reachability.h"
 #import "ABNotifier.h"
 
 #pragma mark -
@@ -42,15 +41,6 @@
                       environmentName:ABNotifierAutomaticEnvironment
                                useSSL:YES
                              delegate:nil];
-  
-#ifdef DEBUG
-  @autoreleasepool {
-    Reachability *memegramReachability = [Reachability reachabilityWithHostName:@"memegram.dev"];
-    DASSERT(NotReachable != [memegramReachability currentReachabilityStatus]);
-    Reachability *instagramReachability = [Reachability reachabilityWithHostName:@"api.instagram.com"];
-    DASSERT(NotReachable != [instagramReachability currentReachabilityStatus]);
-  }
-#endif
   
   // trigger uploader setup via the +initialize method
   [MGUploader class];

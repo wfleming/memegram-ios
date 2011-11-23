@@ -33,7 +33,7 @@ static NSString * const kRunLoopMode = @"com.willfleming.instagram.connectionLoo
 + (IGResponse *)sendRequest:(NSMutableURLRequest *)request {
 	IGConnectionDelegate *connectionDelegate = [[IGConnectionDelegate alloc] init];
   
-  @synchronized(activeDelegates) {
+  @synchronized([self activeDelegates]) {
     [[self activeDelegates] addObject:connectionDelegate];
   }
 	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:connectionDelegate startImmediately:NO];
@@ -50,7 +50,7 @@ static NSString * const kRunLoopMode = @"com.willfleming.instagram.connectionLoo
                                  withBody:connectionDelegate.data 
                                  andError:connectionDelegate.error];
 	
-  @synchronized(activeDelegates) {
+  @synchronized([self activeDelegates]) {
     [activeDelegates removeObject:connectionDelegate];
   }
 	

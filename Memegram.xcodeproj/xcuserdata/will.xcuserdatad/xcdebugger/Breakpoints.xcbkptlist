@@ -50,13 +50,27 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Memegram/Memegram.m"
-         timestampString = "343436479.056093"
+         filePath = "Memegram/MGTWConnection.m"
+         timestampString = "343704537.748273"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "186"
-         endingLineNumber = "186"
-         landmarkName = "-doTwitterShare"
+         startingLineNumber = "47"
+         endingLineNumber = "47"
+         landmarkName = "+sendRequest:forMemegram:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Memegram/MGTWConnection.m"
+         timestampString = "343705253.650131"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
+         landmarkName = "+sendRequest:forMemegram:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

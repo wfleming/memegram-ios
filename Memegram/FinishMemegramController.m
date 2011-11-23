@@ -209,6 +209,9 @@
   // switch to show your memegrams
   UITabBarController *tabBarController = appDelegate.tabBarController;
   tabBarController.selectedIndex = 1;
+  
+  // pop this controller back to root
+  [self.navigationController popToRootViewControllerAnimated:NO];
 }
 @end
 
