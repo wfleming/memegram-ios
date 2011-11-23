@@ -13,6 +13,8 @@
   UIWebView *_webView;
   UIActivityIndicatorView *_activityIndicator;
   UILabel *_statusLabel;
+  UIButton *_startOverButton;
+  UIView *_statusContainer;
   UIView<IGAuthInitialView> *_initialView;
 }
 

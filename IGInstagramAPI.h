@@ -12,6 +12,8 @@
 
 @class IGInstagramUser, IGResponse;
 
+typedef void (^IGInstagramAPIErrorHandler)(IGResponse*);
+
 @interface IGInstagramAPI : NSObject
 
 + (void) setClientId:(NSString*)clientId;
@@ -24,6 +26,8 @@
 + (Class<IGSerializer>) serializer;
 + (UIWindow*) authWindow;
 + (void) setAuthWindow:(UIWindow*)window;
++ (IGInstagramAPIErrorHandler)globalErrorHandler;
++ (void) setGlobalErrorHandler:(IGInstagramAPIErrorHandler)block;
 
 + (NSString*) endpoint;
 + (NSString*) versionedEndpoint;
@@ -35,6 +39,7 @@
 
 + (IGInstagramUser*)currentUser;
 
-+ (void) authenticateUser; // enter the OAuth flow
++ (void) authenticateUser; // enter the OAuth flow if needed
++ (void) enterAuthFlow; // explicitly - doesn't check tokens or anything
 
 @end

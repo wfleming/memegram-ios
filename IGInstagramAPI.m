@@ -21,6 +21,7 @@ static NSString *g_instagramAccessToken = nil;
 static Class<IGSerializer> g_instagramSerializer = nil;
 static IGInstagramUser *g_instagramCurrentUser = nil;
 static UIWindow *g_authWindow = nil;
+static IGInstagramAPIErrorHandler g_errorHandler = nil;
 
 @interface IGInstagramAPI (Private)
 + (NSString*) signedURLForPath:(NSString*)path;
@@ -75,6 +76,14 @@ static UIWindow *g_authWindow = nil;
   g_authWindow = window;
 }
 
++ (IGInstagramAPIErrorHandler)globalErrorHandler {
+  return g_errorHandler;
+}
+
++ (void) setGlobalErrorHandler:(IGInstagramAPIErrorHandler)block {
+  g_errorHandler = [block copy];
+}
+
 
 #pragma mark - URLs
 + (NSString*) endpoint {
@@ -114,11 +123,9 @@ static UIWindow *g_authWindow = nil;
   if (!g_instagramCurrentUser) {
     NSError *err = nil;
     g_instagramCurrentUser = [IGInstagramUser remoteUserWithId:@"self" error:&err];
-#ifdef DEBUG
     if (!g_instagramCurrentUser && err) {
       DLOG(@"Error attempting to fetch current user: %@", err);
     }
-#endif
   }
   return g_instagramCurrentUser;
 }
@@ -132,6 +139,10 @@ static UIWindow *g_authWindow = nil;
     return;
   }
   
+  // nothing more required -- +currentUser will enter flow if needed
+}
+
++ (void) enterAuthFlow {
   // established that we're not valid yet - show the auth controller
   IGInstagramAuthController *authController = [[IGInstagramAuthController alloc] init];
   UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:authController];

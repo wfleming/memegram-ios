@@ -9,11 +9,14 @@
 #import "IGInstagramAuthController.h"
 #import "IGInstagramAPI.h"
 
+#define STATUS_HEIGHT 44.0
+
 @interface IGInstagramAuthController (Private)
 - (UIWebView*) webView;
 - (UIActivityIndicatorView*) activityIndicator;
 - (UILabel*) statusLabel;
 - (UIView*) statusContainerView;
+- (UIButton*) startOverButton;
 @end
 
 #pragma mark -
@@ -75,6 +78,8 @@ Class initialViewClass = NULL;
   [newView addSubview:[self statusContainerView]];
   [newView addSubview:[self webView]];
   self.view = newView;
+  
+  // go to the url
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[IGInstagramAPI authURL]]];
   [[self webView] loadRequest:request];
 }
@@ -85,6 +90,7 @@ Class initialViewClass = NULL;
   NSURL *url = request.URL;
   if (![url.scheme isEqual:@"http"] && ![url.scheme isEqual:@"https"]) {
     if ([[UIApplication sharedApplication]canOpenURL:url]) {
+      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
       [[UIApplication sharedApplication]openURL:url];
       return NO;
     }
@@ -93,6 +99,8 @@ Class initialViewClass = NULL;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
+  [[self startOverButton] removeFromSuperview];
+  
   [_activityIndicator startAnimating];
   [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
   _statusLabel.text = @"Loading...";
@@ -116,7 +124,13 @@ Class initialViewClass = NULL;
   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
   _statusLabel.text = @"ERROR";
   
-  //TODO - give the user some way to restart the flow or get out of here
+  // show the start over button
+  [[self statusContainerView] addSubview:[self startOverButton]];
+}
+
+- (void) startOver {
+  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[IGInstagramAPI authURL]]];
+  [[self webView] loadRequest:request];
 }
 
 
@@ -124,7 +138,7 @@ Class initialViewClass = NULL;
 
 - (UIWebView*) webView {
   if (!_webView) {
-    CGRect webFrame = CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height);
+    CGRect webFrame = CGRectMake(0, STATUS_HEIGHT, self.view.frame.size.width, (self.view.frame.size.height - STATUS_HEIGHT));
     _webView = [[UIWebView alloc] initWithFrame:webFrame];
     _webView.delegate = self;
     _webView.scalesPageToFit = YES;
@@ -135,7 +149,11 @@ Class initialViewClass = NULL;
 - (UIActivityIndicatorView*) activityIndicator {
   if (!_activityIndicator) {
     _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    _activityIndicator.frame = CGRectMake(10, 10, _activityIndicator.frame.size.width, _activityIndicator.frame.size.height);
+    _activityIndicator.frame = CGRectMake(10.0,
+                                          ([self statusContainerView].frame.size.height - _activityIndicator.frame.size.height) / 2.0,
+                                          _activityIndicator.frame.size.width,
+                                          _activityIndicator.frame.size.height);
+    DLOG(@"activity fram is %@", NSStringFromCGRect(_activityIndicator.frame));
     _activityIndicator.hidesWhenStopped = YES;
   }
   return _activityIndicator;
@@ -143,7 +161,10 @@ Class initialViewClass = NULL;
 
 - (UILabel*) statusLabel {
   if (!_statusLabel) {
-    _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 10, 200, 20)];
+    _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(40.0,
+                                                             ([self statusContainerView].frame.size.height - 20.0) / 2.0,
+                                                             200.0,
+                                                             20.0)];
     _statusLabel.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
     _statusLabel.textColor = [UIColor whiteColor];
     _statusLabel.backgroundColor = [UIColor clearColor];
@@ -152,11 +173,28 @@ Class initialViewClass = NULL;
 }
 
 - (UIView*) statusContainerView {
-  UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50.0)];
-  v.backgroundColor = [UIColor blackColor];
-  [v addSubview:[self activityIndicator]];
-  [v addSubview:[self statusLabel]];
-  return v;
+  if (!_statusContainer) {
+    _statusContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, STATUS_HEIGHT)];
+    _statusContainer.backgroundColor = [UIColor blackColor];
+    [_statusContainer addSubview:[self activityIndicator]];
+    [_statusContainer addSubview:[self statusLabel]];
+  }
+  
+  return _statusContainer;
+}
+
+- (UIButton*) startOverButton {
+  if (!_startOverButton) {
+    _startOverButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    CGFloat width = 100.0, hPadding = 20.0, height = 34.0;
+    _startOverButton.frame = CGRectMake([self statusContainerView].frame.size.width - width - hPadding,
+                                        ([self statusContainerView].frame.size.height - height) / 2.0,
+                                        width,
+                                        height);
+    [_startOverButton setTitle:@"Start Over" forState:UIControlStateNormal];
+    [_startOverButton addTarget:self action:@selector(startOver) forControlEvents:UIControlEventTouchUpInside];
+  }
+  return _startOverButton;
 }
 
 @end

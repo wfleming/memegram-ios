@@ -11,10 +11,10 @@
 extern NSString * const kIGErrorDomain;
 
 typedef enum {
-  IGErrorOAuthException,
-  IGErrorServerError,
   IGErrorTimeout,
-  IGErrorDownForMaintenance
+  IGErrorOAuthException=400,
+  IGErrorServerError=500,
+  IGErrorDownForMaintenance=501
 } IGErrorCode;
 
 @interface IGResponse : NSObject {

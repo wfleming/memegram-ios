@@ -21,6 +21,10 @@ NSString * const kIGErrorDomain = @"IGErrorDomain";
 }
 
 - (void)normalizeError:(NSError *)aError {
+  if (!aError) {
+    return;
+  }
+  
 	switch ([aError code]) {
 		case NSURLErrorUserCancelledAuthentication:
 			_statusCode = 401;
@@ -62,6 +66,18 @@ NSString * const kIGErrorDomain = @"IGErrorDomain";
     }
 
     [self normalizeError:aError];
+    
+    // attempt to figure out *some* error if not a successful request
+    if ([self isError] && ![self error]) {
+      NSString *message = @"An error occurred.";
+      if ([self parsedBody]) {
+        message = [[[self parsedBody] objectForKey:@"meta"] objectForKey:@"error_message"];
+      }
+      _error = [NSError errorWithDomain:kIGErrorDomain
+                                   code:_statusCode
+                               userInfo:[NSDictionary dictionaryWithObject:message
+                                                                    forKey:NSLocalizedDescriptionKey]];
+    }
   }
 	return self;
 }

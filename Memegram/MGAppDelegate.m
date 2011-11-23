@@ -12,6 +12,7 @@
 #import "YourMemegramsController.h"
 
 #import "IGInstagramAPI.h"
+#import "IGResponse.h"
 #import "NSURL+WillFleming.h"
 #import "MGConstants.h"
 #import "MGUploader.h"
@@ -50,6 +51,21 @@
   [IGInstagramAPI setOAuthRedirctURL:OAUTH_INSTAGRAM_REDIRECT_URL];
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   [IGInstagramAPI setAccessToken:[defaults stringForKey:kDefaultsInstagramToken]];
+  [IGInstagramAPI setGlobalErrorHandler:^(IGResponse* response) {
+    switch ([response error].code) {
+      case IGErrorOAuthException:
+        [IGInstagramAPI enterAuthFlow];
+        break;
+      default: {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:[[response error] localizedDescription]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+      } break;
+    }
+  }];
   
   // set up the UI
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -253,21 +269,10 @@
   
   NSString *memegramToken = [defaults stringForKey:kDefaultsMemegramToken];
   
-  BOOL clearInstagramToken = NO;
-  
   if (!memegramToken) {
-    clearInstagramToken = YES;
-  } else {
-    //TODO - set clearInstagramToken to YES if token isn't valid
-  }
-  
-  if (clearInstagramToken) {
-    // make sure we end up re-authing, because we don't have a valid memegram taken
+    // we must have 2 tokens, so make sure that instagram clears if we don't have a memegram one
     [IGInstagramAPI setAccessToken:nil];
   }
-  
-  // IG API will check IG token, and prompt for reauth if not valid
-  [IGInstagramAPI authenticateUser];
 }
 
 @end

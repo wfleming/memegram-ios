@@ -45,7 +45,7 @@
 
 - (void) doLoad {
   // attempt nothing if there's no access token or we're already loading
-  if (![IGInstagramAPI accessToken] || _isLoading) {
+  if (_isLoading) {
     return;
   }
   
@@ -58,7 +58,7 @@
     
     blockSelf.mediaItems = [NSMutableArray arrayWithArray:[[IGInstagramAPI currentUser] recentMediaError:&error]];
     
-    blockSelf->_isLoaded = YES;
+    blockSelf->_isLoaded = (blockSelf.mediaItems && [blockSelf.mediaItems count] > 0);
     blockSelf->_isLoading = NO;
  
     dispatch_async(dispatch_get_main_queue(), ^{

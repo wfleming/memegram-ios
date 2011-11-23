@@ -7,6 +7,7 @@
 //
 
 #import "IGConnection.h"
+
 #import "IGConnectionDelegate.h"
 #import "IGResponse.h"
 #import "IGInstagramAPI.h"
@@ -52,6 +53,10 @@ static NSString * const kRunLoopMode = @"com.willfleming.instagram.connectionLoo
 	
   @synchronized([self activeDelegates]) {
     [activeDelegates removeObject:connectionDelegate];
+  }
+  
+  if ([resp isError] && [IGInstagramAPI globalErrorHandler]) {
+    [IGInstagramAPI globalErrorHandler](resp);
   }
 	
 	return resp;
