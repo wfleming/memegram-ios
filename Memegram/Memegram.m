@@ -43,7 +43,7 @@
 - (BOOL) uploadError:(NSError* __autoreleasing*)error {  
   BOOL success = NO;
   
-  if (!self.memegramId) { // guard this to avoid repeat updates
+  if (![self isUploaded]) { // guard this to avoid repeat updates
     NSMutableURLRequest *request = [MGConnection requestForMethod:@"POST" to:[MemegramAPI urlForEndpoint:@"/memegrams"]];
     [request setTimeoutInterval:180.0]; // images over something like EDGE could be really painful, and this is in the background anyway
     
@@ -153,7 +153,7 @@
 }
 
 - (BOOL) isUploaded {
-  return (nil != self.memegramId);
+  return (nil != self.memegramId && [self.memegramId integerValue] > 0);
 }
 
 - (BOOL) isUploading {

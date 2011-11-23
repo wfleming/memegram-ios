@@ -38,7 +38,6 @@
     self = [super initWithStyle:style];
     if (self) {
       self.title = NSLocalizedString(@"Finish", @"Finish");
-      self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
       self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
     }
     return self;
