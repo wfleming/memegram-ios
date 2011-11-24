@@ -223,10 +223,15 @@
 @implementation CreateMemegramView (KeybardNotifications)
 - (void) keyboardWillShow:(id)sender {
   // hide toolbar, move image view up
-  //TODO - animate, hide nav bar controller as well?
-  _toolbar.hidden = YES;
-  self.controller.navigationController.navigationBarHidden = YES;
-  _container.top = _toolbar.top;
+  [UIView animateWithDuration:0.25
+                        delay:0.0
+                      options:UIViewAnimationCurveEaseInOut
+                   animations:^{
+                     _toolbar.hidden = YES;
+                     self.controller.navigationController.navigationBarHidden = YES;
+                     _container.top = _toolbar.top;
+                   }
+                   completion:NULL];
 }
 
 - (void) keyboardDidShow:(id)sender {
@@ -235,10 +240,15 @@
 
 - (void) keyboardWillHide:(id)sender {
   // move image view down, show toolbar
-  //TODO - animate, re-show nav bar controller as well?
-  _container.top = _toolbar.top + _toolbar.height;
-  _toolbar.hidden = NO;
-  self.controller.navigationController.navigationBarHidden = NO;
+  [UIView animateWithDuration:0.25
+                        delay:0.0
+                      options:UIViewAnimationCurveEaseInOut
+                   animations:^{
+                     _container.top = _toolbar.top + _toolbar.height;
+                     _toolbar.hidden = NO;
+                     self.controller.navigationController.navigationBarHidden = NO;
+                   }
+                   completion:NULL];
 }
 
 - (void) keyboardDidHide:(id)sender {
@@ -259,11 +269,28 @@
 }
 
 - (void) toggleFontSize {
-  if (self == [_fontSizeToolbar superview]) {
-    [_fontSizeToolbar removeFromSuperview];
+  BOOL hiding = (self == [_fontSizeToolbar superview]);
+  CGFloat newAlpha = (hiding ? 0.0 : 1.0);
+  
+  // do pre-animation setup of alpha & view hierarchy
+  if (hiding) {
+    _fontSizeToolbar.alpha = 1.0;
   } else {
+    _fontSizeToolbar.alpha = 0.0;
     [self addSubview:_fontSizeToolbar];
   }
+  
+  [UIView animateWithDuration:0.25
+                        delay:0.0
+                      options:UIViewAnimationCurveEaseInOut
+                   animations:^{
+                     _fontSizeToolbar.alpha = newAlpha;
+                   }
+                   completion:^(BOOL finished){
+                     if (hiding) {
+                       [_fontSizeToolbar removeFromSuperview];
+                     }
+                   }];
 }
         
 - (void) toggleBold {
