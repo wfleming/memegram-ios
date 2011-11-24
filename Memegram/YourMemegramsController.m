@@ -13,7 +13,7 @@
 #import "Memegram.h"
 #import "MemegramDetailController.h"
 
-@interface YourMemegramsController
+@interface YourMemegramsController (Private)
 - (void) _reloadDataForce:(BOOL)force;
 @end
 
@@ -105,6 +105,11 @@
   [self _reloadDataForce:YES];
 }
 
+@end
+
+
+#pragma mark -
+@implementation YourMemegramsController (Private)
 - (void) _reloadDataForce:(BOOL)force {
   if (force) {
     _memegrams = nil;
@@ -126,5 +131,4 @@
     [_gridView setNeedsLayout];
   }
 }
-
 @end
