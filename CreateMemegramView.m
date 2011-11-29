@@ -13,7 +13,7 @@
 #import "UIView+WillFleming.h"
 #import "UIToolbar+WillFleming.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import <CoreText/CoreText.h>
 
 #pragma mark -
 @interface CreateMemegramView (KeybardNotifications)
@@ -155,17 +155,32 @@
 }
 
 - (UIImage*) compositeMemegramImage {
+  /*
+   TypeSetter?
+    FrameSetter - give it a string, get a set of lines
+   a line is a set of attribute runs
+   
+   
+   CTLineDraw
+   
+   initialize an attributed string from a regular string - CT figures it out from there
+   
+   
+   */
+  
+  
+  
   // hide things that shouldn't be visible
-  [_fontSizeToolbar removeFromSuperview];
   self.activeTextView = nil;
   
   // begin the real work
-  UIGraphicsBeginImageContext(_imageView.image.size);
+  CGSize imgBounds = _imageView.image.size;
+  UIGraphicsBeginImageContext(imgBounds);
   CGContextRef g = UIGraphicsGetCurrentContext();
   [_imageView.image drawAtPoint:CGPointZero];
   
   // scale the coordinate size (image/context is bigger than actual view)
-  CGFloat scale = (_imageView.image.size.width / _imageView.width);
+  CGFloat scale = (imgBounds.width / _imageView.width);
   CGContextScaleCTM(g, scale, scale);
   
   for(UIView *v in _container.subviews) {
@@ -174,11 +189,33 @@
       
       /* We translate the origin because CALayer draws at (0,0) all the time otherwise.
        * Then we translate back so the next view gets the right coords.
-       * (I'm not sure why Y needs a static offset & X doesn't. Rounding error?) */
-      CGFloat dX = tv.left, dY = (tv.top - 2.0);
+       * the extra y value here appears to depend on actual font size.
+       * at default 25pt, it's 7px. at max (80pt), it's 17px */
+      CGFloat extraY = (tv.font.pointSize / 5.0) + 1;
+      CGFloat dX = (tv.left + 8.0), dY = (tv.top + extraY);
       CGContextTranslateCTM(g, dX, dY);
-      [tv.layer renderInContext:g];
+
+      // set up the attributed string with stroke attributes
+      CFMutableAttributedStringRef str = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0);
+      if (nil != str) {
+        CFAttributedStringReplaceString(str, CFRangeMake(0, 0), (__bridge CFStringRef)tv.text);
+      }
+      CFRange strRange = CFRangeMake(0, [tv.text length]);
+      CFAttributedStringSetAttribute(str, strRange, kCTForegroundColorAttributeName, tv.textColor.CGColor);
+      CTFontRef ctFont = CTFontCreateWithName((__bridge CFStringRef)tv.font.fontName, tv.font.pointSize, NULL);
+      CFAttributedStringSetAttribute(str, strRange, kCTFontAttributeName, ctFont);
+      CFAttributedStringSetAttribute(str, strRange, kCTStrokeColorAttributeName, [UIColor blackColor].CGColor);
+      CFAttributedStringSetAttribute(str, strRange, kCTStrokeWidthAttributeName, (__bridge CFTypeRef)[NSNumber numberWithFloat:-4.0]); //TODO - set as percentage?
+      
+      CATextLayer *strokeLayer = [[CATextLayer alloc] init];
+      strokeLayer.string = (__bridge NSMutableAttributedString*)str;
+      strokeLayer.frame = tv.layer.frame;
+      [strokeLayer renderInContext:g]; //render the stroke
+      
+      
       CGContextTranslateCTM(g, -dX, -dY);
+      
+      CFRelease(str);
     } // end if for subview class
   } // end loop over subviews
   
@@ -209,6 +246,7 @@
   if (nil == textView) {
     _fontSizeButtonItem.enabled = NO;
     _boldButtomItem.enabled = NO;
+    [_fontSizeToolbar removeFromSuperview];
   } else {
     _fontSizeButtonItem.enabled = YES;
     _boldButtomItem.enabled = YES;
@@ -270,6 +308,7 @@
 
 - (void) toggleFontSize {
   BOOL hiding = (self == [_fontSizeToolbar superview]);
+  
   CGFloat newAlpha = (hiding ? 0.0 : 1.0);
   
   // do pre-animation setup of alpha & view hierarchy
@@ -294,6 +333,10 @@
 }
         
 - (void) toggleBold {
+  if (!self.activeTextView) {
+    return;
+  }
+  
   NSString *fontName = [self.activeTextView.font fontName];
   if (NSNotFound == [fontName rangeOfString:@"bold" options:NSCaseInsensitiveSearch|NSBackwardsSearch].location) {
     // currently not bold. switch to bold.

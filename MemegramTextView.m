@@ -12,7 +12,7 @@
 #import "MemegramTextViewDelegate.h"
 #import "UIView+WillFleming.h"
 
-#define DEFAULT_FONT_SIZE 20.0
+#define DEFAULT_FONT_SIZE 25.0
 
 @implementation MemegramTextView
 

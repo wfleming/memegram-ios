@@ -37,6 +37,7 @@
 		BE2DD01E147D671400B6C31B /* UIUnreadIndicatorPartialPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD012147D671400B6C31B /* UIUnreadIndicatorPartialPressed@2x.png */; };
 		BE2DD01F147D671400B6C31B /* UIUnreadIndicatorPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD013147D671400B6C31B /* UIUnreadIndicatorPressed.png */; };
 		BE2DD020147D671400B6C31B /* UIUnreadIndicatorPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD014147D671400B6C31B /* UIUnreadIndicatorPressed@2x.png */; };
+		BE2DD06C14846CA400B6C31B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7CFD0F1475CEAE00062002 /* CoreText.framework */; };
 		BE76A232147948AE00B722F4 /* GCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A210147948AE00B722F4 /* GCAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE76A233147948AE00B722F4 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A214147948AE00B722F4 /* DDXMLElementAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE76A234147948AE00B722F4 /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A217147948AE00B722F4 /* NSString+DDXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -307,6 +308,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE2DD06C14846CA400B6C31B /* CoreText.framework in Frameworks */,
 				BE76A23D1479499500B722F4 /* libxml2.dylib in Frameworks */,
 				BE7CFD84147730B300062002 /* SystemConfiguration.framework in Frameworks */,
 				BE7CFD6F1476E1A700062002 /* Accounts.framework in Frameworks */,
