@@ -190,7 +190,7 @@
       /* We translate the origin because CALayer draws at (0,0) all the time otherwise.
        * Then we translate back so the next view gets the right coords.
        * the extra y value here appears to depend on actual font size.
-       * at default 25pt, it's 7px. at max (80pt), it's 17px */
+       * at default 25pt, it's 7px (ish). at max (80pt), it's 17px (ish) */
       CGFloat extraY = (tv.font.pointSize / 5.0) + 1;
       CGFloat dX = (tv.left + 8.0), dY = (tv.top + extraY);
       CGContextTranslateCTM(g, dX, dY);
