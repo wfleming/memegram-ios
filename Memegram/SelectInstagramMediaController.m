@@ -32,6 +32,7 @@
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
     self.title = NSLocalizedString(@"Your Instagrams", @"Your Instagrams");
+    self.tabBarItem.image = [UIImage imageNamed:@"your-instagrams-tab-icon"];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
