@@ -13,16 +13,18 @@
 
 @implementation InstagramMediaCell
 
+static const CGFloat frameSize = 1.0;
+
 @synthesize media=_media;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier
 {
   if ((self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier])) {
     _imageView = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
-    _imageView.width = _imageView.width - 10.0;
-    _imageView.height = _imageView.height - 10.0;
-    _imageView.top = 5.0;
-    _imageView.left = 5.0;
+    _imageView.width = _imageView.width - (frameSize * 2.0);
+    _imageView.height = _imageView.height - (frameSize * 2.0);
+    _imageView.top = frameSize;
+    _imageView.left = frameSize;
     [self.contentView addSubview:_imageView];
     self.contentView.backgroundColor = [UIColor clearColor];
     self.backgroundView.backgroundColor = [UIColor greenColor];
