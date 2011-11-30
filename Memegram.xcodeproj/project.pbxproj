@@ -191,7 +191,7 @@
 		BE76A230147948AE00B722F4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/HTNotifier.strings; sourceTree = "<group>"; };
 		BE76A231147948AE00B722F4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/HTNotifier.strings"; sourceTree = "<group>"; };
 		BE76A23C1479499500B722F4 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		BE799D8B1471962600CFC615 /* Memegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memegram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE799D8B1471962600CFC615 /* Lolgramz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lolgramz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE799D8F1471962600CFC615 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE799D911471962600CFC615 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE799D931471962600CFC615 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -513,7 +513,7 @@
 		BE799D8C1471962600CFC615 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE799D8B1471962600CFC615 /* Memegram.app */,
+				BE799D8B1471962600CFC615 /* Lolgramz.app */,
 				BE799DBD1471962700CFC615 /* MemegramTests.octest */,
 			);
 			name = Products;
@@ -795,7 +795,7 @@
 			);
 			name = Memegram;
 			productName = Memegram;
-			productReference = BE799D8B1471962600CFC615 /* Memegram.app */;
+			productReference = BE799D8B1471962600CFC615 /* Lolgramz.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BE799DBC1471962700CFC615 /* MemegramTests */ = {
@@ -1064,7 +1064,7 @@
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
 				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Lolgramz;
 				PROVISIONING_PROFILE = "2056226F-5972-4E19-94DA-236B46F89DAF";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2056226F-5972-4E19-94DA-236B46F89DAF";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1153,7 +1153,7 @@
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
 				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Lolgramz;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1172,7 +1172,7 @@
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
 				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Lolgramz;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};

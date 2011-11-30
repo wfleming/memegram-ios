@@ -25,7 +25,7 @@
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-    self.title = NSLocalizedString(@"Your Memegrams", @"Your Memegrams");
+    self.title = NSLocalizedString(@"Your Lolgramz", @"Your Lolgramz");
     self.tabBarItem.image = [UIImage imageNamed:@"your-lolgramz-tab-icon"];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
       self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
