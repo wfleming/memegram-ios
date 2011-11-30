@@ -171,14 +171,14 @@
 }
 
 - (UIView*) loadingView {
-  UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
+  UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 150.0, 30.0)];
   v.backgroundColor = [UIColor clearColor];
   
   UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
   [spinner startAnimating];
   [v addSubview:spinner];
   
-  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(spinner.width + 10.0, 0, 200, 50)];
+  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(spinner.width + 10.0, 0.0, v.width - spinner.width - 10.0, 30.0)];
   label.font = [UIFont systemFontOfSize:16.0];
   label.textColor = [UIColor darkGrayColor];
   label.backgroundColor = [UIColor clearColor];
@@ -195,7 +195,6 @@
   }
   
   _overlayView = [[UIView alloc] initWithFrame:self.view.bounds];
-  _overlayView.backgroundColor = [UIColor orangeColor]; //DEBUG
   _overlayView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleHeight;
   _overlayView.autoresizesSubviews = YES;
   

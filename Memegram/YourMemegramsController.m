@@ -120,6 +120,8 @@
     MGAppDelegate *appDelegate = (MGAppDelegate*)[UIApplication sharedApplication].delegate;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[Memegram entityDescription]];
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO];
+    [request setSortDescriptors:[NSArray arrayWithObject:sort]];
     NSError *err;
     NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request error:&err];
     if (results && [results count] > 0) {

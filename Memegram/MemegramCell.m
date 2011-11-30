@@ -37,14 +37,20 @@
   _memegram = memegram;
   _imageView.image = memegram.image;
   
-  //TODO - render real accessory views
+  UIImageView *newAccessory = nil;
+  UIImage *badgeImg = nil;
+  
   if ([_memegram isWaitingForUpload]) {
-    self.accessoryType = KKGridViewCellAccessoryTypeUnread;
+    badgeImg = [UIImage imageNamed:@"waiting-indicator"];
   } else if ([_memegram isUploading]) {
-    self.accessoryType = KKGridViewCellAccessoryTypeReadPartial;
-  } else {
-    self.accessoryType = KKGridViewCellAccessoryTypeNone;
+    badgeImg = [UIImage imageNamed:@"upload-indicator"];
   }
+  
+  if (badgeImg) {
+    newAccessory = [[UIImageView alloc] initWithImage:badgeImg];
+  }
+  
+  self.accessoryView = newAccessory;
 }
 
 - (void)layoutSubviews

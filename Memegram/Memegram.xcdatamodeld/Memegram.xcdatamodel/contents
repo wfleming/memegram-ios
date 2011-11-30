@@ -2,6 +2,7 @@
 <model name="" userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Memegram" representedClassName="Memegram" syncable="YES">
         <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Transformable" valueTransformerName="ImageToDataTransformer" syncable="YES"/>
         <attribute name="instagramSourceId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="instagramSourceLink" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,7 +22,7 @@
     </entity>
     <fetchRequest name="UnuploadedMemegramsFetchRequest" entity="Memegram" predicateString="memegramId == 0 OR memegramId == NULL"/>
     <elements>
-        <element name="Memegram" positionX="160" positionY="192" width="128" height="195"/>
+        <element name="Memegram" positionX="160" positionY="192" width="128" height="210"/>
         <element name="User" positionX="261" positionY="189" width="128" height="120"/>
     </elements>
 </model>

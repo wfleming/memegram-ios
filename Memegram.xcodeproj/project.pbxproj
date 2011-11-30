@@ -25,19 +25,11 @@
 		BE26F0C914745A7D00192403 /* StatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0C814745A7D00192403 /* StatusItem.m */; };
 		BE26F0CC14745B4600192403 /* InstagramMediaDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0CB14745B4600192403 /* InstagramMediaDataSource.m */; };
 		BE26F0D21474774200192403 /* UIViewController+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0D11474774200192403 /* UIViewController+WillFleming.m */; };
-		BE2DD015147D671400B6C31B /* failure-btn-press.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD009147D671400B6C31B /* failure-btn-press.png */; };
-		BE2DD016147D671400B6C31B /* failure-btn-press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD00A147D671400B6C31B /* failure-btn-press@2x.png */; };
-		BE2DD017147D671400B6C31B /* failure-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD00B147D671400B6C31B /* failure-btn.png */; };
-		BE2DD018147D671400B6C31B /* failure-btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD00C147D671400B6C31B /* failure-btn@2x.png */; };
-		BE2DD019147D671400B6C31B /* UIUnreadIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD00D147D671400B6C31B /* UIUnreadIndicator.png */; };
-		BE2DD01A147D671400B6C31B /* UIUnreadIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD00E147D671400B6C31B /* UIUnreadIndicator@2x.png */; };
-		BE2DD01B147D671400B6C31B /* UIUnreadIndicatorPartial.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD00F147D671400B6C31B /* UIUnreadIndicatorPartial.png */; };
-		BE2DD01C147D671400B6C31B /* UIUnreadIndicatorPartial@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD010147D671400B6C31B /* UIUnreadIndicatorPartial@2x.png */; };
-		BE2DD01D147D671400B6C31B /* UIUnreadIndicatorPartialPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD011147D671400B6C31B /* UIUnreadIndicatorPartialPressed.png */; };
-		BE2DD01E147D671400B6C31B /* UIUnreadIndicatorPartialPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD012147D671400B6C31B /* UIUnreadIndicatorPartialPressed@2x.png */; };
-		BE2DD01F147D671400B6C31B /* UIUnreadIndicatorPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD013147D671400B6C31B /* UIUnreadIndicatorPressed.png */; };
-		BE2DD020147D671400B6C31B /* UIUnreadIndicatorPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD014147D671400B6C31B /* UIUnreadIndicatorPressed@2x.png */; };
 		BE2DD06C14846CA400B6C31B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7CFD0F1475CEAE00062002 /* CoreText.framework */; };
+		BE2DD07C1485C2DD00B6C31B /* upload-indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD0781485C2DD00B6C31B /* upload-indicator.png */; };
+		BE2DD07D1485C2DD00B6C31B /* upload-indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD0791485C2DD00B6C31B /* upload-indicator@2x.png */; };
+		BE2DD07E1485C2DD00B6C31B /* waiting-indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD07A1485C2DD00B6C31B /* waiting-indicator.png */; };
+		BE2DD07F1485C2DD00B6C31B /* waiting-indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DD07B1485C2DD00B6C31B /* waiting-indicator@2x.png */; };
 		BE76A232147948AE00B722F4 /* GCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A210147948AE00B722F4 /* GCAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE76A233147948AE00B722F4 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A214147948AE00B722F4 /* DDXMLElementAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE76A234147948AE00B722F4 /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A217147948AE00B722F4 /* NSString+DDXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -157,18 +149,10 @@
 		BE26F0CB14745B4600192403 /* InstagramMediaDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramMediaDataSource.m; sourceTree = "<group>"; };
 		BE26F0D01474774200192403 /* UIViewController+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WillFleming.h"; sourceTree = "<group>"; };
 		BE26F0D11474774200192403 /* UIViewController+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WillFleming.m"; sourceTree = "<group>"; };
-		BE2DD009147D671400B6C31B /* failure-btn-press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "failure-btn-press.png"; sourceTree = "<group>"; };
-		BE2DD00A147D671400B6C31B /* failure-btn-press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "failure-btn-press@2x.png"; sourceTree = "<group>"; };
-		BE2DD00B147D671400B6C31B /* failure-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "failure-btn.png"; sourceTree = "<group>"; };
-		BE2DD00C147D671400B6C31B /* failure-btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "failure-btn@2x.png"; sourceTree = "<group>"; };
-		BE2DD00D147D671400B6C31B /* UIUnreadIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIUnreadIndicator.png; sourceTree = "<group>"; };
-		BE2DD00E147D671400B6C31B /* UIUnreadIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIUnreadIndicator@2x.png"; sourceTree = "<group>"; };
-		BE2DD00F147D671400B6C31B /* UIUnreadIndicatorPartial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIUnreadIndicatorPartial.png; sourceTree = "<group>"; };
-		BE2DD010147D671400B6C31B /* UIUnreadIndicatorPartial@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIUnreadIndicatorPartial@2x.png"; sourceTree = "<group>"; };
-		BE2DD011147D671400B6C31B /* UIUnreadIndicatorPartialPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIUnreadIndicatorPartialPressed.png; sourceTree = "<group>"; };
-		BE2DD012147D671400B6C31B /* UIUnreadIndicatorPartialPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIUnreadIndicatorPartialPressed@2x.png"; sourceTree = "<group>"; };
-		BE2DD013147D671400B6C31B /* UIUnreadIndicatorPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIUnreadIndicatorPressed.png; sourceTree = "<group>"; };
-		BE2DD014147D671400B6C31B /* UIUnreadIndicatorPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIUnreadIndicatorPressed@2x.png"; sourceTree = "<group>"; };
+		BE2DD0781485C2DD00B6C31B /* upload-indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload-indicator.png"; sourceTree = "<group>"; };
+		BE2DD0791485C2DD00B6C31B /* upload-indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload-indicator@2x.png"; sourceTree = "<group>"; };
+		BE2DD07A1485C2DD00B6C31B /* waiting-indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "waiting-indicator.png"; sourceTree = "<group>"; };
+		BE2DD07B1485C2DD00B6C31B /* waiting-indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "waiting-indicator@2x.png"; sourceTree = "<group>"; };
 		BE76A20F147948AE00B722F4 /* GCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAlertView.h; sourceTree = "<group>"; };
 		BE76A210147948AE00B722F4 /* GCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAlertView.m; sourceTree = "<group>"; };
 		BE76A213147948AE00B722F4 /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
@@ -413,23 +397,15 @@
 			name = "Class Additions";
 			sourceTree = "<group>";
 		};
-		BE2DD008147D671400B6C31B /* KKGridView Resources */ = {
+		BE2DD0771485C2DD00B6C31B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				BE2DD009147D671400B6C31B /* failure-btn-press.png */,
-				BE2DD00A147D671400B6C31B /* failure-btn-press@2x.png */,
-				BE2DD00B147D671400B6C31B /* failure-btn.png */,
-				BE2DD00C147D671400B6C31B /* failure-btn@2x.png */,
-				BE2DD00D147D671400B6C31B /* UIUnreadIndicator.png */,
-				BE2DD00E147D671400B6C31B /* UIUnreadIndicator@2x.png */,
-				BE2DD00F147D671400B6C31B /* UIUnreadIndicatorPartial.png */,
-				BE2DD010147D671400B6C31B /* UIUnreadIndicatorPartial@2x.png */,
-				BE2DD011147D671400B6C31B /* UIUnreadIndicatorPartialPressed.png */,
-				BE2DD012147D671400B6C31B /* UIUnreadIndicatorPartialPressed@2x.png */,
-				BE2DD013147D671400B6C31B /* UIUnreadIndicatorPressed.png */,
-				BE2DD014147D671400B6C31B /* UIUnreadIndicatorPressed@2x.png */,
+				BE2DD0781485C2DD00B6C31B /* upload-indicator.png */,
+				BE2DD0791485C2DD00B6C31B /* upload-indicator@2x.png */,
+				BE2DD07A1485C2DD00B6C31B /* waiting-indicator.png */,
+				BE2DD07B1485C2DD00B6C31B /* waiting-indicator@2x.png */,
 			);
-			path = "KKGridView Resources";
+			path = Images;
 			sourceTree = "<group>";
 		};
 		BE76A20D147948AE00B722F4 /* Airbrake NOARC */ = {
@@ -573,7 +549,7 @@
 		BE799D981471962600CFC615 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE2DD008147D671400B6C31B /* KKGridView Resources */,
+				BE2DD0771485C2DD00B6C31B /* Images */,
 				BE7CFD701476E35B00062002 /* MGConstants.h */,
 				BE7CFD711476E60000062002 /* MGConstants.m */,
 				BE799DA31471962700CFC615 /* Memegram.xcdatamodeld */,
@@ -872,18 +848,10 @@
 				BEE7A6891471F3AB002CB0C0 /* Development.xcconfig in Resources */,
 				BEE7A68B1471F4A1002CB0C0 /* Production.xcconfig in Resources */,
 				BE76A23B147948AE00B722F4 /* HTNotifier.strings in Resources */,
-				BE2DD015147D671400B6C31B /* failure-btn-press.png in Resources */,
-				BE2DD016147D671400B6C31B /* failure-btn-press@2x.png in Resources */,
-				BE2DD017147D671400B6C31B /* failure-btn.png in Resources */,
-				BE2DD018147D671400B6C31B /* failure-btn@2x.png in Resources */,
-				BE2DD019147D671400B6C31B /* UIUnreadIndicator.png in Resources */,
-				BE2DD01A147D671400B6C31B /* UIUnreadIndicator@2x.png in Resources */,
-				BE2DD01B147D671400B6C31B /* UIUnreadIndicatorPartial.png in Resources */,
-				BE2DD01C147D671400B6C31B /* UIUnreadIndicatorPartial@2x.png in Resources */,
-				BE2DD01D147D671400B6C31B /* UIUnreadIndicatorPartialPressed.png in Resources */,
-				BE2DD01E147D671400B6C31B /* UIUnreadIndicatorPartialPressed@2x.png in Resources */,
-				BE2DD01F147D671400B6C31B /* UIUnreadIndicatorPressed.png in Resources */,
-				BE2DD020147D671400B6C31B /* UIUnreadIndicatorPressed@2x.png in Resources */,
+				BE2DD07C1485C2DD00B6C31B /* upload-indicator.png in Resources */,
+				BE2DD07D1485C2DD00B6C31B /* upload-indicator@2x.png in Resources */,
+				BE2DD07E1485C2DD00B6C31B /* waiting-indicator.png in Resources */,
+				BE2DD07F1485C2DD00B6C31B /* waiting-indicator@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

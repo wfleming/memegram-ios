@@ -20,16 +20,6 @@ typedef enum {
     KKGridViewCellAccessoryPositionBottomRight, // 4
 } KKGridViewCellAccessoryPosition;
 
-typedef enum {
-    KKGridViewCellAccessoryTypeNone, // Blank
-    KKGridViewCellAccessoryTypeUnread, // Blue bullet
-    KKGridViewCellAccessoryTypeReadPartial,
-    KKGridViewCellAccessoryTypeNew, // New badge (ala Newsstand/Sonora)
-    KKGridViewCellAccessoryTypeDelete, // customish deletion
-    KKGridViewCellAccessoryTypeInfo, // Info button
-    KKGridViewCellAccessoryTypeBadgeExclamatory, // Messages app style error
-    KKGridViewCellAccessoryTypeBadgeNumeric // SpringBoard numeric badge
-} KKGridViewCellAccessoryType;
 
 typedef enum {
     KKGridViewCellAppearanceStyleAppleDefault, // Ripped from UIKit
@@ -56,7 +46,7 @@ typedef enum {
 @property (nonatomic) BOOL selected; // I/O
 @property (nonatomic, strong) UIView *selectedBackgroundView; // Replaces *backgroundView when selected is YES
 @property (nonatomic) BOOL editing; // Editing state
-@property (nonatomic) KKGridViewCellAccessoryType accessoryType; // Default is none.
+@property (nonatomic, strong) UIView *accessoryView; // Default is nil;
 @property (nonatomic) KKGridViewCellAccessoryPosition accessoryPosition; // Default is quadrant 1.
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;

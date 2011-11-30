@@ -228,10 +228,14 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Memegram.sqlite"];
+  
+  NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                           [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                           [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
+    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error])
     {
 #ifdef DEBUG
       // quick fix (for dev) - attempt a delete and try again

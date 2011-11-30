@@ -38,7 +38,7 @@
 @dynamic shareToTumblr;
 @dynamic shareToFacebook;
 @dynamic link;
-
+@dynamic createdAt;
 
 - (BOOL) uploadError:(NSError* __autoreleasing*)error {  
   BOOL success = NO;

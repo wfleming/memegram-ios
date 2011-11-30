@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSNumber * shareToTwitter;
 @property (nonatomic, strong) NSNumber * shareToTumblr;
 @property (nonatomic, strong) NSNumber * shareToFacebook;
+@property (nonatomic, strong) NSDate *createdAt;
 
 
 - (BOOL) uploadError:(NSError* __autoreleasing*)error;

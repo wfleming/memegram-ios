@@ -58,6 +58,7 @@
   memegram.image = compositeImage;
   memegram.instagramSourceId = self.sourceMedia.instagramId;
   memegram.instagramSourceLink = self.sourceMedia.instagramURL;
+  memegram.createdAt = [NSDate date];
   
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   memegram.shareToTwitter = [NSNumber numberWithBool:[defaults boolForKey:kDefaultsShareOnTwitter]];

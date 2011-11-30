@@ -11,7 +11,9 @@
 #import "Memegram.h"
 #import "ImageCell.h"
 
-@implementation MemegramDetailController
+@implementation MemegramDetailController {
+  BOOL _savedToPhotoAlbum;
+}
 
 @synthesize memegram;
 
@@ -24,6 +26,7 @@
   self = [super initWithStyle:style];
   if (self) {
     self.title = NSLocalizedString(@"Memegram", @"Memegram");
+    _savedToPhotoAlbum = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_managedObjectContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:nil];
   }
   return self;
@@ -51,12 +54,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  // image, web, save
+  // image, (web | state if not uploaded), save
   NSInteger sections = 3;
-  
-  if (![self.memegram isUploaded]) { // add a section to show status
-    sections++;
-  }
   
   return sections;
 }
@@ -92,8 +91,6 @@
     }
   }
   
-  NSUInteger offset = ([self.memegram isUploaded] ? 0 : 1);
-  
   // Configure the cell...
   if (0 == indexPath.section) {
     ((ImageCell*)cell).image = self.memegram.image;
@@ -103,10 +100,14 @@
     } else if ([self.memegram isWaitingForUpload]) {
       cell.textLabel.text = @"Queued for Upload";
     }
-  } else if ((offset + 1) == indexPath.section) {
+  } else if ([self.memegram isUploaded] && 1 == indexPath.section) {
     cell.textLabel.text = @"See it on the web";
-  } else if ((offset + 2) == indexPath.section) {
-    cell.textLabel.text = @"Save to your Photo Album";
+  } else if (2 == indexPath.section) {
+    if (_savedToPhotoAlbum) {
+      cell.textLabel.text = @"Saved in your Photo Album";
+    } else {
+      cell.textLabel.text = @"Save to your Photo Album";
+    }
   }
   
   return cell;
@@ -116,14 +117,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSUInteger offset = ([self.memegram isUploaded] ? 0 : 1);
-  
-  if ((1 + offset) == indexPath.section) { // web
+  if ([self.memegram isUploaded] && 1 == indexPath.section) { // web
     NSString *url = self.memegram.link;
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-  } else if ((2 + offset) == indexPath.section) { // save
-    //TODO - FEEDBACK!
+  } else if (2 == indexPath.section) { // save
     UIImageWriteToSavedPhotosAlbum(self.memegram.image, nil, nil, NULL);
+    _savedToPhotoAlbum = YES;
+    [self.tableView reloadData];
   }
   
   [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
