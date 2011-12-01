@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "KKGridView.h"
 
-@interface YourMemegramsController : UIViewController {
-  KKGridView *_gridView;
-  NSArray *_memegrams;
-}
+@interface YourMemegramsController : UIViewController
 
 @end

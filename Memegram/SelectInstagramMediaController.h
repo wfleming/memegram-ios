@@ -11,11 +11,7 @@
 
 @class InstagramMediaDataSource;
 
-@interface SelectInstagramMediaController : UIViewController {
-  InstagramMediaDataSource *_dataSource;
-  KKGridView *_gridView;
-  UIView *_overlayView; // for loading & errors
-}
+@interface SelectInstagramMediaController : UIViewController
 
 @property (readonly, nonatomic) InstagramMediaDataSource *dataSource;
 

@@ -25,7 +25,11 @@
 - (void) windowDidBecomeKey:(id)sender;
 @end
 
-@implementation SelectInstagramMediaController
+@implementation SelectInstagramMediaController {
+  InstagramMediaDataSource *_dataSource;
+  KKGridView *_gridView;
+  UIView *_overlayView; // for loading & errors
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,8 +48,10 @@
 							
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    //TODO - tell datasource to release memory if it can.
+  [super didReceiveMemoryWarning];
+  if (nil == self.view.superview) { // i.e. if we're not visible
+    _dataSource = nil;
+  }
 }
 
 
@@ -115,10 +121,6 @@
       return YES;
   }
 }
-
-
-#pragma mark - AQGridViewDelegate implementations
-
 
 #pragma mark - Property Implementations
 - (InstagramMediaDataSource*) dataSource {

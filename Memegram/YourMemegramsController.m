@@ -17,7 +17,10 @@
 - (void) _reloadDataForce:(BOOL)force;
 @end
 
-@implementation YourMemegramsController
+@implementation YourMemegramsController {
+  KKGridView *_gridView;
+  NSArray *_memegrams;
+}
 
 
 #pragma mark - overrides
