@@ -10,17 +10,7 @@
 
 @class IGInstagramMedia, MemegramTextView;
 
-@interface CreateMemegramView : UIView {
-  IGInstagramMedia *_originalMedia;
-  
-  MemegramTextView *_activeTextView;
-  UIImageView *_imageView;
-  UIView *_container; // contain all text views & the image view
-  UIActivityIndicatorView *_activityIndicator; // for loading the image
-  UIToolbar *_toolbar, *_fontSizeToolbar;
-  UISlider *_fontSizeSlider;
-  UIBarButtonItem *_addTextViewButtonItem, *_fontSizeButtonItem, *_boldButtomItem;
-}
+@interface CreateMemegramView : UIView
 
 @property (strong, nonatomic) MemegramTextView *activeTextView;
 @property (weak, nonatomic) UIViewController *controller;

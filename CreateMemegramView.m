@@ -31,9 +31,24 @@
 - (void) handleImageTap:(id)sender;
 @end
 
+@interface CreateMemegramView (Private)
+- (void) updateBoldButton;
+@end
+
 
 #pragma mark -
-@implementation CreateMemegramView
+@implementation CreateMemegramView {
+  IGInstagramMedia *_originalMedia;
+  
+  MemegramTextView *_activeTextView;
+  UIImageView *_imageView;
+  UIView *_container; // contain all text views & the image view
+  UIActivityIndicatorView *_activityIndicator; // for loading the image
+  UIToolbar *_toolbar, *_fontSizeToolbar;
+  UISlider *_fontSizeSlider;
+  UIBarButtonItem *_addTextViewButtonItem, *_fontSizeButtonItem, *_boldButtomItem;
+}
+
 
 @synthesize activeTextView=_activeTextView, controller;
 
@@ -53,13 +68,21 @@
     _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 0.0, self.width, 47.0)];
     _toolbar.barStyle = UIBarStyleBlack;
     
-    _addTextViewButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTextView)];
+    _addTextViewButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"add-text"]
+                                                              style:UIBarButtonItemStylePlain
+                                                             target:self action:@selector(addTextView)];
     _addTextViewButtonItem.enabled = NO;
     
-    _fontSizeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"font size" style:UIBarButtonItemStylePlain target:self action:@selector(toggleFontSize)];
+    _fontSizeButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"font-size"]
+                                                           style:UIBarButtonItemStylePlain
+                                                          target:self
+                                                          action:@selector(toggleFontSize)];
     _fontSizeButtonItem.enabled = NO;
     
-    _boldButtomItem = [[UIBarButtonItem alloc] initWithTitle:@"Bold Is On" style:UIBarButtonItemStylePlain target:self action:@selector(toggleBold)];
+    _boldButtomItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bold-highlighted"]
+                                                       style:UIBarButtonItemStylePlain
+                                                      target:self
+                                                      action:@selector(toggleBold)];
     _fontSizeButtonItem.enabled = NO;
     
     _toolbar.items = [NSArray arrayWithObjects:
@@ -155,21 +178,6 @@
 }
 
 - (UIImage*) compositeMemegramImage {
-  /*
-   TypeSetter?
-    FrameSetter - give it a string, get a set of lines
-   a line is a set of attribute runs
-   
-   
-   CTLineDraw
-   
-   initialize an attributed string from a regular string - CT figures it out from there
-   
-   
-   */
-  
-  
-  
   // hide things that shouldn't be visible
   self.activeTextView = nil;
   
@@ -212,7 +220,6 @@
       strokeLayer.frame = tv.layer.frame;
       [strokeLayer renderInContext:g]; //render the stroke
       
-      
       CGContextTranslateCTM(g, -dX, -dY);
       
       CFRelease(str);
@@ -249,6 +256,7 @@
     [_fontSizeToolbar removeFromSuperview];
   } else {
     _fontSizeButtonItem.enabled = YES;
+    [self updateBoldButton];
     _boldButtomItem.enabled = YES;
     _fontSizeSlider.value = self.activeTextView.font.pointSize;
   }
@@ -313,8 +321,10 @@
   
   // do pre-animation setup of alpha & view hierarchy
   if (hiding) {
+    _fontSizeButtonItem.image = [UIImage imageNamed:@"font-size"];
     _fontSizeToolbar.alpha = 1.0;
   } else {
+    _fontSizeButtonItem.image = [UIImage imageNamed:@"font-size-highlighted"];
     _fontSizeToolbar.alpha = 0.0;
     [self addSubview:_fontSizeToolbar];
   }
@@ -341,12 +351,13 @@
   if (NSNotFound == [fontName rangeOfString:@"bold" options:NSCaseInsensitiveSearch|NSBackwardsSearch].location) {
     // currently not bold. switch to bold.
     self.activeTextView.font = [UIFont boldSystemFontOfSize:self.activeTextView.font.pointSize];
-    _boldButtomItem.title = @"Bold Is On";
   } else {
     // already bold. go not-bold.
     self.activeTextView.font = [UIFont systemFontOfSize:self.activeTextView.font.pointSize];
-    _boldButtomItem.title = @"Bold Is Off";
   }
+  
+  [self updateBoldButton]; // update image
+  
   // this needs to be manually triggered to resize
   [self.activeTextView.delegate textViewDidChange:self.activeTextView];
 }
@@ -360,6 +371,27 @@
 
 - (void) handleImageTap:(id)sender {
   self.activeTextView = nil;
+}
+
+@end
+     
+
+#pragma mark -
+@implementation CreateMemegramView (Private)
+
+- (void) updateBoldButton {
+  if (!self.activeTextView) {
+    return;
+  }
+  
+  NSString *fontName = self.activeTextView.font.fontName;
+  
+  if (NSNotFound == [fontName rangeOfString:@"bold" options:NSCaseInsensitiveSearch|NSBackwardsSearch].location) {
+    // not bold
+    _boldButtomItem.image = [UIImage imageNamed:@"bold"];
+  } else {
+    _boldButtomItem.image = [UIImage imageNamed:@"bold-highlighted"];
+  }
 }
 
 @end
