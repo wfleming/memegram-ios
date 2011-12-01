@@ -22,4 +22,7 @@
 
 - (UIImage*) compositeMemegramImage;
 
+- (void) showHelpBubble;
+- (void) hideHelpBubble;
+
 @end

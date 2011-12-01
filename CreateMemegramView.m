@@ -47,6 +47,8 @@
   UIToolbar *_toolbar, *_fontSizeToolbar;
   UISlider *_fontSizeSlider;
   UIBarButtonItem *_addTextViewButtonItem, *_fontSizeButtonItem, *_boldButtomItem;
+  
+  UIView *_addTextHelpBubble;
 }
 
 
@@ -241,6 +243,46 @@
   return result;
 }
 
+- (void) showHelpBubble {
+  _addTextHelpBubble = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"add-text-help-bubble"]];
+  _addTextHelpBubble.alpha = 0.0;
+  
+  /* toolbar items are objects, not views, so right now we kind of have to
+   * fudge it to get it to line up correctly */
+  CGPoint leftPoint = [self convertPoint:_toolbar.frame.origin fromView:_toolbar];
+  leftPoint.y += (_toolbar.height / 2.0); // center it vertically
+  leftPoint.x += 35.0; // put it just past our add text button
+  leftPoint.y -= (_addTextHelpBubble.height / 2.0); // move it vertically to be the origin of the help bubble
+  
+  _addTextHelpBubble.frame = CGRectMake(leftPoint.x, leftPoint.y, _addTextHelpBubble.width, _addTextHelpBubble.height);
+  [self addSubview:_addTextHelpBubble];
+  
+  [UIView animateWithDuration:0.25
+                        delay:0.0
+                      options:UIViewAnimationCurveEaseInOut
+                   animations:^{
+                     _addTextHelpBubble.alpha = 1.0;
+                   }
+                   completion:NULL];
+}
+
+- (void) hideHelpBubble {
+  if (nil == _addTextHelpBubble) {
+    return;
+  }
+  
+  [UIView animateWithDuration:0.25
+                        delay:0.0
+                      options:UIViewAnimationCurveEaseInOut
+                   animations:^{
+                     _addTextHelpBubble.alpha = 0.0;
+                   }
+                   completion:^(BOOL completed){
+                     [_addTextHelpBubble removeFromSuperview];
+                     _addTextHelpBubble = nil;
+                   }];
+}
+
 
 #pragma mark - property implementations
 - (void) setActiveTextView:(MemegramTextView*)textView {
@@ -307,6 +349,7 @@
 @implementation CreateMemegramView (Actions)
 
 - (void) addTextView {
+  [self hideHelpBubble]; // in case the user is fast the first time through
   CGRect defaultFrame = CGRectMake(10.0, 10.0, (self.width / 2.0), 30.0);
   MemegramTextView *newTextView = [[MemegramTextView alloc] initWithFrame:defaultFrame];
   newTextView.parentView = self;

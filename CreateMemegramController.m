@@ -25,6 +25,8 @@
 #pragma mark -
 @implementation CreateMemegramController
 
+static NSString * const kDidShowHelpKey = @"didShowHelp";
+
 @synthesize sourceMedia;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -41,6 +43,18 @@
 - (void) loadView {
   self.view = [[CreateMemegramView alloc] initWithInstagramMedia:self.sourceMedia];
   ((CreateMemegramView*)self.view).controller = self;
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  BOOL didShowHelp = [defaults boolForKey:kDidShowHelpKey];
+  if (!didShowHelp) {
+    [defaults setBool:YES forKey:kDidShowHelpKey];
+    [((CreateMemegramView*)self.view) showHelpBubble];
+    [self.view performSelector:@selector(hideHelpBubble) withObject:nil afterDelay:2.25];
+  }
 }
 
 @end
