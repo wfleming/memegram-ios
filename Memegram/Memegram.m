@@ -17,10 +17,14 @@
 #import "IGInstagramAPI.h"
 #import "IGInstagramUser.h"
 #import "MGUploader.h"
+#import "MGAppDelegate.h"
+#import "ABNotifier.h"
 
 @interface Memegram (Sharing)
 - (void) doSharing;
 - (void) doTwitterShare;
+- (void) doFacebookShare;
+- (NSString*) basicDescription;
 - (NSString*) statusForTwitter;
 @end
 
@@ -37,6 +41,7 @@
 @dynamic shareToTwitter;
 @dynamic shareToTumblr;
 @dynamic shareToFacebook;
+@dynamic imageURL;
 @dynamic link;
 @dynamic createdAt;
 
@@ -147,6 +152,10 @@
     self.instagramSourceLink = [attrs objectForKey:@"instagram_source_link"];
   }
   
+  if (nil != [attrs objectForKey:@"image_url"] && [NSNull null] != [attrs objectForKey:@"image_url"]) {
+    self.imageURL = [attrs objectForKey:@"image_url"];
+  }
+  
   if (nil != [attrs objectForKey:@"link"] && [NSNull null] != [attrs objectForKey:@"link"]) {
     self.link = [attrs objectForKey:@"link"];
   }
@@ -178,6 +187,10 @@
   if ([self.shareToTwitter boolValue]) {
     [self doTwitterShare];
   }
+  
+  if ([self.shareToFacebook boolValue]) {
+    [self doFacebookShare];
+  }
 }
 
 - (void) doTwitterShare {
@@ -198,15 +211,44 @@
   }];
 }
 
+- (void) doFacebookShare {
+  // fb request must be run on main thread or it gets unhappy
+  dispatch_async(dispatch_get_main_queue(), ^{
+    MGAppDelegate *appDelegate = (MGAppDelegate*)[UIApplication sharedApplication].delegate;
+    Facebook *fb = appDelegate.facebook;
+    @try {
+      NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                     [self basicDescription], @"caption",
+                                     self.link, @"link",
+                                     self.imageURL, @"picture",
+                                     nil];
+      [fb requestWithGraphPath:@"me/feed"
+                     andParams:params
+                 andHttpMethod:@"POST"
+                   andDelegate:nil];
+    }
+    @catch (NSException *exception) {
+      DLOG(@"There was an exception you shold have handled, idiot: %@", exception);
+      [ABNotifier logException:exception];
+    }
+  });
+}
+
+- (NSString*) basicDescription {
+  NSString *status = self.caption;
+  
+  if ((nil == status) || 0 == [status length]) {
+    status = [NSString stringWithFormat:@"A lolgram by %@.", [IGInstagramAPI currentUser].username];
+  }
+  
+  return status;
+}
+
 - (NSString*) statusForTwitter {
   // 20 for the URL, 1 for a space.
   const int maxLength = (140 - 20 - 1);
   
-  NSString *status = self.caption;
-  
-  if ((nil == status) || 0 == [status length]) {
-    status = [NSString stringWithFormat:@"A memegram by %@.", [IGInstagramAPI currentUser].username];
-  }
+  NSString *status = [self basicDescription];
   
   if ([status length] > maxLength) {
     status = [NSString stringWithFormat:@"%@...", [status substringToIndex:(maxLength - 3)]];

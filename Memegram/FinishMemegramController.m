@@ -23,6 +23,10 @@
 - (void) done;
 @end
 
+@interface FinishMemegramController (Private)
+- (void) facebookDidLogin;
+@end
+
 
 #pragma mark -
 @implementation FinishMemegramController
@@ -39,6 +43,8 @@
     if (self) {
       self.title = NSLocalizedString(@"Finish", @"Finish");
       self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
+      
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookDidLogin) name:kFacebookDidLoginNotification object:nil];
     }
     return self;
 }
@@ -47,6 +53,10 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void) dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Table view data source
@@ -61,7 +71,7 @@
   if (0 == section) {
     return 1;
   } else if (1 == section) {
-    return 1;  // add more later!
+    return 2;  // add more later!
   }
   
   return 0;
@@ -165,16 +175,25 @@
           
         return returnValue;
       };
-    } else if (1 == indexPath.row) { // Tumblr
+    } else if (1 == indexPath.row) { // Facebook
+      cell.textLabel.text = @"Share on Facebook";
+      ((UISwitchTableCell*)cell).uiswitch.on = [self.memegram.shareToFacebook boolValue];
+      ((UISwitchTableCell*)cell).changeBlock = ^(UISwitch *uiswitch){
+        MGAppDelegate *appDelegate = (MGAppDelegate*)[UIApplication sharedApplication].delegate;
+        Facebook *fb = appDelegate.facebook;
+        
+        if (uiswitch.on && ![fb isSessionValid]) {
+          [fb authorize:[NSArray arrayWithObjects:@"publish_stream", @"offline_access", nil]];
+          return NO;
+        }
+        
+        self.memegram.shareToFacebook = [NSNumber numberWithBool:uiswitch.on];
+        return YES;
+      };
+    } else if (2 == indexPath.row) { // Tumblr
       //TODO
       cell.textLabel.text = @"Share on Tumblr (TODO)";
-//      ((UISwitchTableCell*)cell).uiswitch.on = [defaults boolForKey:kDefaultsShareOnTumblr];
       ((UISwitchTableCell*)cell).uiswitch.on = [self.memegram.shareToTumblr boolValue];
-    } else if (2 == indexPath.row) { // Facebook
-      //TODO
-      cell.textLabel.text = @"Share on Facebook (TODO)";
-//      ((UISwitchTableCell*)cell).uiswitch.on = 
-      ((UISwitchTableCell*)cell).uiswitch.on = [self.memegram.shareToFacebook boolValue];
     }
   }    
     // Configure the cell...
@@ -211,6 +230,15 @@
   
   // pop this controller back to root
   [self.navigationController popToRootViewControllerAnimated:NO];
+}
+@end
+
+
+@implementation FinishMemegramController (Private)
+- (void) facebookDidLogin {
+  // this happening implies the user wanted to share on fb & had to login
+  self.memegram.shareToFacebook = [NSNumber numberWithBool:YES];
+  [self.tableView reloadData];
 }
 @end
 

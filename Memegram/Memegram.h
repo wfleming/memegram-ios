@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSNumber * memegramId;
 @property (nonatomic, strong) UIImage * image;
 @property (nonatomic, strong) NSNumber * userId;
+@property (nonatomic, strong) NSString * imageURL;
 @property (nonatomic, strong) NSString * link;
 @property (nonatomic, strong) NSNumber * shareToTwitter;
 @property (nonatomic, strong) NSNumber * shareToTumblr;

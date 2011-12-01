@@ -20,7 +20,13 @@
 @end
 
 #pragma mark -
-@implementation InstagramMediaDataSource 
+@implementation InstagramMediaDataSource {
+  __weak SelectInstagramMediaController *_controller; 
+  BOOL _isLoading;
+  BOOL _isLoaded;
+  NSMutableArray *_mediaItems;
+}
+
 
 @synthesize mediaItems=_mediaItems;
 

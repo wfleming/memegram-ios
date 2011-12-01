@@ -39,6 +39,10 @@
   return self;
 }
 
+- (void) dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void) loadView {
   _gridView = [[KKGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
   self.view = _gridView;

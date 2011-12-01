@@ -12,12 +12,7 @@
 
 @class SelectInstagramMediaController, IGInstagramMedia;
 
-@interface InstagramMediaDataSource : NSObject {
-  __weak SelectInstagramMediaController *_controller; 
-  BOOL _isLoading;
-  BOOL _isLoaded;
-  NSMutableArray *_mediaItems;
-}
+@interface InstagramMediaDataSource : NSObject
 
 - (id) initWithController:(SelectInstagramMediaController*)controller;
 

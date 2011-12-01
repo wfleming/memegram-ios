@@ -20,9 +20,7 @@
 
 #pragma mark -
 @interface MGAppDelegate (Private)
-
 - (void) ensureUserLoggedIn;
-
 @end
 
 
@@ -35,6 +33,7 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize tabBarController = __tabBarController;
 @synthesize splitViewController = _splitViewController;
+@synthesize facebook = _facebook;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -162,6 +161,8 @@
     [self.window makeKeyAndVisible];
     
     return YES;
+  } else if ([@"fb" isEqual:[url.scheme substringToIndex:2]]) {
+    return [self.facebook handleOpenURL:url];
   }
   return NO;
 }
@@ -259,6 +260,36 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - other properties
+
+- (Facebook*) facebook {
+  if (!_facebook) {
+    _facebook = [[Facebook alloc] initWithAppId:FACEBOOK_APP_ID andDelegate:self];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:kDefaultsFacebookToken]) {
+      _facebook.accessToken = [defaults objectForKey:kDefaultsFacebookToken];
+      _facebook.expirationDate = [defaults objectForKey:kDefaultsFacebookExpiration];
+    }
+  }
+  return _facebook;
+}
+
+@end
+
+
+#pragma mark -
+@implementation MGAppDelegate (FBSessionDelegate)
+
+- (void)fbDidLogin {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  [defaults setObject:[self.facebook accessToken] forKey:kDefaultsFacebookToken];
+  [defaults setObject:[self.facebook expirationDate] forKey:kDefaultsFacebookExpiration];
+  [defaults synchronize];
+  
+  [[NSNotificationCenter defaultCenter] postNotificationName:kFacebookDidLoginNotification object:self];
 }
 
 @end

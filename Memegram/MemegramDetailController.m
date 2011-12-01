@@ -50,6 +50,10 @@
   return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void) dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

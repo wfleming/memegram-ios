@@ -9,6 +9,8 @@
 
 NSString * const kDefaultsInstagramToken = @"InstagramToken";
 NSString * const kDefaultsMemegramToken = @"MemegramToken";
+NSString * const kDefaultsFacebookToken = @"FacebookToken";
+NSString * const kDefaultsFacebookExpiration = @"FacebookExpiration";
 NSString * const kDefaultsTwitterAccountIdentifier = @"TwitterAccountIdentifier";
 NSString * const kDefaultsShareOnTwitter = @"ShareOnTwitter";
 NSString * const kDefaultsShareOnTumblr = @"ShareOnTumblr";
@@ -19,3 +21,5 @@ NSString * const kAuthCallbackURLInstagramTokenParam = @"instagram_token";
 NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
 
 NSString * const kUnuploadedMemegramsFetchRequest = @"UnuploadedMemegramsFetchRequest";
+
+NSString * const kFacebookDidLoginNotification = @"FacebookDidLoginNotification";

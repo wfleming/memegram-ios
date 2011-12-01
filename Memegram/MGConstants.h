@@ -10,6 +10,8 @@
 
 extern NSString * const kDefaultsInstagramToken;
 extern NSString * const kDefaultsMemegramToken;
+extern NSString * const kDefaultsFacebookToken;
+extern NSString * const kDefaultsFacebookExpiration;
 extern NSString * const kDefaultsTwitterAccountIdentifier;
 extern NSString * const kDefaultsShareOnTwitter;
 extern NSString * const kDefaultsShareOnTumblr;
@@ -20,3 +22,5 @@ extern NSString * const kAuthCallbackURLInstagramTokenParam;
 extern NSString * const kAuthCallbackURLApiTokenParam;
 
 extern NSString * const kUnuploadedMemegramsFetchRequest;
+
+extern NSString * const kFacebookDidLoginNotification;
