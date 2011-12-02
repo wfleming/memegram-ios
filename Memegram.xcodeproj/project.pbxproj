@@ -118,8 +118,6 @@
 		BECEA332147873BA00AF315C /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BECEA331147873BA00AF315C /* ImageCell.m */; };
 		BEE7A64A1471EB58002CB0C0 /* IGInstagramAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A6491471EB58002CB0C0 /* IGInstagramAPI.m */; };
 		BEE7A64D1471EBB2002CB0C0 /* IGInstagramAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A64C1471EBB2002CB0C0 /* IGInstagramAuthController.m */; };
-		BEE7A6891471F3AB002CB0C0 /* Development.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE7A6881471F3AB002CB0C0 /* Development.xcconfig */; };
-		BEE7A68B1471F4A1002CB0C0 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BEE7A68A1471F4A1002CB0C0 /* Production.xcconfig */; };
 		BEE7A68E14720322002CB0C0 /* IGInstagramMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A68D14720322002CB0C0 /* IGInstagramMedia.m */; };
 		BEE7A696147209F6002CB0C0 /* IGConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A695147209F6002CB0C0 /* IGConnection.m */; };
 		BEE7A69914720A3A002CB0C0 /* IGResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A69814720A3A002CB0C0 /* IGResponse.m */; };
@@ -329,7 +327,7 @@
 		BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramMediaCell.m; sourceTree = "<group>"; };
 		BECCAFEE147866CC0036BC16 /* MemeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeCell.h; sourceTree = "<group>"; };
 		BECCAFEF147866CC0036BC16 /* MemeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeCell.m; sourceTree = "<group>"; };
-		BECEA32D1478714700AF315C /* MemeDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MemeDetailController.h; sourceTree = "<group>"; };
+		BECEA32D1478714700AF315C /* MemeDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeDetailController.h; sourceTree = "<group>"; };
 		BECEA32E1478714700AF315C /* MemeDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeDetailController.m; sourceTree = "<group>"; };
 		BECEA330147873BA00AF315C /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		BECEA331147873BA00AF315C /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
@@ -967,8 +965,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE799D9C1471962600CFC615 /* InfoPlist.strings in Resources */,
-				BEE7A6891471F3AB002CB0C0 /* Development.xcconfig in Resources */,
-				BEE7A68B1471F4A1002CB0C0 /* Production.xcconfig in Resources */,
 				BE76A23B147948AE00B722F4 /* HTNotifier.strings in Resources */,
 				BE2DD07C1485C2DD00B6C31B /* upload-indicator.png in Resources */,
 				BE2DD07D1485C2DD00B6C31B /* upload-indicator@2x.png in Resources */,
@@ -1278,6 +1274,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BEE7A6881471F3AB002CB0C0 /* Development.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CURRENT_PROJECT_VERSION = 6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";

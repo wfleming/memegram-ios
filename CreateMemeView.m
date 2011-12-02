@@ -351,7 +351,11 @@
 
 - (void) addTextView {
   [self hideHelpBubble]; // in case the user is fast the first time through
-  CGRect defaultFrame = CGRectMake(10.0, 10.0, (self.width / 2.0), 30.0);
+  CGFloat initialHeight = 30.0;
+  CGRect defaultFrame = CGRectMake(10.0,
+                                   ((_imageView.height + initialHeight) / 4.0),
+                                   (self.width / 2.0),
+                                   initialHeight);
   MemeTextView *newTextView = [[MemeTextView alloc] initWithFrame:defaultFrame];
   newTextView.parentView = self;
   [_container addSubview:newTextView];

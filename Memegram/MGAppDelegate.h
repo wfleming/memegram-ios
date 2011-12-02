@@ -22,6 +22,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+- (NSURL *)applicationCachesDirectory;
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
 @property (strong, nonatomic) UISplitViewController *splitViewController;

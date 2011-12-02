@@ -10,7 +10,7 @@
 
 @class Meme;
 
-@interface MemeDetailController : UITableViewController
+@interface MemeDetailController : UITableViewController<UIDocumentInteractionControllerDelegate>
 
 @property (strong, nonatomic) Meme *meme;
 
