@@ -8,7 +8,7 @@
 
 #import "MemegramDetailController.h"
 
-#import "Memegram.h"
+#import "Meme.h"
 #import "ImageCell.h"
 
 @implementation MemegramDetailController {

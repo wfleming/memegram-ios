@@ -9,7 +9,7 @@
 
 #import "BaseModel.h"
 
-@interface Memegram : BaseModel
+@interface Meme : BaseModel
 
 @property (nonatomic, strong) NSString * caption;
 @property (nonatomic, strong) NSString * instagramSourceId;

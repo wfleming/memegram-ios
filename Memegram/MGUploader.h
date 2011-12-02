@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Memegram;
+@class Meme;
 
 @interface MGUploader : NSObject
 
@@ -17,6 +17,6 @@
 + (void) attemptUpload;
 
 // current memegram being uploaded, if available
-+ (Memegram*) currentUpload;
++ (Meme*) currentUpload;
 
 @end

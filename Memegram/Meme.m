@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "Memegram.h"
+#import "Meme.h"
 
 #import "MemegramAPI.h"
 #import "MGConnection.h"
@@ -20,7 +20,7 @@
 #import "MGAppDelegate.h"
 #import "ABNotifier.h"
 
-@interface Memegram (Sharing)
+@interface Meme (Sharing)
 - (void) doSharing;
 - (void) doTwitterShare;
 - (void) doFacebookShare;
@@ -30,7 +30,7 @@
 
 
 #pragma mark -
-@implementation Memegram
+@implementation Meme
 
 @dynamic caption;
 @dynamic instagramSourceId;
@@ -49,7 +49,7 @@
   BOOL success = NO;
   
   if (![self isUploaded]) { // guard this to avoid repeat updates
-    NSMutableURLRequest *request = [MGConnection requestForMethod:@"POST" to:[MemegramAPI urlForEndpoint:@"/memegrams"]];
+    NSMutableURLRequest *request = [MGConnection requestForMethod:@"POST" to:[MemegramAPI urlForEndpoint:@"/memes"]];
     [request setTimeoutInterval:180.0]; // images over something like EDGE could be really painful, and this is in the background anyway
     
     NSString *boundary = @"MG01WF314x";
@@ -177,7 +177,7 @@
 
 
 #pragma mark -
-@implementation Memegram (Sharing)
+@implementation Meme (Sharing)
 - (void) doSharing {
   if (!self.link) { // fatal to sharing
     DASSERT(self.link);

@@ -8,13 +8,13 @@
 
 #import "KKGridViewCell.h"
 
-@class Memegram;
+@class Meme;
 
 @interface MemegramCell : KKGridViewCell {
-  Memegram *_memegram;
+  Meme *_memegram;
   UIImageView *_imageView;
 }
 
-@property (strong, nonatomic) Memegram *memegram;
+@property (strong, nonatomic) Meme *memegram;
 
 @end

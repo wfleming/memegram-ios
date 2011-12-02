@@ -10,7 +10,7 @@
 
 #import "MemegramCell.h"
 #import "MGAppDelegate.h"
-#import "Memegram.h"
+#import "Meme.h"
 #import "MemegramDetailController.h"
 #import "UIView+WillFleming.h"
 
@@ -82,7 +82,7 @@
   }];
   
   [_gridView setDidSelectIndexPathBlock:^(KKGridView *gridView, KKIndexPath *indexPath) {
-    Memegram *memegram = [blockSelf->_memegrams objectAtIndex:indexPath.index];
+    Meme *memegram = [blockSelf->_memegrams objectAtIndex:indexPath.index];
     MemegramDetailController *next = [[MemegramDetailController alloc] init];
     next.memegram = memegram;
     [blockSelf.navigationController pushViewController:next animated:YES];
@@ -139,7 +139,7 @@
   if (nil == _memegrams || 0 == [_memegrams count]) {
     MGAppDelegate *appDelegate = (MGAppDelegate*)[UIApplication sharedApplication].delegate;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[Memegram entityDescription]];
+    [request setEntity:[Meme entityDescription]];
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO];
     [request setSortDescriptors:[NSArray arrayWithObject:sort]];
     NSError *err;

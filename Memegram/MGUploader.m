@@ -9,11 +9,11 @@
 #import "MGUploader.h"
 #import "MGAppDelegate.h"
 #import "MGConstants.h"
-#import "Memegram.h"
+#import "Meme.h"
 
 @implementation MGUploader
 
-static Memegram *g_currentUpload = nil;
+static Meme *g_currentUpload = nil;
 
 + (void) initialize {
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_managedObjectContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:nil];
@@ -23,13 +23,13 @@ static Memegram *g_currentUpload = nil;
   [self attemptUpload];
 }
 
-+ (Memegram*) currentUpload {
++ (Meme*) currentUpload {
   @synchronized(self) {
     return g_currentUpload;
   }
 }
 
-+ (void) setCurrentUpload:(Memegram*)upload; {
++ (void) setCurrentUpload:(Meme*)upload; {
   @synchronized(self) {
     g_currentUpload = upload;
   }
@@ -43,11 +43,11 @@ static Memegram *g_currentUpload = nil;
   
   MGAppDelegate *appDelegate = (MGAppDelegate*)[UIApplication sharedApplication].delegate;
   NSManagedObjectContext *ctx = appDelegate.managedObjectContext;
-  NSFetchRequest *request = [appDelegate.managedObjectModel fetchRequestTemplateForName:kUnuploadedMemegramsFetchRequest];
+  NSFetchRequest *request = [appDelegate.managedObjectModel fetchRequestTemplateForName:kUnuploadedMemesFetchRequest];
   NSError *err = nil;
   NSArray *results = [ctx executeFetchRequest:request error:&err];
   if (results && [results count] > 0) {
-    __block Memegram *nextUpload =[results objectAtIndex:0];
+    __block Meme *nextUpload =[results objectAtIndex:0];
     DLOG(@"will attempt to upload %@", nextUpload);
     
     // mark this as a current upload so other uploads won't start

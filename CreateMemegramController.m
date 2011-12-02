@@ -10,7 +10,7 @@
 
 #import "IGInstagramMedia.h"
 #import "CreateMemegramView.h"
-#import "Memegram.h"
+#import "Meme.h"
 #import "FinishMemegramController.h"
 #import "MGConstants.h"
 
@@ -68,7 +68,7 @@ static NSString * const kDidShowHelpKey = @"didShowHelp";
 
 - (void) done {
   UIImage *compositeImage = [(CreateMemegramView*)self.view compositeMemegramImage];
-  Memegram *memegram = [[Memegram alloc] init];
+  Meme *memegram = [[Meme alloc] init];
   memegram.image = compositeImage;
   memegram.instagramSourceId = self.sourceMedia.instagramId;
   memegram.instagramSourceLink = self.sourceMedia.instagramURL;

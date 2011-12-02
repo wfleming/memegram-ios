@@ -20,6 +20,6 @@ NSString * const kAuthCallbackURL = @"auth_callback";
 NSString * const kAuthCallbackURLInstagramTokenParam = @"instagram_token";
 NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
 
-NSString * const kUnuploadedMemegramsFetchRequest = @"UnuploadedMemegramsFetchRequest";
+NSString * const kUnuploadedMemesFetchRequest = @"UnuploadedMemesFetchRequest";
 
 NSString * const kFacebookDidLoginNotification = @"WFFacebookDidLoginNotification";

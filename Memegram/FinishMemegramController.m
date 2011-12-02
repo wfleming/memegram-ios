@@ -8,7 +8,7 @@
 
 #import "FinishMemegramController.h"
 
-#import "Memegram.h"
+#import "Meme.h"
 #import "UITextViewTableCell.h"
 #import "UISwitchTableCell.h"
 #import "MGConstants.h"
@@ -122,7 +122,7 @@
         ((UISwitchTableCell*)cell).uiswitch.enabled = NO;
       }
       ((UISwitchTableCell*)cell).uiswitch.on = [self.memegram.shareToTwitter boolValue];
-      __block Memegram *blockMemegram = self.memegram;
+      __block Meme *blockMemegram = self.memegram;
       __block UITableView *blockTableView = self.tableView;
       ((UISwitchTableCell*)cell).changeBlock = ^(UISwitch *uiswitch){
         BOOL returnValue = YES;

@@ -8,7 +8,7 @@
 
 #import "MemegramCell.h"
 
-#import "Memegram.h"
+#import "Meme.h"
 #import "UIView+WillFleming.h"
 
 @implementation MemegramCell
@@ -35,7 +35,7 @@ static const CGFloat frameSize = 1.0;
 }
 
 #pragma mark - Property override
-- (void) setMemegram:(Memegram*)memegram {
+- (void) setMemegram:(Meme*)memegram {
   _memegram = memegram;
   _imageView.image = memegram.image;
   

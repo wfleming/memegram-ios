@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class Memegram;
+@class Meme;
 
 @interface MemegramDetailController : UITableViewController
 
-@property (strong, nonatomic) Memegram *memegram;
+@property (strong, nonatomic) Meme *memegram;
 
 @end

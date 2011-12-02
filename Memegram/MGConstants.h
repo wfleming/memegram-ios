@@ -21,6 +21,6 @@ extern NSString * const kAuthCallbackURL;
 extern NSString * const kAuthCallbackURLInstagramTokenParam;
 extern NSString * const kAuthCallbackURLApiTokenParam;
 
-extern NSString * const kUnuploadedMemegramsFetchRequest;
+extern NSString * const kUnuploadedMemesFetchRequest;
 
 extern NSString * const kFacebookDidLoginNotification;
