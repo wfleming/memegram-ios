@@ -12,13 +12,17 @@
 #import "MGAppDelegate.h"
 #import "Memegram.h"
 #import "MemegramDetailController.h"
+#import "UIView+WillFleming.h"
 
 @interface YourMemegramsController (Private)
 - (void) _reloadDataForce:(BOOL)force;
+- (void) _showEmptyMessage;
+- (void) _hideEmptyMessage;
 @end
 
 @implementation YourMemegramsController {
   KKGridView *_gridView;
+  UIView *_emptyMessageView;
   NSArray *_memegrams;
 }
 
@@ -131,6 +135,7 @@
   }
   
   // reload data if we just forced or there wasn't any
+  [self _hideEmptyMessage];
   if (nil == _memegrams || 0 == [_memegrams count]) {
     MGAppDelegate *appDelegate = (MGAppDelegate*)[UIApplication sharedApplication].delegate;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -141,11 +146,71 @@
     NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request error:&err];
     if (results && [results count] > 0) {
       _memegrams = results;
+    } else {
+      [self _showEmptyMessage];
     }
     
     [_gridView reloadData];
     // KKGridView is a little odd with how it implements reloadData...
     [_gridView setNeedsLayout];
   }
+}
+
+- (void) _showEmptyMessage {
+  if (_emptyMessageView) {
+    [_emptyMessageView removeFromSuperview];
+  }
+  _emptyMessageView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.width, 0.0)];
+  
+  CGFloat maxWidth = (_emptyMessageView.width - 30.0), padding = 10.0;
+  
+  UILabel *topLbl = [[UILabel alloc] init];
+  topLbl.text = @"You Haven't Made Any Lolgramz Yet!";
+  topLbl.font = [UIFont systemFontOfSize:22.0];
+  topLbl.textAlignment = UITextAlignmentCenter;
+  topLbl.textColor = [UIColor lightGrayColor];
+  topLbl.lineBreakMode = UILineBreakModeWordWrap;
+  topLbl.numberOfLines = 0;
+  
+  CGSize neededSize = [topLbl.text sizeWithFont:topLbl.font
+                              constrainedToSize:CGSizeMake(maxWidth, CGFLOAT_MAX)
+                                  lineBreakMode:topLbl.lineBreakMode];
+  neededSize.width = neededSize.width + padding;
+  neededSize.height = neededSize.height + padding;
+  CGFloat x = (_emptyMessageView.width - neededSize.width) / 2.0;
+  topLbl.frame = CGRectMake(x, 0.0, neededSize.width, neededSize.height);
+  
+  
+  UILabel *bottomLbl = [[UILabel alloc] init];
+  bottomLbl.text = @"Why don't you go make some?";
+  bottomLbl.font = [UIFont systemFontOfSize:14.0];
+  bottomLbl.textAlignment = UITextAlignmentCenter;
+  bottomLbl.textColor = [UIColor lightGrayColor];
+  bottomLbl.lineBreakMode = UILineBreakModeWordWrap;
+  bottomLbl.numberOfLines = 0;
+  
+  neededSize = [bottomLbl.text sizeWithFont:bottomLbl.font
+                          constrainedToSize:CGSizeMake(maxWidth, CGFLOAT_MAX)
+                              lineBreakMode:bottomLbl.lineBreakMode];
+  neededSize.width = neededSize.width + padding;
+  neededSize.height = neededSize.height + padding;
+  x = (_emptyMessageView.width - neededSize.width) / 2.0;
+  bottomLbl.frame = CGRectMake(x, topLbl.height, neededSize.width, neededSize.height);
+  
+  CGFloat height = topLbl.height + bottomLbl.height;
+  _emptyMessageView.frame = CGRectMake(0,
+                                       (self.view.height - height) / 2.0,
+                                       self.view.width,
+                                       height);
+  
+  [_emptyMessageView addSubview:topLbl];
+  [_emptyMessageView addSubview:bottomLbl];
+  
+  [self.view addSubview:_emptyMessageView];
+}
+
+- (void) _hideEmptyMessage {
+  [_emptyMessageView removeFromSuperview];
+  _emptyMessageView = nil;
 }
 @end
