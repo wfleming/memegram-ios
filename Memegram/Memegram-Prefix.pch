@@ -22,11 +22,23 @@
 #endif
 
 
-#ifdef DEBUG
+
+#ifdef DEBUG // define the DASSERT macro
+
+#if TARGET_IPHONE_SIMULATOR
+
 // make an assertion, throw a signal if it fails.
 #define DASSERT(con) { if (!(con)) { DLOG(@"DASSERT failed: %s", #con); \
 { __asm__("int $3\n" : : ); }; } \
 } ((void)0)
+
+#else
+
+// make an assert, DO NOT THROW A SIGNAL: it's not a valid instruction on arm
+#define DASSERT(xx) { if (!(xx)) { DLOG(@"TTDASSERT failed: %s", #xx); } } ((void)0)
+
+#endif // #if TARGET_IPHONE_SIMULATOR
+
 #else
   #define DASSERT(con) ((void)0)
-#endif
+#endif  // END define DASSERT macro
