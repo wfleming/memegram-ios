@@ -10,7 +10,7 @@
 
 @class IGInstagramMedia;
 
-@interface CreateMemegramController : UIViewController
+@interface CreateMemeController : UIViewController
 
 @property (strong, nonatomic) IGInstagramMedia *sourceMedia;
 

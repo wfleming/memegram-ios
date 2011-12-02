@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class MemegramTextView;
+@class MemeTextView;
 
-@interface MemegramTextViewDelegate : NSObject<UITextViewDelegate>
+@interface MemeTextViewDelegate : NSObject<UITextViewDelegate>
 
-@property (weak, nonatomic) MemegramTextView *textView;
+@property (weak, nonatomic) MemeTextView *textView;
 
-+ (id) delegateForTextView:(MemegramTextView*)textView;
++ (id) delegateForTextView:(MemeTextView*)textView;
 
 @end

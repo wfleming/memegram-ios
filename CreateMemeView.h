@@ -8,19 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@class IGInstagramMedia, MemegramTextView;
+@class IGInstagramMedia, MemeTextView;
 
-@interface CreateMemegramView : UIView
+@interface CreateMemeView : UIView
 
-@property (strong, nonatomic) MemegramTextView *activeTextView;
+@property (strong, nonatomic) MemeTextView *activeTextView;
 @property (weak, nonatomic) UIViewController *controller;
 
 // designated initializer
 - (id) initWithInstagramMedia:(IGInstagramMedia*)media;
 
-- (void) removeTextView:(MemegramTextView*)textView;
+- (void) removeTextView:(MemeTextView*)textView;
 
-- (UIImage*) compositeMemegramImage;
+- (UIImage*) compositeMemeImage;
 
 - (void) showHelpBubble;
 - (void) hideHelpBubble;

@@ -6,15 +6,15 @@
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "MemegramTextView.h"
+#import "MemeTextView.h"
 
 #import "TextViewInputAccessory.h"
-#import "MemegramTextViewDelegate.h"
+#import "MemeTextViewDelegate.h"
 #import "UIView+WillFleming.h"
 
 #define DEFAULT_FONT_SIZE 25.0
 
-@implementation MemegramTextView
+@implementation MemeTextView
 
 @synthesize parentView, selected = _selected;
 
@@ -31,7 +31,7 @@
 #pragma mark - instance overrides
 - (id) initWithFrame:(CGRect)frame {
   if ((self = [super initWithFrame:frame])) {
-    _delegateReference = [MemegramTextViewDelegate delegateForTextView:self];
+    _delegateReference = [MemeTextViewDelegate delegateForTextView:self];
     self.delegate = _delegateReference;
     self.scrollEnabled = NO;
     self.scrollsToTop = NO;

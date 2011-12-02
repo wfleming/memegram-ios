@@ -10,7 +10,7 @@
 
 @class Meme;
 
-@interface MemegramCell : KKGridViewCell {
+@interface MemeCell : KKGridViewCell {
   Meme *_memegram;
   UIImageView *_imageView;
 }

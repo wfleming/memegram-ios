@@ -90,16 +90,16 @@
 		BE7CFCF81474B97200062002 /* KKGridViewUpdateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCEF1474B97200062002 /* KKGridViewUpdateStack.m */; };
 		BE7CFCF91474B97200062002 /* KKGridViewViewInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCF11474B97200062002 /* KKGridViewViewInfo.m */; };
 		BE7CFCFA1474B97200062002 /* KKIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCF31474B97200062002 /* KKIndexPath.m */; };
-		BE7CFCFE1474C1D300062002 /* CreateMemegramController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCFD1474C1D300062002 /* CreateMemegramController.m */; };
-		BE7CFD021475938300062002 /* CreateMemegramView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD011475938300062002 /* CreateMemegramView.m */; };
-		BE7CFD051475940200062002 /* MemegramTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD041475940200062002 /* MemegramTextView.m */; };
+		BE7CFCFE1474C1D300062002 /* CreateMemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFCFD1474C1D300062002 /* CreateMemeController.m */; };
+		BE7CFD021475938300062002 /* CreateMemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD011475938300062002 /* CreateMemeView.m */; };
+		BE7CFD051475940200062002 /* MemeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD041475940200062002 /* MemeTextView.m */; };
 		BE7CFD081475A3BE00062002 /* UIToolbar+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD071475A3BE00062002 /* UIToolbar+WillFleming.m */; };
 		BE7CFD0B1475A84C00062002 /* TextViewInputAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD0A1475A84B00062002 /* TextViewInputAccessory.m */; };
-		BE7CFD0E1475A91000062002 /* MemegramTextViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD0D1475A91000062002 /* MemegramTextViewDelegate.m */; };
+		BE7CFD0E1475A91000062002 /* MemeTextViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD0D1475A91000062002 /* MemeTextViewDelegate.m */; };
 		BE7CFD52147600C300062002 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD51147600C300062002 /* BaseModel.m */; };
 		BE7CFD561476020F00062002 /* Meme.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD551476020F00062002 /* Meme.m */; };
 		BE7CFD5C147608F200062002 /* ImageToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD5B147608F200062002 /* ImageToDataTransformer.m */; };
-		BE7CFD6314760BCF00062002 /* FinishMemegramController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD6214760BCF00062002 /* FinishMemegramController.m */; };
+		BE7CFD6314760BCF00062002 /* FinishMemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD6214760BCF00062002 /* FinishMemeController.m */; };
 		BE7CFD661476124D00062002 /* UITextViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD651476124D00062002 /* UITextViewTableCell.m */; };
 		BE7CFD691476128900062002 /* UISwitchTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD681476128900062002 /* UISwitchTableCell.m */; };
 		BE7CFD6B1476D5F900062002 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7CFD6A1476D5F900062002 /* QuartzCore.framework */; };
@@ -111,10 +111,10 @@
 		BE7CFD7B14770D1700062002 /* MGConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD7A14770D1700062002 /* MGConnection.m */; };
 		BE7CFD7E147711A900062002 /* MemegramAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD7D147711A800062002 /* MemegramAPI.m */; };
 		BE7CFD84147730B300062002 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7CFD83147730B100062002 /* SystemConfiguration.framework */; };
-		BE95EEA61478635300452A35 /* YourMemegramsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE95EEA51478635300452A35 /* YourMemegramsController.m */; };
+		BE95EEA61478635300452A35 /* YourMemesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE95EEA51478635300452A35 /* YourMemesController.m */; };
 		BEB4B8481474A6BE0096A563 /* InstagramMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */; };
-		BECCAFF0147866CD0036BC16 /* MemegramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BECCAFEF147866CC0036BC16 /* MemegramCell.m */; };
-		BECEA32F1478714700AF315C /* MemegramDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = BECEA32E1478714700AF315C /* MemegramDetailController.m */; };
+		BECCAFF0147866CD0036BC16 /* MemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BECCAFEF147866CC0036BC16 /* MemeCell.m */; };
+		BECEA32F1478714700AF315C /* MemeDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = BECEA32E1478714700AF315C /* MemeDetailController.m */; };
 		BECEA332147873BA00AF315C /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BECEA331147873BA00AF315C /* ImageCell.m */; };
 		BEE7A64A1471EB58002CB0C0 /* IGInstagramAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A6491471EB58002CB0C0 /* IGInstagramAPI.m */; };
 		BEE7A64D1471EBB2002CB0C0 /* IGInstagramAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A64C1471EBB2002CB0C0 /* IGInstagramAuthController.m */; };
@@ -284,27 +284,27 @@
 		BE7CFCF11474B97200062002 /* KKGridViewViewInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGridViewViewInfo.m; sourceTree = "<group>"; };
 		BE7CFCF21474B97200062002 /* KKIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKIndexPath.h; sourceTree = "<group>"; };
 		BE7CFCF31474B97200062002 /* KKIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKIndexPath.m; sourceTree = "<group>"; };
-		BE7CFCFC1474C1D300062002 /* CreateMemegramController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMemegramController.h; sourceTree = "<group>"; };
-		BE7CFCFD1474C1D300062002 /* CreateMemegramController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemegramController.m; sourceTree = "<group>"; };
-		BE7CFD001475938300062002 /* CreateMemegramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMemegramView.h; sourceTree = "<group>"; };
-		BE7CFD011475938300062002 /* CreateMemegramView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemegramView.m; sourceTree = "<group>"; };
-		BE7CFD031475940200062002 /* MemegramTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemegramTextView.h; sourceTree = "<group>"; };
-		BE7CFD041475940200062002 /* MemegramTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramTextView.m; sourceTree = "<group>"; };
+		BE7CFCFC1474C1D300062002 /* CreateMemeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMemeController.h; sourceTree = "<group>"; };
+		BE7CFCFD1474C1D300062002 /* CreateMemeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemeController.m; sourceTree = "<group>"; };
+		BE7CFD001475938300062002 /* CreateMemeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateMemeView.h; sourceTree = "<group>"; };
+		BE7CFD011475938300062002 /* CreateMemeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateMemeView.m; sourceTree = "<group>"; };
+		BE7CFD031475940200062002 /* MemeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeTextView.h; sourceTree = "<group>"; };
+		BE7CFD041475940200062002 /* MemeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeTextView.m; sourceTree = "<group>"; };
 		BE7CFD061475A3BE00062002 /* UIToolbar+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+WillFleming.h"; sourceTree = "<group>"; };
 		BE7CFD071475A3BE00062002 /* UIToolbar+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+WillFleming.m"; sourceTree = "<group>"; };
 		BE7CFD091475A84B00062002 /* TextViewInputAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewInputAccessory.h; sourceTree = "<group>"; };
 		BE7CFD0A1475A84B00062002 /* TextViewInputAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewInputAccessory.m; sourceTree = "<group>"; };
-		BE7CFD0C1475A91000062002 /* MemegramTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemegramTextViewDelegate.h; sourceTree = "<group>"; };
-		BE7CFD0D1475A91000062002 /* MemegramTextViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramTextViewDelegate.m; sourceTree = "<group>"; };
+		BE7CFD0C1475A91000062002 /* MemeTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeTextViewDelegate.h; sourceTree = "<group>"; };
+		BE7CFD0D1475A91000062002 /* MemeTextViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeTextViewDelegate.m; sourceTree = "<group>"; };
 		BE7CFD0F1475CEAE00062002 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		BE7CFD50147600C300062002 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		BE7CFD51147600C300062002 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
-		BE7CFD541476020F00062002 /* Meme.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Meme.h; sourceTree = "<group>"; };
+		BE7CFD541476020F00062002 /* Meme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meme.h; sourceTree = "<group>"; };
 		BE7CFD551476020F00062002 /* Meme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meme.m; sourceTree = "<group>"; };
 		BE7CFD5A147608F200062002 /* ImageToDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageToDataTransformer.h; sourceTree = "<group>"; };
 		BE7CFD5B147608F200062002 /* ImageToDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageToDataTransformer.m; sourceTree = "<group>"; };
-		BE7CFD6114760BCF00062002 /* FinishMemegramController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishMemegramController.h; sourceTree = "<group>"; };
-		BE7CFD6214760BCF00062002 /* FinishMemegramController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishMemegramController.m; sourceTree = "<group>"; };
+		BE7CFD6114760BCF00062002 /* FinishMemeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishMemeController.h; sourceTree = "<group>"; };
+		BE7CFD6214760BCF00062002 /* FinishMemeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishMemeController.m; sourceTree = "<group>"; };
 		BE7CFD641476124D00062002 /* UITextViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextViewTableCell.h; sourceTree = "<group>"; };
 		BE7CFD651476124D00062002 /* UITextViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextViewTableCell.m; sourceTree = "<group>"; };
 		BE7CFD671476128800062002 /* UISwitchTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISwitchTableCell.h; sourceTree = "<group>"; };
@@ -323,14 +323,14 @@
 		BE7CFD7C147711A700062002 /* MemegramAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemegramAPI.h; sourceTree = "<group>"; };
 		BE7CFD7D147711A800062002 /* MemegramAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramAPI.m; sourceTree = "<group>"; };
 		BE7CFD83147730B100062002 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		BE95EEA41478635300452A35 /* YourMemegramsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourMemegramsController.h; sourceTree = "<group>"; };
-		BE95EEA51478635300452A35 /* YourMemegramsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourMemegramsController.m; sourceTree = "<group>"; };
+		BE95EEA41478635300452A35 /* YourMemesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourMemesController.h; sourceTree = "<group>"; };
+		BE95EEA51478635300452A35 /* YourMemesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourMemesController.m; sourceTree = "<group>"; };
 		BEB4B8461474A6BE0096A563 /* InstagramMediaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramMediaCell.h; sourceTree = "<group>"; };
 		BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramMediaCell.m; sourceTree = "<group>"; };
-		BECCAFEE147866CC0036BC16 /* MemegramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemegramCell.h; sourceTree = "<group>"; };
-		BECCAFEF147866CC0036BC16 /* MemegramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramCell.m; sourceTree = "<group>"; };
-		BECEA32D1478714700AF315C /* MemegramDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemegramDetailController.h; sourceTree = "<group>"; };
-		BECEA32E1478714700AF315C /* MemegramDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramDetailController.m; sourceTree = "<group>"; };
+		BECCAFEE147866CC0036BC16 /* MemeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeCell.h; sourceTree = "<group>"; };
+		BECCAFEF147866CC0036BC16 /* MemeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeCell.m; sourceTree = "<group>"; };
+		BECEA32D1478714700AF315C /* MemeDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MemeDetailController.h; sourceTree = "<group>"; };
+		BECEA32E1478714700AF315C /* MemeDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeDetailController.m; sourceTree = "<group>"; };
 		BECEA330147873BA00AF315C /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		BECEA331147873BA00AF315C /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
 		BEE7A6481471EB58002CB0C0 /* IGInstagramAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramAPI.h; sourceTree = "<group>"; };
@@ -649,10 +649,10 @@
 		BE799D971471962600CFC615 /* Memegram */ = {
 			isa = PBXGroup;
 			children = (
-				BE7CFCFB1474C18900062002 /* Memegram Create Controller */,
-				BE7CFD5D14760A4700062002 /* Finish Memegram Controller */,
-				BEE7A6901472061B002CB0C0 /* Your Memegrams Controller */,
-				BECEA328147870A200AF315C /* Memegram Detail Controller */,
+				BE7CFCFB1474C18900062002 /* Meme Create Controller */,
+				BE7CFD5D14760A4700062002 /* Finish Meme Controller */,
+				BEE7A6901472061B002CB0C0 /* Your Memes Controller */,
+				BECEA328147870A200AF315C /* Meme Detail Controller */,
 				BEE7A68F1472057E002CB0C0 /* Instagram Media Controller */,
 				BEE7A6471471EB06002CB0C0 /* MemegramAPI */,
 				BEE7A6451471EAF2002CB0C0 /* InstagramAPI */,
@@ -723,54 +723,54 @@
 			path = KKGridView;
 			sourceTree = "<group>";
 		};
-		BE7CFCFB1474C18900062002 /* Memegram Create Controller */ = {
+		BE7CFCFB1474C18900062002 /* Meme Create Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BE7CFCFF1475935600062002 /* MemegramCreateView */,
-				BE7CFCFC1474C1D300062002 /* CreateMemegramController.h */,
-				BE7CFCFD1474C1D300062002 /* CreateMemegramController.m */,
+				BE7CFCFF1475935600062002 /* MemeCreateView */,
+				BE7CFCFC1474C1D300062002 /* CreateMemeController.h */,
+				BE7CFCFD1474C1D300062002 /* CreateMemeController.m */,
 			);
-			name = "Memegram Create Controller";
+			name = "Meme Create Controller";
 			path = ..;
 			sourceTree = "<group>";
 		};
-		BE7CFCFF1475935600062002 /* MemegramCreateView */ = {
+		BE7CFCFF1475935600062002 /* MemeCreateView */ = {
 			isa = PBXGroup;
 			children = (
-				BE7CFD001475938300062002 /* CreateMemegramView.h */,
-				BE7CFD011475938300062002 /* CreateMemegramView.m */,
-				BE7CFD031475940200062002 /* MemegramTextView.h */,
-				BE7CFD041475940200062002 /* MemegramTextView.m */,
+				BE7CFD001475938300062002 /* CreateMemeView.h */,
+				BE7CFD011475938300062002 /* CreateMemeView.m */,
+				BE7CFD031475940200062002 /* MemeTextView.h */,
+				BE7CFD041475940200062002 /* MemeTextView.m */,
 				BE7CFD091475A84B00062002 /* TextViewInputAccessory.h */,
 				BE7CFD0A1475A84B00062002 /* TextViewInputAccessory.m */,
-				BE7CFD0C1475A91000062002 /* MemegramTextViewDelegate.h */,
-				BE7CFD0D1475A91000062002 /* MemegramTextViewDelegate.m */,
+				BE7CFD0C1475A91000062002 /* MemeTextViewDelegate.h */,
+				BE7CFD0D1475A91000062002 /* MemeTextViewDelegate.m */,
 			);
-			name = MemegramCreateView;
+			name = MemeCreateView;
 			sourceTree = "<group>";
 		};
-		BE7CFD5D14760A4700062002 /* Finish Memegram Controller */ = {
+		BE7CFD5D14760A4700062002 /* Finish Meme Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BE7CFD6114760BCF00062002 /* FinishMemegramController.h */,
-				BE7CFD6214760BCF00062002 /* FinishMemegramController.m */,
+				BE7CFD6114760BCF00062002 /* FinishMemeController.h */,
+				BE7CFD6214760BCF00062002 /* FinishMemeController.m */,
 				BE7CFD641476124D00062002 /* UITextViewTableCell.h */,
 				BE7CFD651476124D00062002 /* UITextViewTableCell.m */,
 				BE7CFD671476128800062002 /* UISwitchTableCell.h */,
 				BE7CFD681476128900062002 /* UISwitchTableCell.m */,
 			);
-			name = "Finish Memegram Controller";
+			name = "Finish Meme Controller";
 			sourceTree = "<group>";
 		};
-		BECEA328147870A200AF315C /* Memegram Detail Controller */ = {
+		BECEA328147870A200AF315C /* Meme Detail Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BECEA32D1478714700AF315C /* MemegramDetailController.h */,
-				BECEA32E1478714700AF315C /* MemegramDetailController.m */,
+				BECEA32D1478714700AF315C /* MemeDetailController.h */,
+				BECEA32E1478714700AF315C /* MemeDetailController.m */,
 				BECEA330147873BA00AF315C /* ImageCell.h */,
 				BECEA331147873BA00AF315C /* ImageCell.m */,
 			);
-			name = "Memegram Detail Controller";
+			name = "Meme Detail Controller";
 			sourceTree = "<group>";
 		};
 		BEE7A6451471EAF2002CB0C0 /* InstagramAPI */ = {
@@ -825,15 +825,15 @@
 			name = "Instagram Media Controller";
 			sourceTree = "<group>";
 		};
-		BEE7A6901472061B002CB0C0 /* Your Memegrams Controller */ = {
+		BEE7A6901472061B002CB0C0 /* Your Memes Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BE95EEA41478635300452A35 /* YourMemegramsController.h */,
-				BE95EEA51478635300452A35 /* YourMemegramsController.m */,
-				BECCAFEE147866CC0036BC16 /* MemegramCell.h */,
-				BECCAFEF147866CC0036BC16 /* MemegramCell.m */,
+				BE95EEA41478635300452A35 /* YourMemesController.h */,
+				BE95EEA51478635300452A35 /* YourMemesController.m */,
+				BECCAFEE147866CC0036BC16 /* MemeCell.h */,
+				BECCAFEF147866CC0036BC16 /* MemeCell.m */,
 			);
-			name = "Your Memegrams Controller";
+			name = "Your Memes Controller";
 			sourceTree = "<group>";
 		};
 		BEE7A69114720903002CB0C0 /* Auth Flow */ = {
@@ -1063,16 +1063,16 @@
 				BE7CFCF81474B97200062002 /* KKGridViewUpdateStack.m in Sources */,
 				BE7CFCF91474B97200062002 /* KKGridViewViewInfo.m in Sources */,
 				BE7CFCFA1474B97200062002 /* KKIndexPath.m in Sources */,
-				BE7CFCFE1474C1D300062002 /* CreateMemegramController.m in Sources */,
-				BE7CFD021475938300062002 /* CreateMemegramView.m in Sources */,
-				BE7CFD051475940200062002 /* MemegramTextView.m in Sources */,
+				BE7CFCFE1474C1D300062002 /* CreateMemeController.m in Sources */,
+				BE7CFD021475938300062002 /* CreateMemeView.m in Sources */,
+				BE7CFD051475940200062002 /* MemeTextView.m in Sources */,
 				BE7CFD081475A3BE00062002 /* UIToolbar+WillFleming.m in Sources */,
 				BE7CFD0B1475A84C00062002 /* TextViewInputAccessory.m in Sources */,
-				BE7CFD0E1475A91000062002 /* MemegramTextViewDelegate.m in Sources */,
+				BE7CFD0E1475A91000062002 /* MemeTextViewDelegate.m in Sources */,
 				BE7CFD52147600C300062002 /* BaseModel.m in Sources */,
 				BE7CFD561476020F00062002 /* Meme.m in Sources */,
 				BE7CFD5C147608F200062002 /* ImageToDataTransformer.m in Sources */,
-				BE7CFD6314760BCF00062002 /* FinishMemegramController.m in Sources */,
+				BE7CFD6314760BCF00062002 /* FinishMemeController.m in Sources */,
 				BE7CFD661476124D00062002 /* UITextViewTableCell.m in Sources */,
 				BE7CFD691476128900062002 /* UISwitchTableCell.m in Sources */,
 				BE7CFD721476E60100062002 /* MGConstants.m in Sources */,
@@ -1080,9 +1080,9 @@
 				BE7CFD781477025300062002 /* MGUploader.m in Sources */,
 				BE7CFD7B14770D1700062002 /* MGConnection.m in Sources */,
 				BE7CFD7E147711A900062002 /* MemegramAPI.m in Sources */,
-				BE95EEA61478635300452A35 /* YourMemegramsController.m in Sources */,
-				BECCAFF0147866CD0036BC16 /* MemegramCell.m in Sources */,
-				BECEA32F1478714700AF315C /* MemegramDetailController.m in Sources */,
+				BE95EEA61478635300452A35 /* YourMemesController.m in Sources */,
+				BECCAFF0147866CD0036BC16 /* MemeCell.m in Sources */,
+				BECEA32F1478714700AF315C /* MemeDetailController.m in Sources */,
 				BECEA332147873BA00AF315C /* ImageCell.m in Sources */,
 				BE76A232147948AE00B722F4 /* GCAlertView.m in Sources */,
 				BE76A233147948AE00B722F4 /* DDXMLElementAdditions.m in Sources */,

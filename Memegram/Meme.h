@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString * caption;
 @property (nonatomic, strong) NSString * instagramSourceId;
 @property (nonatomic, strong) NSString * instagramSourceLink;
-@property (nonatomic, strong) NSNumber * memegramId;
+@property (nonatomic, strong) NSNumber * memeId;
 @property (nonatomic, strong) UIImage * image;
 @property (nonatomic, strong) NSNumber * userId;
 @property (nonatomic, strong) NSString * imageURL;

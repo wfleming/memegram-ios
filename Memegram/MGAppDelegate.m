@@ -9,7 +9,7 @@
 #import "MGAppDelegate.h"
 
 #import "SelectInstagramMediaController.h"
-#import "YourMemegramsController.h"
+#import "YourMemesController.h"
 
 #import "IGInstagramAPI.h"
 #import "IGResponse.h"
@@ -75,7 +75,7 @@
     UINavigationController *tabOne = [[UINavigationController alloc] initWithRootViewController:tabOneRoot];
     tabOne.navigationBar.barStyle = UIBarStyleBlack;
     
-    YourMemegramsController *tabTwoRoot = [[YourMemegramsController alloc] initWithNibName:nil bundle:nil];
+    YourMemesController *tabTwoRoot = [[YourMemesController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *tabTwo = [[UINavigationController alloc] initWithRootViewController:tabTwoRoot];
     tabTwo.navigationBar.barStyle = UIBarStyleBlack;
     

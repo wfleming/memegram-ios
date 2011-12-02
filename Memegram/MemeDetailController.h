@@ -1,5 +1,5 @@
 //
-//  YourMemegramsController.h
+//  MemegramDetailController.h
 //  Memegram
 //
 //  Created by William Fleming on 11/19/11.
@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KKGridView.h"
 
-@interface YourMemegramsController : UIViewController
+@class Meme;
+
+@interface MemeDetailController : UITableViewController
+
+@property (strong, nonatomic) Meme *meme;
 
 @end

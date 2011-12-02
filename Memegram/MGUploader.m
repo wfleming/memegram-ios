@@ -67,7 +67,7 @@ static Meme *g_currentUpload = nil;
     
     //TODO - should this be a higher priority QUEUE? DEFAULT?
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-      NSError *err = nil;
+      __block NSError *err = nil;
       if (![nextUpload uploadError:&err]) {
         DLOG(@"UPLOAD OF %@ FAILED: %@", nextUpload, err);
         //TODO: possibly manually trigger trying again. but maybe delay to not hit network too hard?
@@ -85,6 +85,15 @@ static Meme *g_currentUpload = nil;
         }
         
         [appDelegate saveContext]; // save the uploaded object & trigger the next upload attempt
+        
+        // we schedule a manual attempt to upload if there was an error because save generally will do nothing
+        if (err) {
+          // wait a while so we're not churning too much
+          [NSTimer scheduledTimerWithTimeInterval:60.0
+                                           target:[MGUploader class]
+                                         selector:@selector(attemptUpload)
+                                         userInfo:nil repeats:NO];
+        }
       });
     });
   } else {

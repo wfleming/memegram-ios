@@ -6,24 +6,24 @@
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "MemegramTextViewDelegate.h"
+#import "MemeTextViewDelegate.h"
 
-#import "MemegramTextView.h"
-#import "CreateMemegramView.h"
+#import "MemeTextView.h"
+#import "CreateMemeView.h"
 #import "UIView+WillFleming.h"
 
-@interface MemegramTextViewDelegate (Private)
+@interface MemeTextViewDelegate (Private)
 - (NSUInteger) _trailingEmptyLines:(NSString*)text;
 @end
 
 
 #pragma mark -
-@implementation MemegramTextViewDelegate
+@implementation MemeTextViewDelegate
 
 @synthesize textView;
 
-+ (id) delegateForTextView:(MemegramTextView*)textView {
-  MemegramTextViewDelegate *delegate = [[self alloc] init];
++ (id) delegateForTextView:(MemeTextView*)textView {
+  MemeTextViewDelegate *delegate = [[self alloc] init];
   delegate.textView = textView;
   return delegate;
 }
@@ -79,7 +79,7 @@
 
 
 #pragma mark -
-@implementation MemegramTextViewDelegate (Private)
+@implementation MemeTextViewDelegate (Private)
 
 - (NSUInteger) _trailingEmptyLines:(NSString*)text {
   if (0 == [text length]) {

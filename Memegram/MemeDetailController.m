@@ -6,16 +6,16 @@
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "MemegramDetailController.h"
+#import "MemeDetailController.h"
 
 #import "Meme.h"
 #import "ImageCell.h"
 
-@implementation MemegramDetailController {
+@implementation MemeDetailController {
   BOOL _savedToPhotoAlbum;
 }
 
-@synthesize memegram;
+@synthesize meme;
 
 - (id) init {
   return [self initWithStyle:UITableViewStyleGrouped];
@@ -97,14 +97,14 @@
   
   // Configure the cell...
   if (0 == indexPath.section) {
-    ((ImageCell*)cell).image = self.memegram.image;
-  } else if (![self.memegram isUploaded] && 1 == indexPath.section) {
-    if ([self.memegram isUploading]) {
+    ((ImageCell*)cell).image = self.meme.image;
+  } else if (![self.meme isUploaded] && 1 == indexPath.section) {
+    if ([self.meme isUploading]) {
       cell.textLabel.text = @"Currently Uploading";
-    } else if ([self.memegram isWaitingForUpload]) {
+    } else if ([self.meme isWaitingForUpload]) {
       cell.textLabel.text = @"Queued for Upload";
     }
-  } else if ([self.memegram isUploaded] && 1 == indexPath.section) {
+  } else if ([self.meme isUploaded] && 1 == indexPath.section) {
     cell.textLabel.text = @"See it on the web";
   } else if (2 == indexPath.section) {
     if (_savedToPhotoAlbum) {
@@ -121,11 +121,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if ([self.memegram isUploaded] && 1 == indexPath.section) { // web
-    NSString *url = self.memegram.link;
+  if ([self.meme isUploaded] && 1 == indexPath.section) { // web
+    NSString *url = self.meme.link;
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
   } else if (2 == indexPath.section) { // save
-    UIImageWriteToSavedPhotosAlbum(self.memegram.image, nil, nil, NULL);
+    UIImageWriteToSavedPhotosAlbum(self.meme.image, nil, nil, NULL);
     _savedToPhotoAlbum = YES;
     [self.tableView reloadData];
   }

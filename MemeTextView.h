@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class CreateMemegramView, MemegramTextViewDelegate;
+@class CreateMemeView, MemeTextViewDelegate;
 
-@interface MemegramTextView : UITextView<UITextViewDelegate, UIGestureRecognizerDelegate> {
-  MemegramTextViewDelegate *_delegateReference;
+@interface MemeTextView : UITextView<UITextViewDelegate, UIGestureRecognizerDelegate> {
+  MemeTextViewDelegate *_delegateReference;
   BOOL _selected;
   CGRect _originalFrame;
 }
 
-@property (weak, nonatomic) CreateMemegramView *parentView;
+@property (weak, nonatomic) CreateMemeView *parentView;
 @property (assign, nonatomic) BOOL selected; // determine if gets 'selected' drawing style
 
 + (CGFloat) minimumFontSize;

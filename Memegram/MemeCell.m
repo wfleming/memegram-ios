@@ -6,12 +6,12 @@
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "MemegramCell.h"
+#import "MemeCell.h"
 
 #import "Meme.h"
 #import "UIView+WillFleming.h"
 
-@implementation MemegramCell
+@implementation MemeCell
 
 static const CGFloat frameSize = 1.0;
 

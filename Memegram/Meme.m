@@ -35,7 +35,7 @@
 @dynamic caption;
 @dynamic instagramSourceId;
 @dynamic instagramSourceLink;
-@dynamic memegramId;
+@dynamic memeId;
 @dynamic image;
 @dynamic userId;
 @dynamic shareToTwitter;
@@ -133,7 +133,7 @@
   NSDictionary *attrs = [json objectForKey:@"meme"];
   
   if (nil != [attrs objectForKey:@"id"] && [NSNull null] != [attrs objectForKey:@"id"]) {
-    self.memegramId = [attrs objectForKey:@"id"];
+    self.memeId = [attrs objectForKey:@"id"];
   }
   
   if (nil != [attrs objectForKey:@"user_id"] && [NSNull null] != [attrs objectForKey:@"user_id"]) {
@@ -162,7 +162,7 @@
 }
 
 - (BOOL) isUploaded {
-  return (nil != self.memegramId && [self.memegramId integerValue] > 0);
+  return (nil != self.memeId && [self.memeId integerValue] > 0);
 }
 
 - (BOOL) isUploading {

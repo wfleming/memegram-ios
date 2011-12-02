@@ -10,8 +10,8 @@
 
 @class Meme;
 
-@interface FinishMemegramController : UITableViewController
+@interface FinishMemeController : UITableViewController
 
-@property (strong, nonatomic) Meme *memegram;
+@property (strong, nonatomic) Meme *meme;
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "FinishMemegramController.h"
+#import "FinishMemeController.h"
 
 #import "Meme.h"
 #import "UITextViewTableCell.h"
@@ -18,20 +18,20 @@
 #import "MGAppDelegate.h"
 
 #pragma mark -
-@interface FinishMemegramController (Actions)
+@interface FinishMemeController (Actions)
 - (void) cancel;
 - (void) done;
 @end
 
-@interface FinishMemegramController (Private)
+@interface FinishMemeController (Private)
 - (void) facebookDidLogin;
 @end
 
 
 #pragma mark -
-@implementation FinishMemegramController
+@implementation FinishMemeController
 
-@synthesize memegram;
+@synthesize meme;
 
 - (id) init {
   return [self initWithStyle:UITableViewStyleGrouped];
@@ -106,9 +106,9 @@
     if (!cell) {
       cell = [[UITextViewTableCell alloc] init];
     }
-    ((UITextViewTableCell*)cell).textView.text = self.memegram.caption;
+    ((UITextViewTableCell*)cell).textView.text = self.meme.caption;
     ((UITextViewTableCell*)cell).changeBlock = ^(UITextView *textView) {
-      self.memegram.caption = textView.text;
+      self.meme.caption = textView.text;
     };
   } else if (1 == indexPath.section) {
     cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UISwitchTableCell class])];
@@ -121,8 +121,8 @@
       if (![TWTweetComposeViewController canSendTweet]) {
         ((UISwitchTableCell*)cell).uiswitch.enabled = NO;
       }
-      ((UISwitchTableCell*)cell).uiswitch.on = [self.memegram.shareToTwitter boolValue];
-      __block Meme *blockMemegram = self.memegram;
+      ((UISwitchTableCell*)cell).uiswitch.on = [self.meme.shareToTwitter boolValue];
+      __block Meme *blockMeme = self.meme;
       __block UITableView *blockTableView = self.tableView;
       ((UISwitchTableCell*)cell).changeBlock = ^(UISwitch *uiswitch){
         BOOL returnValue = YES;
@@ -150,7 +150,7 @@
                   ACAccount *acct = [accounts objectAtIndex:0];
                   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                   [defaults setObject:[acct identifier] forKey:kDefaultsTwitterAccountIdentifier];
-                  blockMemegram.shareToTwitter = [NSNumber numberWithBool:YES];
+                  blockMeme.shareToTwitter = [NSNumber numberWithBool:YES];
                   dispatch_async(dispatch_get_main_queue(), ^{
                     [blockTableView reloadData];
                   });
@@ -159,7 +159,7 @@
                   ACAccount *acct = [accounts objectAtIndex:0];
                   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                   [defaults setObject:[acct identifier] forKey:kDefaultsTwitterAccountIdentifier];
-                  blockMemegram.shareToTwitter = [NSNumber numberWithBool:YES];
+                  blockMeme.shareToTwitter = [NSNumber numberWithBool:YES];
                   dispatch_async(dispatch_get_main_queue(), ^{
                     [blockTableView reloadData];
                   });
@@ -170,14 +170,14 @@
         } // if switch is on
         
         if (returnValue) {
-          self.memegram.shareToTwitter = [NSNumber numberWithBool:uiswitch.on];
+          self.meme.shareToTwitter = [NSNumber numberWithBool:uiswitch.on];
         }
           
         return returnValue;
       };
     } else if (1 == indexPath.row) { // Facebook
       cell.textLabel.text = @"Share on Facebook";
-      ((UISwitchTableCell*)cell).uiswitch.on = [self.memegram.shareToFacebook boolValue];
+      ((UISwitchTableCell*)cell).uiswitch.on = [self.meme.shareToFacebook boolValue];
       ((UISwitchTableCell*)cell).changeBlock = ^(UISwitch *uiswitch){
         MGAppDelegate *appDelegate = (MGAppDelegate*)[UIApplication sharedApplication].delegate;
         Facebook *fb = appDelegate.facebook;
@@ -187,13 +187,13 @@
           return NO;
         }
         
-        self.memegram.shareToFacebook = [NSNumber numberWithBool:uiswitch.on];
+        self.meme.shareToFacebook = [NSNumber numberWithBool:uiswitch.on];
         return YES;
       };
     } else if (2 == indexPath.row) { // Tumblr
       //TODO
       cell.textLabel.text = @"Share on Tumblr (TODO)";
-      ((UISwitchTableCell*)cell).uiswitch.on = [self.memegram.shareToTumblr boolValue];
+      ((UISwitchTableCell*)cell).uiswitch.on = [self.meme.shareToTumblr boolValue];
     }
   }    
     // Configure the cell...
@@ -213,7 +213,7 @@
 
 
 #pragma mark -
-@implementation FinishMemegramController (Actions)
+@implementation FinishMemeController (Actions)
 - (void) cancel {
   [self.navigationController popViewControllerAnimated:YES];
 }
@@ -221,7 +221,7 @@
 - (void) done {
   MGAppDelegate *appDelegate = (MGAppDelegate*)[UIApplication sharedApplication].delegate;
   NSManagedObjectContext *ctx = appDelegate.managedObjectContext;
-  [ctx insertObject:self.memegram];
+  [ctx insertObject:self.meme];
   [appDelegate saveContext]; // this triggers upload
   
   // switch to show your memegrams
@@ -234,10 +234,10 @@
 @end
 
 
-@implementation FinishMemegramController (Private)
+@implementation FinishMemeController (Private)
 - (void) facebookDidLogin {
   // this happening implies the user wanted to share on fb & had to login
-  self.memegram.shareToFacebook = [NSNumber numberWithBool:YES];
+  self.meme.shareToFacebook = [NSNumber numberWithBool:YES];
   [self.tableView reloadData];
 }
 @end

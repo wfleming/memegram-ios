@@ -11,7 +11,7 @@
 #import "InstagramMediaDataSource.h"
 #import "IGInstagramAPI.h"
 #import "IGInstagramMedia.h"
-#import "CreateMemegramController.h"
+#import "CreateMemeController.h"
 #import "UIView+WillFleming.h"
 
 @interface SelectInstagramMediaController (Private)
@@ -167,7 +167,7 @@
     
     [self.gridView setDidSelectIndexPathBlock:^(KKGridView *gridView, KKIndexPath *indexPath) {
       IGInstagramMedia *media = [[self dataSource] objectAtIndexPath:indexPath];
-      CreateMemegramController *controller = [[CreateMemegramController alloc] init];
+      CreateMemeController *controller = [[CreateMemeController alloc] init];
       controller.sourceMedia = media;
       [self.navigationController pushViewController:controller animated:YES];
       KKGridViewCell *cell = self.gridView.cellBlock(gridView, indexPath);

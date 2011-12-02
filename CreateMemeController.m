@@ -6,24 +6,24 @@
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "CreateMemegramController.h"
+#import "CreateMemeController.h"
 
 #import "IGInstagramMedia.h"
-#import "CreateMemegramView.h"
+#import "CreateMemeView.h"
 #import "Meme.h"
-#import "FinishMemegramController.h"
+#import "FinishMemeController.h"
 #import "MGConstants.h"
 
 
 #pragma mark -
-@interface CreateMemegramController (Actions)
+@interface CreateMemeController (Actions)
 - (void) cancel;
 - (void) done;
 @end
 
 
 #pragma mark -
-@implementation CreateMemegramController
+@implementation CreateMemeController
 
 static NSString * const kDidShowHelpKey = @"didShowHelp";
 
@@ -41,8 +41,8 @@ static NSString * const kDidShowHelpKey = @"didShowHelp";
 }
 
 - (void) loadView {
-  self.view = [[CreateMemegramView alloc] initWithInstagramMedia:self.sourceMedia];
-  ((CreateMemegramView*)self.view).controller = self;
+  self.view = [[CreateMemeView alloc] initWithInstagramMedia:self.sourceMedia];
+  ((CreateMemeView*)self.view).controller = self;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -52,7 +52,7 @@ static NSString * const kDidShowHelpKey = @"didShowHelp";
   BOOL didShowHelp = [defaults boolForKey:kDidShowHelpKey];
   if (!didShowHelp) {
     [defaults setBool:YES forKey:kDidShowHelpKey];
-    [((CreateMemegramView*)self.view) showHelpBubble];
+    [((CreateMemeView*)self.view) showHelpBubble];
     [self.view performSelector:@selector(hideHelpBubble) withObject:nil afterDelay:2.25];
   }
 }
@@ -61,13 +61,13 @@ static NSString * const kDidShowHelpKey = @"didShowHelp";
 
 
 #pragma mark -
-@implementation CreateMemegramController (Actions)
+@implementation CreateMemeController (Actions)
 - (void) cancel {
   [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) done {
-  UIImage *compositeImage = [(CreateMemegramView*)self.view compositeMemegramImage];
+  UIImage *compositeImage = [(CreateMemeView*)self.view compositeMemeImage];
   Meme *memegram = [[Meme alloc] init];
   memegram.image = compositeImage;
   memegram.instagramSourceId = self.sourceMedia.instagramId;
@@ -79,8 +79,8 @@ static NSString * const kDidShowHelpKey = @"didShowHelp";
   memegram.shareToTumblr = [NSNumber numberWithBool:[defaults boolForKey:kDefaultsShareOnTumblr]];
   memegram.shareToFacebook = [NSNumber numberWithBool:[defaults boolForKey:kDefaultsShareOnFacebook]];
   
-  FinishMemegramController *next = [[FinishMemegramController alloc] init];
-  next.memegram = memegram;
+  FinishMemeController *next = [[FinishMemeController alloc] init];
+  next.meme = memegram;
   
   [self.navigationController pushViewController:next animated:YES];
 }

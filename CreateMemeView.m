@@ -6,24 +6,24 @@
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "CreateMemegramView.h"
+#import "CreateMemeView.h"
 
 #import "IGInstagramMedia.h"
-#import "MemegramTextView.h"
+#import "MemeTextView.h"
 #import "UIView+WillFleming.h"
 #import "UIToolbar+WillFleming.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CoreText/CoreText.h>
 
 #pragma mark -
-@interface CreateMemegramView (KeybardNotifications)
+@interface CreateMemeView (KeybardNotifications)
 - (void) keyboardWillShow:(id)sender;
 - (void) keyboardDidShow:(id)sender;
 - (void) keyboardWillHide:(id)sender;
 - (void) keyboardDidHide:(id)sender;
 @end
 
-@interface CreateMemegramView (Actions)
+@interface CreateMemeView (Actions)
 - (void) addTextView;
 - (void) toggleFontSize;
 - (void) toggleBold;
@@ -31,16 +31,16 @@
 - (void) handleImageTap:(id)sender;
 @end
 
-@interface CreateMemegramView (Private)
+@interface CreateMemeView (Private)
 - (void) updateBoldButton;
 @end
 
 
 #pragma mark -
-@implementation CreateMemegramView {
+@implementation CreateMemeView {
   IGInstagramMedia *_originalMedia;
   
-  MemegramTextView *_activeTextView;
+  MemeTextView *_activeTextView;
   UIImageView *_imageView;
   UIView *_container; // contain all text views & the image view
   UIActivityIndicatorView *_activityIndicator; // for loading the image
@@ -120,8 +120,8 @@
     _fontSizeToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, _toolbar.height, _toolbar.width, 44.0)];
     _fontSizeToolbar.barStyle = UIBarStyleBlackTranslucent;
     _fontSizeSlider = [[UISlider alloc] initWithFrame:CGRectMake(10.0, 0, _fontSizeToolbar.width - 20.0, 20.0)];
-    _fontSizeSlider.minimumValue = [MemegramTextView minimumFontSize];
-    _fontSizeSlider.maximumValue = [MemegramTextView maximumFontSize];
+    _fontSizeSlider.minimumValue = [MemeTextView minimumFontSize];
+    _fontSizeSlider.maximumValue = [MemeTextView maximumFontSize];
     [_fontSizeSlider addTarget:self action:@selector(fontSizeSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     _fontSizeToolbar.items = [NSArray arrayWithObject:[[UIBarButtonItem alloc] initWithCustomView:_fontSizeSlider]];
     
@@ -172,14 +172,14 @@
 
 
 #pragma mark - custom instance methods
-- (void) removeTextView:(MemegramTextView*)textView {
+- (void) removeTextView:(MemeTextView*)textView {
   if (textView == self.activeTextView) {
     self.activeTextView = nil;
   }
   [textView removeFromSuperview];
 }
 
-- (UIImage*) compositeMemegramImage {
+- (UIImage*) compositeMemeImage {
   // hide things that shouldn't be visible
   self.activeTextView = nil;
   [[NSRunLoop currentRunLoop] runUntilDate:[NSDate date]]; // so that user can see deselection
@@ -195,8 +195,8 @@
   CGContextScaleCTM(g, scale, scale);
   
   for(UIView *v in _container.subviews) {
-    if ([v isKindOfClass:[MemegramTextView class]]) {
-      MemegramTextView *tv = (MemegramTextView*)v;
+    if ([v isKindOfClass:[MemeTextView class]]) {
+      MemeTextView *tv = (MemeTextView*)v;
       
       /* We translate the origin because CALayer draws at (0,0) all the time otherwise.
        * Then we translate back so the next view gets the right coords.
@@ -286,7 +286,7 @@
 
 
 #pragma mark - property implementations
-- (void) setActiveTextView:(MemegramTextView*)textView {
+- (void) setActiveTextView:(MemeTextView*)textView {
   if (self.activeTextView) {
     self.activeTextView.selected = NO;
   }
@@ -309,7 +309,7 @@
 
 
 #pragma mark -
-@implementation CreateMemegramView (KeybardNotifications)
+@implementation CreateMemeView (KeybardNotifications)
 - (void) keyboardWillShow:(id)sender {
   // hide toolbar, move image view up
   [UIView animateWithDuration:0.25
@@ -347,12 +347,12 @@
 
 
 #pragma mark -
-@implementation CreateMemegramView (Actions)
+@implementation CreateMemeView (Actions)
 
 - (void) addTextView {
   [self hideHelpBubble]; // in case the user is fast the first time through
   CGRect defaultFrame = CGRectMake(10.0, 10.0, (self.width / 2.0), 30.0);
-  MemegramTextView *newTextView = [[MemegramTextView alloc] initWithFrame:defaultFrame];
+  MemeTextView *newTextView = [[MemeTextView alloc] initWithFrame:defaultFrame];
   newTextView.parentView = self;
   [_container addSubview:newTextView];
   [newTextView becomeFirstResponder];
@@ -421,7 +421,7 @@
      
 
 #pragma mark -
-@implementation CreateMemegramView (Private)
+@implementation CreateMemeView (Private)
 
 - (void) updateBoldButton {
   if (!self.activeTextView) {

@@ -6,24 +6,24 @@
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "YourMemegramsController.h"
+#import "YourMemesController.h"
 
-#import "MemegramCell.h"
+#import "MemeCell.h"
 #import "MGAppDelegate.h"
 #import "Meme.h"
-#import "MemegramDetailController.h"
+#import "MemeDetailController.h"
 #import "UIView+WillFleming.h"
 
-@interface YourMemegramsController (Private)
+@interface YourMemesController (Private)
 - (void) _reloadDataForce:(BOOL)force;
 - (void) _showEmptyMessage;
 - (void) _hideEmptyMessage;
 @end
 
-@implementation YourMemegramsController {
+@implementation YourMemesController {
   KKGridView *_gridView;
   UIView *_emptyMessageView;
-  NSArray *_memegrams;
+  NSArray *_memes;
 }
 
 
@@ -64,8 +64,8 @@
   // grid callbacks
   __block typeof(self) blockSelf = self;
   [_gridView setNumberOfItemsInSectionBlock:^(KKGridView *gridView, NSUInteger section) {
-    if (blockSelf->_memegrams) {
-      return [blockSelf->_memegrams count];
+    if (blockSelf->_memes) {
+      return [blockSelf->_memes count];
     }
     return 0;
   }];
@@ -75,16 +75,16 @@
   }];
   
   [_gridView setCellBlock:^(KKGridView *gridView, KKIndexPath *indexPath) {
-    MemegramCell *cell = [MemegramCell cellForGridView:gridView];
-    cell.memegram = [blockSelf->_memegrams objectAtIndex:indexPath.index];
+    MemeCell *cell = [MemeCell cellForGridView:gridView];
+    cell.memegram = [blockSelf->_memes objectAtIndex:indexPath.index];
     
     return cell;
   }];
   
   [_gridView setDidSelectIndexPathBlock:^(KKGridView *gridView, KKIndexPath *indexPath) {
-    Meme *memegram = [blockSelf->_memegrams objectAtIndex:indexPath.index];
-    MemegramDetailController *next = [[MemegramDetailController alloc] init];
-    next.memegram = memegram;
+    Meme *memegram = [blockSelf->_memes objectAtIndex:indexPath.index];
+    MemeDetailController *next = [[MemeDetailController alloc] init];
+    next.meme = memegram;
     [blockSelf.navigationController pushViewController:next animated:YES];
     
     KKGridViewCell *cell = gridView.cellBlock(gridView, indexPath);
@@ -114,7 +114,7 @@
 - (void) didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   if (nil == self.view.superview) { // i.e. if we're not visible
-    _memegrams = nil;
+    _memes = nil;
   }
 }
 
@@ -128,15 +128,15 @@
 
 
 #pragma mark -
-@implementation YourMemegramsController (Private)
+@implementation YourMemesController (Private)
 - (void) _reloadDataForce:(BOOL)force {
   if (force) {
-    _memegrams = nil;
+    _memes = nil;
   }
   
   // reload data if we just forced or there wasn't any
   [self _hideEmptyMessage];
-  if (nil == _memegrams || 0 == [_memegrams count]) {
+  if (nil == _memes || 0 == [_memes count]) {
     MGAppDelegate *appDelegate = (MGAppDelegate*)[UIApplication sharedApplication].delegate;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[Meme entityDescription]];
@@ -145,7 +145,7 @@
     NSError *err;
     NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request error:&err];
     if (results && [results count] > 0) {
-      _memegrams = results;
+      _memes = results;
     } else {
       [self _showEmptyMessage];
     }
