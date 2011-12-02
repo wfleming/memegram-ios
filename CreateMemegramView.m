@@ -182,6 +182,7 @@
 - (UIImage*) compositeMemegramImage {
   // hide things that shouldn't be visible
   self.activeTextView = nil;
+  [[NSRunLoop currentRunLoop] runUntilDate:[NSDate date]]; // so that user can see deselection
   
   // begin the real work
   CGSize imgBounds = _imageView.image.size;
