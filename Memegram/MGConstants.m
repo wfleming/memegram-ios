@@ -22,4 +22,4 @@ NSString * const kAuthCallbackURLApiTokenParam = @"api_token";
 
 NSString * const kUnuploadedMemegramsFetchRequest = @"UnuploadedMemegramsFetchRequest";
 
-NSString * const kFacebookDidLoginNotification = @"FacebookDidLoginNotification";
+NSString * const kFacebookDidLoginNotification = @"WFFacebookDidLoginNotification";
