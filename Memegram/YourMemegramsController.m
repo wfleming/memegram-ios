@@ -107,6 +107,13 @@
   [_gridView setNeedsLayout];
 }
 
+- (void) didReceiveMemoryWarning {
+  [super didReceiveMemoryWarning];
+  if (nil == self.view.superview) { // i.e. if we're not visible
+    _memegrams = nil;
+  }
+}
+
 
 #pragma mark - notification listeners
 - (void) _managedObjectContextDidSave:(NSNotification*)notification {
