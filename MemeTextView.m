@@ -24,7 +24,7 @@
 }
 
 + (CGFloat) maximumFontSize {
-  return 80.0;
+  return 100.0;
 }
 
 
