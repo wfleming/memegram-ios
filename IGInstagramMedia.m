@@ -9,8 +9,7 @@
 #import "IGInstagramMedia.h"
 
 #import "IGInstagramFunctions.h"
-#import "IGConnection.h"
-#import "IGResponse.h"
+#import "IGImageCache.h"
 
 @implementation IGInstagramMedia
 
@@ -63,8 +62,7 @@
 
 #pragma mark - Media methods
 - (UIImage*) image {
-  IGResponse *response = [IGConnection get:self.imageURL];
-  return [UIImage imageWithData:response.rawBody];
+  return [IGImageCache getImageAtURL:self.imageURL];
 }
 
 - (void) imageCompletionBlock:(IGInstagramMediaImageCallback)completionBlock {
@@ -78,8 +76,7 @@
 }
 
 - (UIImage*) thumbnail {
-  IGResponse *response = [IGConnection get:self.thumbnailURL];
-  return [UIImage imageWithData:response.rawBody];
+  return [IGImageCache getImageAtURL:self.thumbnailURL];
 }
 
 - (void) thumbnailCompletionBlock:(IGInstagramMediaImageCallback)completionBlock {
@@ -93,8 +90,7 @@
 }
 
 - (UIImage*) lowResolutionImage {
-  IGResponse *response = [IGConnection get:self.lowResolutionURL];
-  return [UIImage imageWithData:response.rawBody];
+  return [IGImageCache getImageAtURL:self.lowResolutionURL];
 }
 
 - (void) lowResolutionImageWithCompletionBlock:(IGInstagramMediaImageCallback)completionBlock {
