@@ -889,9 +889,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE799D8A1471962600CFC615 /* Memegram */ = {
+		BE799D8A1471962600CFC615 /* Lolgramz */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE799DD01471962700CFC615 /* Build configuration list for PBXNativeTarget "Memegram" */;
+			buildConfigurationList = BE799DD01471962700CFC615 /* Build configuration list for PBXNativeTarget "Lolgramz" */;
 			buildPhases = (
 				BE799D871471962600CFC615 /* Sources */,
 				BE799D881471962600CFC615 /* Frameworks */,
@@ -901,7 +901,7 @@
 			);
 			dependencies = (
 			);
-			name = Memegram;
+			name = Lolgramz;
 			productName = Memegram;
 			productReference = BE799D8B1471962600CFC615 /* Lolgramz.app */;
 			productType = "com.apple.product-type.application";
@@ -953,7 +953,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE799D8A1471962600CFC615 /* Memegram */,
+				BE799D8A1471962600CFC615 /* Lolgramz */,
 				BE799DBC1471962700CFC615 /* MemegramTests */,
 			);
 		};
@@ -1115,7 +1115,7 @@
 /* Begin PBXTargetDependency section */
 		BE799DC41471962700CFC615 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BE799D8A1471962600CFC615 /* Memegram */;
+			target = BE799D8A1471962600CFC615 /* Lolgramz */;
 			targetProxy = BE799DC31471962700CFC615 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1357,7 +1357,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE799DD01471962700CFC615 /* Build configuration list for PBXNativeTarget "Memegram" */ = {
+		BE799DD01471962700CFC615 /* Build configuration list for PBXNativeTarget "Lolgramz" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE799DD11471962700CFC615 /* Debug */,
