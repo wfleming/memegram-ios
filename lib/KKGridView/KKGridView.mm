@@ -226,6 +226,7 @@
 - (void)setGridFooterView:(UIView *)gridFooterView
 {
     if (_gridFooterView != gridFooterView) {
+        [_gridFooterView removeFromSuperview]; //CHANGE - bugfix. patch?
         _gridFooterView = gridFooterView;
         
         [self addSubview:gridFooterView];

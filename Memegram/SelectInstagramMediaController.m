@@ -24,6 +24,7 @@
 
 - (void) windowDidBecomeKey:(id)sender;
 
+- (void) setGridFooter;
 - (void) loadMore:(id)sender;
 @end
 
@@ -63,6 +64,7 @@
 
 #pragma mark - data source handling
 - (void) datasourceDidFinishLoad {
+  [self setGridFooter];
   [self displayGridView];
 }
 
@@ -175,50 +177,6 @@
       KKGridViewCell *cell = self.gridView.cellBlock(gridView, indexPath);
       cell.selected = NO;
     }];
-    
-    [self.gridView setHeightForFooterInSectionBlock: ^(KKGridView *gridView, NSUInteger section) {
-      CGFloat h = 0.0;
-      if (self.dataSource && [self.dataSource canLoadMore]) {
-        h = 44.0;
-      }
-      return h;
-    }];
-    
-    [self.gridView setViewForFooterInSectionBlock:^(KKGridView *gridView, NSUInteger section) {
-      UIView *v = [[UIView alloc] initWithFrame:CGRectZero];
-      if (self.dataSource && [self.dataSource canLoadMore]) {
-        v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 44.0)];
-        
-        if ([self.dataSource isLoading]) {
-          UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-          activityIndicator.center = CGPointMake((activityIndicator.width / 2.0) + 10.0, (v.height / 2.0));
-          [activityIndicator startAnimating];
-          
-          UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(activityIndicator.right + 10.0, 0, 150.0, v.height)];
-          lbl.textColor = [UIColor darkGrayColor];
-          lbl.text = @"Loading...";
-          
-          lbl.width = [lbl.text sizeWithFont:lbl.font].width;
-
-          UIView *wrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 0, activityIndicator.width + 10.0 + lbl.width, v.height)];
-          [wrapper addSubview:activityIndicator];
-          [wrapper addSubview:lbl];
-          
-          [v addSubview:wrapper];
-          wrapper.center = v.center;
-        } else {        
-          UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-          btn.frame = v.bounds;
-          [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-          btn.tintColor = [UIColor lightGrayColor];
-          [btn setTitle:@"Tap to Load More" forState:UIControlStateNormal];
-          UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadMore:)];
-          [btn addGestureRecognizer:gesture];
-          [v addSubview:btn];
-        }
-      }
-      return v;
-    }];
   }
   return _gridView;
 }
@@ -302,9 +260,47 @@
   }
 }
 
+- (void) setGridFooter {
+  UIView *v = [[UIView alloc] initWithFrame:CGRectZero];
+  if (self.dataSource && [self.dataSource canLoadMore]) {
+    v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 44.0)];
+    
+    if ([self.dataSource isLoading]) {
+      UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+      activityIndicator.center = CGPointMake((activityIndicator.width / 2.0) + 10.0, (v.height / 2.0));
+      [activityIndicator startAnimating];
+      
+      UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(activityIndicator.right + 10.0, 0, 150.0, v.height)];
+      lbl.textColor = [UIColor darkGrayColor];
+      lbl.text = @"Loading...";
+      
+      lbl.width = [lbl.text sizeWithFont:lbl.font].width;
+      
+      UIView *wrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 0, activityIndicator.width + 10.0 + lbl.width, v.height)];
+      [wrapper addSubview:activityIndicator];
+      [wrapper addSubview:lbl];
+      
+      [v addSubview:wrapper];
+      wrapper.center = v.center;
+    } else {        
+      UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+      btn.frame = v.bounds;
+      [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+      btn.tintColor = [UIColor lightGrayColor];
+      [btn setTitle:@"Tap to Load More" forState:UIControlStateNormal];
+      UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadMore:)];
+      [btn addGestureRecognizer:gesture];
+      [v addSubview:btn];
+    }
+  }
+
+  self.gridView.gridFooterView = v;
+}
+
 - (void) loadMore:(id)sender {
   [self.dataSource doLoadMore:YES];
   [self.gridView reloadData];
+  [self setGridFooter];
   [self.gridView setNeedsLayout];
 }
 
