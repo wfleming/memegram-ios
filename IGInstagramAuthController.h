@@ -18,6 +18,8 @@
   UIView<IGAuthInitialView> *_initialView;
 }
 
++ (void) setInitialViewClass:(Class)viewClass;
+
 - (IBAction)gotoInstagramAuthURL:(id)sender;
 
 @end

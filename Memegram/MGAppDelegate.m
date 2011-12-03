@@ -17,6 +17,8 @@
 #import "MGConstants.h"
 #import "MGUploader.h"
 #import "ABNotifier.h"
+#import "LolgramzAuthInitialView.h"
+#import "IGInstagramAuthController.h"
 
 #pragma mark -
 @interface MGAppDelegate (Private)
@@ -42,9 +44,6 @@
                                useSSL:YES
                              delegate:nil];
   
-  // trigger uploader setup via the +initialize method
-  [MGUploader class];
-  
   // Setup API base stuff
   [IGInstagramAPI setClientId:OAUTH_INSTAGRAM_KEY];
   [IGInstagramAPI setOAuthRedirctURL:OAUTH_INSTAGRAM_REDIRECT_URL];
@@ -65,6 +64,7 @@
       } break;
     }
   }];
+  [IGInstagramAuthController setInitialViewClass:[LolgramzAuthInitialView class]];
   
   // set up the UI
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
