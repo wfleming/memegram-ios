@@ -14,6 +14,9 @@
 
 #define DEFAULT_FONT_SIZE 50.0
 
+NSString * const kMemeTextViewWillChangeKeyboardTypeNotification = @"MemeTextViewWillChangeKeyboardTypeNotification";
+NSString * const kMemeTextViewDidChangeKeyboardTypeNotification = @"MemeTextViewDidChangeKeyboardTypeNotification";
+
 @implementation MemeTextView
 
 @synthesize parentView, selected = _selected;

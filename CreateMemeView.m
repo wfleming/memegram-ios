@@ -21,6 +21,9 @@
 - (void) keyboardDidShow:(id)sender;
 - (void) keyboardWillHide:(id)sender;
 - (void) keyboardDidHide:(id)sender;
+
+- (void) textViewWillChangeKeyboard:(id)sender;
+- (void) textViewDidChangeKeyboard:(id)sender;
 @end
 
 @interface CreateMemeView (Actions)
@@ -49,6 +52,8 @@
   UIBarButtonItem *_addTextViewButtonItem, *_fontSizeButtonItem, *_boldButtomItem;
   
   UIView *_addTextHelpBubble;
+  
+  BOOL _ignoreKeyboardNotifications;
 }
 
 
@@ -128,8 +133,9 @@
     // keyboard notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewWillChangeKeyboard:) name:kMemeTextViewWillChangeKeyboardTypeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChangeKeyboard:) name:kMemeTextViewDidChangeKeyboardTypeNotification object:nil];
   }
   return self;
 }
@@ -311,6 +317,10 @@
 #pragma mark -
 @implementation CreateMemeView (KeybardNotifications)
 - (void) keyboardWillShow:(id)sender {
+  if (_ignoreKeyboardNotifications) {
+    return;
+  }
+  
   // hide toolbar, move image view up
   [UIView animateWithDuration:0.25
                         delay:0.0
@@ -323,11 +333,11 @@
                    completion:NULL];
 }
 
-- (void) keyboardDidShow:(id)sender {
-  // TODO
-}
-
 - (void) keyboardWillHide:(id)sender {
+  if (_ignoreKeyboardNotifications) {
+    return;
+  }
+  
   // move image view down, show toolbar
   [UIView animateWithDuration:0.25
                         delay:0.0
@@ -340,8 +350,12 @@
                    completion:NULL];
 }
 
-- (void) keyboardDidHide:(id)sender {
-  //TODO
+- (void) textViewWillChangeKeyboard:(id)sender {
+  _ignoreKeyboardNotifications = YES; 
+}
+
+- (void) textViewDidChangeKeyboard:(id)sender {
+  _ignoreKeyboardNotifications = NO;
 }
 @end
 

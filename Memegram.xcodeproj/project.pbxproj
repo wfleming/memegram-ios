@@ -236,7 +236,7 @@
 		BE7305E11489BF350055A861 /* LolgramzAuthInitialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LolgramzAuthInitialView.m; sourceTree = "<group>"; };
 		BE7305E71489C9400055A861 /* IGInstagramMediaCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramMediaCollection.h; sourceTree = "<group>"; };
 		BE7305E81489C9400055A861 /* IGInstagramMediaCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInstagramMediaCollection.m; sourceTree = "<group>"; };
-		BE73062C148AB4F50055A861 /* IGImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; path = IGImageCache.h; sourceTree = "<group>"; };
+		BE73062C148AB4F50055A861 /* IGImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGImageCache.h; sourceTree = "<group>"; };
 		BE73062D148AB4F50055A861 /* IGImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGImageCache.m; sourceTree = "<group>"; };
 		BE76A20F147948AE00B722F4 /* GCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAlertView.h; sourceTree = "<group>"; };
 		BE76A210147948AE00B722F4 /* GCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAlertView.m; sourceTree = "<group>"; };

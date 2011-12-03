@@ -63,14 +63,14 @@
    * auto-cap style to make shift act normally again.
    * the resign/becomeFirstResponder dance is needed, otherwise the keyboard
    * doesn't actually change.
-   *
-   * TODO: currently, if you switch to lowercase, there's a bit of visible
-   * jog from the responder dance. Should fix if possible.
+   * the notifications are so that we don't see an visible jog because of keyboard changes
    */
   if (NSNotFound != [text rangeOfCharacterFromSet:[NSCharacterSet lowercaseLetterCharacterSet]].location) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMemeTextViewWillChangeKeyboardTypeNotification object:self.textView];
     self.textView.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     [self.textView resignFirstResponder];
     [self.textView becomeFirstResponder];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMemeTextViewDidChangeKeyboardTypeNotification object:self.textView];
   }
   
   

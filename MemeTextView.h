@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const kMemeTextViewWillChangeKeyboardTypeNotification;
+extern NSString * const kMemeTextViewDidChangeKeyboardTypeNotification;
+
 @class CreateMemeView, MemeTextViewDelegate;
 
 @interface MemeTextView : UITextView<UITextViewDelegate, UIGestureRecognizerDelegate> {
