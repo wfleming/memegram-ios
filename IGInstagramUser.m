@@ -58,7 +58,7 @@
 
 - (IGInstagramMediaCollection*) recentMediaError:(NSError* __autoreleasing*)error; {
   IGInstagramMediaCollection *media = nil;
-  IGResponse *response = [IGInstagramAPI get:[NSString stringWithFormat:@"/users/%@/media/recent?count=2", [self effectiveApiId]]];
+  IGResponse *response = [IGInstagramAPI get:[NSString stringWithFormat:@"/users/%@/media/recent", [self effectiveApiId]]];
   if ([response isSuccess]) {
     media = [[IGInstagramMediaCollection alloc] initWithJSON:[response parsedBody]];
   } else {
