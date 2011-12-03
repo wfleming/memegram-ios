@@ -12,7 +12,7 @@
 #import "MemeTextViewDelegate.h"
 #import "UIView+WillFleming.h"
 
-#define DEFAULT_FONT_SIZE 25.0
+#define DEFAULT_FONT_SIZE 50.0
 
 @implementation MemeTextView
 
@@ -24,7 +24,7 @@
 }
 
 + (CGFloat) maximumFontSize {
-  return 100.0;
+  return 125.0;
 }
 
 
@@ -35,6 +35,8 @@
     self.delegate = _delegateReference;
     self.scrollEnabled = NO;
     self.scrollsToTop = NO;
+    self.dataDetectorTypes = UIDataDetectorTypeNone;
+    self.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     self.inputAccessoryView = [TextViewInputAccessory accessoryForTextView:self];
     
     // this will be helvetica by default - but maybe we should be explicit?

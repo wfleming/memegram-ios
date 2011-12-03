@@ -32,7 +32,9 @@
     self.thumbnailURL = [[[json objectForKey:@"images"] objectForKey:@"thumbnail"] objectForKey:@"url"];
     self.lowResolutionURL = [[[json objectForKey:@"images"] objectForKey:@"low_resolution"] objectForKey:@"url"];
     
-    self.instagramURL = [json objectForKey:@"link"];
+    if (![[NSNull null] isEqual:[json objectForKey:@"link"]]) {
+      self.instagramURL = [json objectForKey:@"link"];
+    }
     
     self.createdTime = IGDateFromJSONString([json objectForKey:@"created_time"]);
     

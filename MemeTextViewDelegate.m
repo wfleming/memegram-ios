@@ -28,37 +28,56 @@
   return delegate;
 }
 
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+- (BOOL)textViewShouldBeginEditing:(UITextView *)theTextView {
   // begin editing if no text even if not selecetd - means it's a brand new text view
   BOOL readyToEdit = self.textView.selected || ![self.textView hasText];
   self.textView.parentView.activeTextView = self.textView;
   return readyToEdit;
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView {
+- (void)textViewDidBeginEditing:(UITextView *)theTextView {
   // anything to do here?
 }
 
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+- (BOOL)textViewShouldEndEditing:(UITextView *)theTextView {
   return YES;
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView {
+- (void)textViewDidEndEditing:(UITextView *)theTextView {
   if (![self.textView hasText]) {
     [self.textView.parentView removeTextView:self.textView];
   }
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+- (BOOL)textView:(UITextView *)theTextView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
   // do not allow empty lines at the beginning of the text
   if (0 == range.location && [@"\n" isEqual:text]) {
     //TODO - this won't handle copy/paste well
     return NO;
   }
+  
+  /**
+   * change auto-cap if we ever notice you go to lower case:
+   * we start in all-caps. But if you do this, shift can no longer be used normally
+   * (either caps-lock or lowercase). So if we see any lowercase, then we change the
+   * auto-cap style to make shift act normally again.
+   * the resign/becomeFirstResponder dance is needed, otherwise the keyboard
+   * doesn't actually change.
+   *
+   * TODO: currently, if you switch to lowercase, there's a bit of visible
+   * jog from the responder dance. Should fix if possible.
+   */
+  if (NSNotFound != [text rangeOfCharacterFromSet:[NSCharacterSet lowercaseLetterCharacterSet]].location) {
+    self.textView.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+    [self.textView resignFirstResponder];
+    [self.textView becomeFirstResponder];
+  }
+  
+  
   return YES;
 }
 
-- (void)textViewDidChange:(UITextView *)textView {
+- (void)textViewDidChange:(UITextView *)theTextView {
   NSString *text = self.textView.text;
   
   // resize our frame to match our content
