@@ -57,6 +57,10 @@
 		BE2DD0C114873F6700B6C31B /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2DD0B414873F6600B6C31B /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE2DD0C214873F6700B6C31B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2DD0B614873F6600B6C31B /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE2DD0C314873F6700B6C31B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2DD0B814873F6600B6C31B /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7305D41489B6730055A861 /* app-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7305D31489B6730055A861 /* app-icon@2x.png */; };
+		BE7305D71489B6A90055A861 /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7305D61489B6A90055A861 /* app-icon.png */; };
+		BE7305D91489B8360055A861 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7305D81489B8360055A861 /* Default@2x.png */; };
+		BE7305DB1489B8380055A861 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7305DA1489B8380055A861 /* Default.png */; };
 		BE76A232147948AE00B722F4 /* GCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A210147948AE00B722F4 /* GCAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE76A233147948AE00B722F4 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A214147948AE00B722F4 /* DDXMLElementAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE76A234147948AE00B722F4 /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A217147948AE00B722F4 /* NSString+DDXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -217,6 +221,10 @@
 		BE2DD0B614873F6600B6C31B /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		BE2DD0B714873F6600B6C31B /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		BE2DD0B814873F6600B6C31B /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		BE7305D31489B6730055A861 /* app-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon@2x.png"; path = "../../app-icon@2x.png"; sourceTree = "<group>"; };
+		BE7305D61489B6A90055A861 /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon.png"; path = "../../app-icon.png"; sourceTree = "<group>"; };
+		BE7305D81489B8360055A861 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
+		BE7305DA1489B8380055A861 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../Default.png; sourceTree = "<group>"; };
 		BE76A20F147948AE00B722F4 /* GCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAlertView.h; sourceTree = "<group>"; };
 		BE76A210147948AE00B722F4 /* GCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAlertView.m; sourceTree = "<group>"; };
 		BE76A213147948AE00B722F4 /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
@@ -464,6 +472,10 @@
 		BE2DD0771485C2DD00B6C31B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BE7305DA1489B8380055A861 /* Default.png */,
+				BE7305D81489B8360055A861 /* Default@2x.png */,
+				BE7305D61489B6A90055A861 /* app-icon.png */,
+				BE7305D31489B6730055A861 /* app-icon@2x.png */,
 				BE2DD0881487171900B6C31B /* add-text-help-bubble.png */,
 				BE2DD0891487171900B6C31B /* add-text-help-bubble@2x.png */,
 				BE2DD08A1487171900B6C31B /* add-text.png */,
@@ -987,6 +999,10 @@
 				BE2DD09E1487171900B6C31B /* font-size.png in Resources */,
 				BE2DD09F1487171900B6C31B /* font-size@2x.png in Resources */,
 				BE2DD0BA14873F6700B6C31B /* FBDialog.bundle in Resources */,
+				BE7305D41489B6730055A861 /* app-icon@2x.png in Resources */,
+				BE7305D71489B6A90055A861 /* app-icon.png in Resources */,
+				BE7305D91489B8360055A861 /* Default@2x.png in Resources */,
+				BE7305DB1489B8380055A861 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
