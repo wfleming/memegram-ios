@@ -64,6 +64,7 @@
 		BE7305DD1489B9B40055A861 /* AuthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7305DC1489B9B40055A861 /* AuthView.xib */; };
 		BE7305DF1489BA140055A861 /* cat-large.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7305DE1489BA140055A861 /* cat-large.png */; };
 		BE7305E21489BF350055A861 /* LolgramzAuthInitialView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7305E11489BF350055A861 /* LolgramzAuthInitialView.m */; };
+		BE7305E91489C9400055A861 /* IGInstagramMediaCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7305E81489C9400055A861 /* IGInstagramMediaCollection.m */; };
 		BE76A232147948AE00B722F4 /* GCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A210147948AE00B722F4 /* GCAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE76A233147948AE00B722F4 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A214147948AE00B722F4 /* DDXMLElementAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE76A234147948AE00B722F4 /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A217147948AE00B722F4 /* NSString+DDXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -232,6 +233,8 @@
 		BE7305DE1489BA140055A861 /* cat-large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cat-large.png"; sourceTree = "<group>"; };
 		BE7305E01489BF350055A861 /* LolgramzAuthInitialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LolgramzAuthInitialView.h; sourceTree = "<group>"; };
 		BE7305E11489BF350055A861 /* LolgramzAuthInitialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LolgramzAuthInitialView.m; sourceTree = "<group>"; };
+		BE7305E71489C9400055A861 /* IGInstagramMediaCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; path = IGInstagramMediaCollection.h; sourceTree = "<group>"; };
+		BE7305E81489C9400055A861 /* IGInstagramMediaCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInstagramMediaCollection.m; sourceTree = "<group>"; };
 		BE76A20F147948AE00B722F4 /* GCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAlertView.h; sourceTree = "<group>"; };
 		BE76A210147948AE00B722F4 /* GCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAlertView.m; sourceTree = "<group>"; };
 		BE76A213147948AE00B722F4 /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
@@ -875,6 +878,8 @@
 				BEE7A68D14720322002CB0C0 /* IGInstagramMedia.m */,
 				BE26F08B14742C1400192403 /* IGInstagramUser.h */,
 				BE26F08C14742C1400192403 /* IGInstagramUser.m */,
+				BE7305E71489C9400055A861 /* IGInstagramMediaCollection.h */,
+				BE7305E81489C9400055A861 /* IGInstagramMediaCollection.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1129,6 +1134,7 @@
 				BE2DD0C214873F6700B6C31B /* SBJsonParser.m in Sources */,
 				BE2DD0C314873F6700B6C31B /* SBJsonWriter.m in Sources */,
 				BE7305E21489BF350055A861 /* LolgramzAuthInitialView.m in Sources */,
+				BE7305E91489C9400055A861 /* IGInstagramMediaCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

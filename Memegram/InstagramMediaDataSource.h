@@ -18,7 +18,9 @@
 
 - (BOOL) isLoaded;
 - (BOOL) isLoading;
+- (BOOL) canLoadMore;
 - (void) doLoad;
+- (void) doLoadMore:(BOOL)more;
 
 - (NSUInteger) numberOfItemsInGridView:(KKGridView*)gridView;
 - (KKGridViewCell*) gridView:(KKGridView*)gridView cellForItemAtIndexPath:(KKIndexPath*)indexPath;

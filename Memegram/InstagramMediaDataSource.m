@@ -13,10 +13,11 @@
 #import "IGInstagramAPI.h"
 #import "IGInstagramMedia.h"
 #import "IGInstagramUser.h"
+#import "IGInstagramMediaCollection.h"
 
 #pragma mark -
 @interface InstagramMediaDataSource ()
-@property (strong, nonatomic) NSMutableArray *mediaItems;
+@property (strong, nonatomic) IGInstagramMediaCollection *mediaItems;
 @end
 
 #pragma mark -
@@ -24,7 +25,7 @@
   __weak SelectInstagramMediaController *_controller; 
   BOOL _isLoading;
   BOOL _isLoaded;
-  NSMutableArray *_mediaItems;
+  IGInstagramMediaCollection *_mediaItems;
 }
 
 
@@ -49,7 +50,15 @@
   return _isLoading;
 }
 
+- (BOOL) canLoadMore {
+  return (_mediaItems && [_mediaItems hasNextPage]);
+}
+
 - (void) doLoad {
+  [self doLoadMore:NO];
+}
+
+- (void) doLoadMore:(BOOL)more {
   // attempt nothing if there's no access token or we're already loading
   if (_isLoading) {
     return;
@@ -62,7 +71,11 @@
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     __block NSError *error = nil;
     
-    blockSelf.mediaItems = [NSMutableArray arrayWithArray:[[IGInstagramAPI currentUser] recentMediaError:&error]];
+    if (!more) {
+      blockSelf.mediaItems = [[IGInstagramAPI currentUser] recentMediaError:&error];
+    } else if (blockSelf.mediaItems && [blockSelf.mediaItems hasNextPage]) {
+      [blockSelf.mediaItems loadAndMergeNextPageWithError:&error];
+    }
     
     blockSelf->_isLoaded = (blockSelf.mediaItems && [blockSelf.mediaItems count] > 0);
     blockSelf->_isLoading = NO;

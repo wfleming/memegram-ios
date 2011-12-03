@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class IGInstagramMediaCollection;
+
 @interface IGInstagramUser : NSObject {
   BOOL _isCurrentUser; // used to track effective 'id' for API calls
 }
@@ -24,6 +26,6 @@
 
 + (IGInstagramUser*) remoteUserWithId:(NSString*)userId error:(NSError* __autoreleasing*)error;
 
-- (NSArray*) recentMediaError:(NSError* __autoreleasing*)error;
+- (IGInstagramMediaCollection*) recentMediaError:(NSError* __autoreleasing*)error;
 
 @end

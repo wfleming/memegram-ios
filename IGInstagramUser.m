@@ -12,6 +12,7 @@
 #import "IGConnection.h"
 #import "IGResponse.h"
 #import "IGInstagramMedia.h"
+#import "IGInstagramMediaCollection.h"
 
 @interface IGInstagramUser (Private)
 - (NSString*) effectiveApiId;
@@ -55,16 +56,11 @@
   return user;
 }
 
-- (NSArray*) recentMediaError:(NSError* __autoreleasing*)error; {
-  NSArray *media = nil;
-  IGResponse *response = [IGInstagramAPI get:[NSString stringWithFormat:@"/users/%@/media/recent", [self effectiveApiId]]];
+- (IGInstagramMediaCollection*) recentMediaError:(NSError* __autoreleasing*)error; {
+  IGInstagramMediaCollection *media = nil;
+  IGResponse *response = [IGInstagramAPI get:[NSString stringWithFormat:@"/users/%@/media/recent?count=2", [self effectiveApiId]]];
   if ([response isSuccess]) {
-    NSMutableArray *mutableMedia = [NSMutableArray array];
-    NSArray *dataChunks = [[response parsedBody] objectForKey:@"data"];
-    for(NSDictionary *mediaJSON in dataChunks) {
-      [mutableMedia addObject:[[IGInstagramMedia alloc] initWithJSONFragment:mediaJSON]];
-    }
-    media = [NSArray arrayWithArray:mutableMedia];
+    media = [[IGInstagramMediaCollection alloc] initWithJSON:[response parsedBody]];
   } else {
     if (error) {
       *error = [response error];
