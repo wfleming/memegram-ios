@@ -13,6 +13,8 @@
 		<string>app-icon@2x.png</string>
 		<string>app-icon.png</string>
 	</array>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 	<key>CFBundleIcons</key>
 	<dict>
 		<key>CFBundlePrimaryIcon</key>
