@@ -11,6 +11,7 @@
 #import "TextViewInputAccessory.h"
 #import "MemeTextViewDelegate.h"
 #import "UIView+WillFleming.h"
+#import <CoreText/CoreText.h>
 
 #define DEFAULT_FONT_SIZE 50.0
 
@@ -63,6 +64,8 @@ NSString * const kMemeTextViewDidChangeKeyboardTypeNotification = @"MemeTextView
   }
 }
 
+
+#pragma mark - instance methods
 // callback for gesture recognizer
 - (void) pan:(UIPanGestureRecognizer*)sender {
   CGPoint transform = [sender translationInView:self.superview];
@@ -71,11 +74,34 @@ NSString * const kMemeTextViewDidChangeKeyboardTypeNotification = @"MemeTextView
   return;
 }
 
+- (CATextLayer*) caTextLayer {
+  // set up the attributed string with stroke attributes
+  CFMutableAttributedStringRef str = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0);
+  if (nil != str) {
+    CFAttributedStringReplaceString(str, CFRangeMake(0, 0), (__bridge CFStringRef)self.text);
+  }
+  CFRange strRange = CFRangeMake(0, [self.text length]);
+  CFAttributedStringSetAttribute(str, strRange, kCTForegroundColorAttributeName, self.textColor.CGColor);
+  CTFontRef ctFont = CTFontCreateWithName((__bridge CFStringRef)self.font.fontName, self.font.pointSize, NULL);
+  CFAttributedStringSetAttribute(str, strRange, kCTFontAttributeName, ctFont);
+  CFAttributedStringSetAttribute(str, strRange, kCTStrokeColorAttributeName, [UIColor blackColor].CGColor);
+  CFAttributedStringSetAttribute(str, strRange, kCTStrokeWidthAttributeName, (__bridge CFTypeRef)[NSNumber numberWithFloat:-4.0]); //TODO - set as percentage?
+  
+  CATextLayer *strokeLayer = [[CATextLayer alloc] init];
+  strokeLayer.string = (__bridge NSMutableAttributedString*)str;
+  CFRelease(str);
+  
+  return strokeLayer;
+}
+
 
 #pragma mark - properties
 - (void) setSelected:(BOOL)selected {
   _selected = selected;
-  [self.superview bringSubviewToFront:self];
+  if (selected) {
+    [self.superview bringSubviewToFront:self];
+  }
+  
   [self setNeedsLayout];
 }
 

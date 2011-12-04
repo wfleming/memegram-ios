@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import <QuartzCore/QuartzCore.h>
+
 extern NSString * const kMemeTextViewWillChangeKeyboardTypeNotification;
 extern NSString * const kMemeTextViewDidChangeKeyboardTypeNotification;
 
@@ -24,5 +26,7 @@ extern NSString * const kMemeTextViewDidChangeKeyboardTypeNotification;
 
 + (CGFloat) minimumFontSize;
 + (CGFloat) maximumFontSize;
+
+- (CATextLayer*) caTextLayer;
 
 @end

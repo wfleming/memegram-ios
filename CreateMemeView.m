@@ -18,9 +18,7 @@
 #pragma mark -
 @interface CreateMemeView (KeybardNotifications)
 - (void) keyboardWillShow:(id)sender;
-- (void) keyboardDidShow:(id)sender;
 - (void) keyboardWillHide:(id)sender;
-- (void) keyboardDidHide:(id)sender;
 
 - (void) textViewWillChangeKeyboard:(id)sender;
 - (void) textViewDidChangeKeyboard:(id)sender;
@@ -172,8 +170,6 @@
   } else {
     _addTextViewButtonItem.enabled = YES;
   }
-  
-  //TODO do...other work? if needed?
 }
 
 
@@ -212,26 +208,11 @@
       CGFloat dX = (tv.left + 8.0), dY = (tv.top + extraY);
       CGContextTranslateCTM(g, dX, dY);
 
-      // set up the attributed string with stroke attributes
-      CFMutableAttributedStringRef str = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0);
-      if (nil != str) {
-        CFAttributedStringReplaceString(str, CFRangeMake(0, 0), (__bridge CFStringRef)tv.text);
-      }
-      CFRange strRange = CFRangeMake(0, [tv.text length]);
-      CFAttributedStringSetAttribute(str, strRange, kCTForegroundColorAttributeName, tv.textColor.CGColor);
-      CTFontRef ctFont = CTFontCreateWithName((__bridge CFStringRef)tv.font.fontName, tv.font.pointSize, NULL);
-      CFAttributedStringSetAttribute(str, strRange, kCTFontAttributeName, ctFont);
-      CFAttributedStringSetAttribute(str, strRange, kCTStrokeColorAttributeName, [UIColor blackColor].CGColor);
-      CFAttributedStringSetAttribute(str, strRange, kCTStrokeWidthAttributeName, (__bridge CFTypeRef)[NSNumber numberWithFloat:-4.0]); //TODO - set as percentage?
-      
-      CATextLayer *strokeLayer = [[CATextLayer alloc] init];
-      strokeLayer.string = (__bridge NSMutableAttributedString*)str;
+      CATextLayer *strokeLayer = [tv caTextLayer];
       strokeLayer.frame = tv.layer.frame;
       [strokeLayer renderInContext:g]; //render the stroke
       
       CGContextTranslateCTM(g, -dX, -dY);
-      
-      CFRelease(str);
     } // end if for subview class
   } // end loop over subviews
   
