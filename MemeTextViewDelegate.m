@@ -20,36 +20,37 @@
 #pragma mark -
 @implementation MemeTextViewDelegate
 
-@synthesize textView;
+@synthesize memeTextView;
 
-+ (id) delegateForTextView:(MemeTextView*)textView {
++ (id) delegateForMemeTextView:(MemeTextView*)memeTextView {
   MemeTextViewDelegate *delegate = [[self alloc] init];
-  delegate.textView = textView;
+  delegate.memeTextView = memeTextView;
   return delegate;
 }
 
-- (BOOL)textViewShouldBeginEditing:(UITextView *)theTextView {
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
   // begin editing if no text even if not selecetd - means it's a brand new text view
-  BOOL readyToEdit = self.textView.selected || ![self.textView hasText];
-  self.textView.parentView.activeTextView = self.textView;
+  BOOL readyToEdit = self.memeTextView.selected || ![textView hasText];
+  self.memeTextView.parentView.activeTextView = self.memeTextView;
   return readyToEdit;
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)theTextView {
+- (void)textViewDidBeginEditing:(UITextView *)textView {
   // anything to do here?
 }
 
-- (BOOL)textViewShouldEndEditing:(UITextView *)theTextView {
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
   return YES;
 }
 
-- (void)textViewDidEndEditing:(UITextView *)theTextView {
-  if (![self.textView hasText]) {
-    [self.textView.parentView removeTextView:self.textView];
+- (void)textViewDidEndEditing:(UITextView *)textView {
+  if (![textView hasText]) {
+    [self.memeTextView.parentView removeTextView:self.memeTextView];
   }
+  [self.memeTextView resignFirstResponder];
 }
 
-- (BOOL)textView:(UITextView *)theTextView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
   // do not allow empty lines at the beginning of the text
   if (0 == range.location && [@"\n" isEqual:text]) {
     //TODO - this won't handle copy/paste well
@@ -66,32 +67,36 @@
    * the notifications are so that we don't see an visible jog because of keyboard changes
    */
   if (NSNotFound != [text rangeOfCharacterFromSet:[NSCharacterSet lowercaseLetterCharacterSet]].location) {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kMemeTextViewWillChangeKeyboardTypeNotification object:self.textView];
-    self.textView.autocapitalizationType = UITextAutocapitalizationTypeSentences;
-    [self.textView resignFirstResponder];
-    [self.textView becomeFirstResponder];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kMemeTextViewDidChangeKeyboardTypeNotification object:self.textView];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMemeTextViewWillChangeKeyboardTypeNotification object:textView];
+    textView.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+    [textView resignFirstResponder];
+    [textView becomeFirstResponder];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMemeTextViewDidChangeKeyboardTypeNotification object:textView];
   }
   
   
   return YES;
 }
 
-- (void)textViewDidChange:(UITextView *)theTextView {
-  NSString *text = self.textView.text;
+- (void)textViewDidChange:(UITextView *)textView {
+  NSString *text = textView.text;
   
   // resize our frame to match our content
-  CGSize maxSize = CGSizeMake(self.textView.parentView.width, self.textView.parentView.height);
-  CGSize textSize = [text sizeWithFont:self.textView.font constrainedToSize:maxSize lineBreakMode:UILineBreakModeClip];
-  self.textView.width = textSize.width + 40.0;
-  self.textView.height = textSize.height + 10.0;
+  CGSize maxSize = CGSizeMake(self.memeTextView.parentView.width, self.memeTextView.parentView.height);
+  CGSize textSize = [text sizeWithFont:textView.font constrainedToSize:maxSize lineBreakMode:UILineBreakModeClip];
+  textView.width = textSize.width + 40.0;
+  textView.height = textSize.height + 10.0;
   
   /* -sizeWithFont: doesn't include the height of trailing 'empty' lines.
    * so we scan for empty lines at the end and add height for them */
   NSUInteger numEmptyLines = [self _trailingEmptyLines:text];
   if (numEmptyLines > 0) {
-    self.textView.height = self.textView.height + (numEmptyLines * self.textView.font.lineHeight);
+    textView.height = textView.height + (numEmptyLines * textView.font.lineHeight);
   }
+  
+  // resize parent as well. would like to encapsuate this better
+  self.memeTextView.width = textView.width;
+  self.memeTextView.height = textView.height;
 }
 
 @end

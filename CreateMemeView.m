@@ -204,7 +204,7 @@
        * Then we translate back so the next view gets the right coords.
        * the extra y value here appears to depend on actual font size.
        * at default 25pt, it's 7px (ish). at max (80pt), it's 17px (ish) */
-      CGFloat extraY = (tv.font.pointSize / 5.0) + 1;
+      CGFloat extraY = (tv.textView.font.pointSize / 5.0) + 1;
       CGFloat dX = (tv.left + 8.0), dY = (tv.top + extraY);
       CGContextTranslateCTM(g, dX, dY);
 
@@ -288,7 +288,7 @@
     _fontSizeButtonItem.enabled = YES;
     [self updateBoldButton];
     _boldButtomItem.enabled = YES;
-    _fontSizeSlider.value = self.activeTextView.font.pointSize;
+    _fontSizeSlider.value = self.activeTextView.textView.font.pointSize;
   }
 }
 
@@ -390,26 +390,26 @@
     return;
   }
   
-  NSString *fontName = [self.activeTextView.font fontName];
+  NSString *fontName = [self.activeTextView.textView.font fontName];
   if (NSNotFound == [fontName rangeOfString:@"bold" options:NSCaseInsensitiveSearch|NSBackwardsSearch].location) {
     // currently not bold. switch to bold.
-    self.activeTextView.font = [UIFont boldSystemFontOfSize:self.activeTextView.font.pointSize];
+    self.activeTextView.textView.font = [UIFont boldSystemFontOfSize:self.activeTextView.textView.font.pointSize];
   } else {
     // already bold. go not-bold.
-    self.activeTextView.font = [UIFont systemFontOfSize:self.activeTextView.font.pointSize];
+    self.activeTextView.textView.font = [UIFont systemFontOfSize:self.activeTextView.textView.font.pointSize];
   }
   
   [self updateBoldButton]; // update image
   
   // this needs to be manually triggered to resize
-  [self.activeTextView.delegate textViewDidChange:self.activeTextView];
+  [self.activeTextView.textView.delegate textViewDidChange:self.activeTextView.textView];
 }
 
 - (void) fontSizeSliderValueChanged:(UISlider*)slider {
-  NSString *fontName = [self.activeTextView.font fontName];
-  self.activeTextView.font = [UIFont fontWithName:fontName size:slider.value];
+  NSString *fontName = [self.activeTextView.textView.font fontName];
+  self.activeTextView.textView.font = [UIFont fontWithName:fontName size:slider.value];
   // this needs to be manually triggered to resize
-  [self.activeTextView.delegate textViewDidChange:self.activeTextView];
+  [self.activeTextView.textView.delegate textViewDidChange:self.activeTextView.textView];
 }
 
 - (void) handleImageTap:(id)sender {
@@ -427,7 +427,7 @@
     return;
   }
   
-  NSString *fontName = self.activeTextView.font.fontName;
+  NSString *fontName = self.activeTextView.textView.font.fontName;
   
   if (NSNotFound == [fontName rangeOfString:@"bold" options:NSCaseInsensitiveSearch|NSBackwardsSearch].location) {
     // not bold

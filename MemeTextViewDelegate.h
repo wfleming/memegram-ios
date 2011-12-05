@@ -12,8 +12,8 @@
 
 @interface MemeTextViewDelegate : NSObject<UITextViewDelegate>
 
-@property (weak, nonatomic) MemeTextView *textView;
+@property (weak, nonatomic) MemeTextView *memeTextView;
 
-+ (id) delegateForTextView:(MemeTextView*)textView;
++ (id) delegateForMemeTextView:(MemeTextView*)memeTextView;
 
 @end

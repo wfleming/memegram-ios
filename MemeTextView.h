@@ -15,13 +15,17 @@ extern NSString * const kMemeTextViewDidChangeKeyboardTypeNotification;
 
 @class CreateMemeView, MemeTextViewDelegate;
 
-@interface MemeTextView : UITextView<UITextViewDelegate, UIGestureRecognizerDelegate> {
+@interface MemeTextView : UIView<UITextViewDelegate, UIGestureRecognizerDelegate> {
+  UIView *_strokeView;
+  UIGestureRecognizer *_tapGesture;
+  
   MemeTextViewDelegate *_delegateReference;
   BOOL _selected;
   CGRect _originalFrame;
 }
 
 @property (weak, nonatomic) CreateMemeView *parentView;
+@property (strong, nonatomic) UITextView *textView;
 @property (assign, nonatomic) BOOL selected; // determine if gets 'selected' drawing style
 
 + (CGFloat) minimumFontSize;
