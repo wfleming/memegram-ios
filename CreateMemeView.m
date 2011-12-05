@@ -134,6 +134,13 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewWillChangeKeyboard:) name:kMemeTextViewWillChangeKeyboardTypeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChangeKeyboard:) name:kMemeTextViewDidChangeKeyboardTypeNotification object:nil];
+    
+    // auto-add the first text
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.40 * NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
+      if ([_container.subviews count] < 2) {
+        [self addTextView];
+      }
+    });
   }
   return self;
 }
@@ -324,7 +331,7 @@
                         delay:0.0
                       options:UIViewAnimationCurveEaseInOut
                    animations:^{
-                     _container.top = _toolbar.top + _toolbar.height;
+                     _container.top = _toolbar.bottom;
                      _toolbar.hidden = NO;
                      self.controller.navigationController.navigationBarHidden = NO;
                    }

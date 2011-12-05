@@ -47,14 +47,15 @@ static NSString * const kDidShowHelpKey = @"didShowHelp";
 
 - (void) viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
-  
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  BOOL didShowHelp = [defaults boolForKey:kDidShowHelpKey];
-  if (!didShowHelp) {
-    [defaults setBool:YES forKey:kDidShowHelpKey];
-    [((CreateMemeView*)self.view) showHelpBubble];
-    [self.view performSelector:@selector(hideHelpBubble) withObject:nil afterDelay:2.25];
-  }
+
+//  Turned off because we auto-add text now.
+//  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//  BOOL didShowHelp = [defaults boolForKey:kDidShowHelpKey];
+//  if (!didShowHelp) {
+//    [defaults setBool:YES forKey:kDidShowHelpKey];
+//    [((CreateMemeView*)self.view) showHelpBubble];
+//    [self.view performSelector:@selector(hideHelpBubble) withObject:nil afterDelay:2.25];
+//  }
 }
 
 @end
