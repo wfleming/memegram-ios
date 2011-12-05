@@ -1204,7 +1204,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: William Fleming";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: William Fleming";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1214,6 +1215,8 @@
 				"HEADER_SEARCH_PATHS[arch=*]" = "lib/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "2056226F-5972-4E19-94DA-236B46F89DAF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2056226F-5972-4E19-94DA-236B46F89DAF";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -1260,6 +1263,69 @@
 				WRAPPER_EXTENSION = octest;
 			};
 			name = TestFlight;
+		};
+		BE7306D7148C72810055A861 /* AppStore Distribution */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE7A68A1471F4A1002CB0C0 /* Production.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: William Fleming";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: William Fleming";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = "lib/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "C86EFF8C-66F0-4C42-8077-DAF9095545CF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C86EFF8C-66F0-4C42-8077-DAF9095545CF";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "AppStore Distribution";
+		};
+		BE7306D8148C72810055A861 /* AppStore Distribution */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE7A68A1471F4A1002CB0C0 /* Production.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 13;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
+				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
+				OTHER_LDFLAGS = "-lstdc++";
+				PRODUCT_NAME = Lolgramz;
+				VERSIONING_SYSTEM = "apple-generic";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "AppStore Distribution";
+		};
+		BE7306D9148C72810055A861 /* AppStore Distribution */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEE7A68A1471F4A1002CB0C0 /* Production.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Memegram.app/Memegram";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
+				INFOPLIST_FILE = "MemegramTests/MemegramTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = "AppStore Distribution";
 		};
 		BE799DCE1471962700CFC615 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1394,6 +1460,7 @@
 			buildConfigurations = (
 				BE799DCE1471962700CFC615 /* Debug */,
 				BE799DCF1471962700CFC615 /* Release */,
+				BE7306D7148C72810055A861 /* AppStore Distribution */,
 				BE2DCFDE147CADB600B6C31B /* TestFlight */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1404,6 +1471,7 @@
 			buildConfigurations = (
 				BE799DD11471962700CFC615 /* Debug */,
 				BE799DD21471962700CFC615 /* Release */,
+				BE7306D8148C72810055A861 /* AppStore Distribution */,
 				BE2DCFDF147CADB600B6C31B /* TestFlight */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1414,6 +1482,7 @@
 			buildConfigurations = (
 				BE799DD41471962700CFC615 /* Debug */,
 				BE799DD51471962700CFC615 /* Release */,
+				BE7306D9148C72810055A861 /* AppStore Distribution */,
 				BE2DCFE0147CADB600B6C31B /* TestFlight */,
 			);
 			defaultConfigurationIsVisible = 0;
