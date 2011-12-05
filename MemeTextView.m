@@ -134,6 +134,7 @@ NSString * const kMemeTextViewDidChangeKeyboardTypeNotification = @"MemeTextView
   CFAttributedStringSetAttribute(str, strRange, kCTStrokeWidthAttributeName, (__bridge CFTypeRef)[NSNumber numberWithFloat:-4.0]); //TODO - set as percentage?
   
   CATextLayer *strokeLayer = [[CATextLayer alloc] init];
+  strokeLayer.wrapped = YES;
   strokeLayer.string = (__bridge NSMutableAttributedString*)str;
   CFRelease(str);
   
