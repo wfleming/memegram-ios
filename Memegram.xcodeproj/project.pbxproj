@@ -1237,6 +1237,7 @@
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = Lolgramz;
 				PROVISIONING_PROFILE = "2056226F-5972-4E19-94DA-236B46F89DAF";
@@ -1302,6 +1303,7 @@
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = Lolgramz;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1390,6 +1392,7 @@
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = Lolgramz;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1409,6 +1412,7 @@
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = Lolgramz;
 				VERSIONING_SYSTEM = "apple-generic";

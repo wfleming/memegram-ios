@@ -26,6 +26,10 @@ typedef void (^IGInstagramAPIErrorHandler)(IGResponse*);
 + (Class<IGSerializer>) serializer;
 + (UIWindow*) authWindow;
 + (void) setAuthWindow:(UIWindow*)window;
+
+/**
+ * NB - there is no guarantee about what thread this handler will be run on.
+ */
 + (IGInstagramAPIErrorHandler)globalErrorHandler;
 + (void) setGlobalErrorHandler:(IGInstagramAPIErrorHandler)block;
 

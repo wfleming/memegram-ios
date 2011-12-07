@@ -50,18 +50,28 @@
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   [IGInstagramAPI setAccessToken:[defaults stringForKey:kDefaultsInstagramToken]];
   [IGInstagramAPI setGlobalErrorHandler:^(IGResponse* response) {
-    switch ([response error].code) {
-      case IGErrorOAuthException:
-        [IGInstagramAPI enterAuthFlow];
-        break;
-      default: {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:[[response error] localizedDescription]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-      } break;
+    void (^logicBlock)(IGResponse*) = ^(IGResponse *response){
+      switch ([response error].code) {
+        case IGErrorOAuthException:
+          [IGInstagramAPI enterAuthFlow];
+          break;
+        default: {
+          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                          message:[[response error] localizedDescription]
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+          [alert show];
+        } break;
+      }
+    };
+    // needs to be run on main thread because of UI changes. So we decide where to run & then run it.
+    if ([NSThread isMainThread]) {
+      logicBlock(response);
+    } else {
+      dispatch_sync(dispatch_get_main_queue(), ^{
+        logicBlock(response);
+      });
     }
   }];
   [IGInstagramAuthController setInitialViewClass:[LolgramzAuthInitialView class]];
