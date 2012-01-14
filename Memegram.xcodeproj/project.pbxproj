@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		BE26F087147418E200192403 /* NSString+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F086147418E200192403 /* NSString+WillFleming.m */; };
 		BE26F08A1474266B00192403 /* NSURL+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0891474266B00192403 /* NSURL+WillFleming.m */; };
-		BE26F08D14742C1400192403 /* IGInstagramUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F08C14742C1400192403 /* IGInstagramUser.m */; };
-		BE26F09014742F8F00192403 /* IGDefaultSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F08F14742F8F00192403 /* IGDefaultSerializer.m */; };
 		BE26F0A8147430D900192403 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F093147430D900192403 /* CDataScanner.m */; };
 		BE26F0A9147430D900192403 /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F096147430D900192403 /* CFilteringJSONSerializer.m */; };
 		BE26F0AA147430D900192403 /* CJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F098147430D900192403 /* CJSONSerialization.m */; };
@@ -20,7 +18,6 @@
 		BE26F0AE147430D900192403 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0A2147430D900192403 /* CJSONDeserializer.m */; };
 		BE26F0AF147430D900192403 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0A4147430D900192403 /* CJSONScanner.m */; };
 		BE26F0B0147430D900192403 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0A6147430D900192403 /* CJSONSerializer.m */; };
-		BE26F0B214744BB500192403 /* IGInstagramFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0B114744BB500192403 /* IGInstagramFunctions.m */; };
 		BE26F0C4147459E200192403 /* StatusCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0C3147459E200192403 /* StatusCenter.m */; };
 		BE26F0C914745A7D00192403 /* StatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0C814745A7D00192403 /* StatusItem.m */; };
 		BE26F0CC14745B4600192403 /* InstagramMediaDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26F0CB14745B4600192403 /* InstagramMediaDataSource.m */; };
@@ -64,8 +61,6 @@
 		BE7305DD1489B9B40055A861 /* AuthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7305DC1489B9B40055A861 /* AuthView.xib */; };
 		BE7305DF1489BA140055A861 /* cat-large.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7305DE1489BA140055A861 /* cat-large.png */; };
 		BE7305E21489BF350055A861 /* LolgramzAuthInitialView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7305E11489BF350055A861 /* LolgramzAuthInitialView.m */; };
-		BE7305E91489C9400055A861 /* IGInstagramMediaCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7305E81489C9400055A861 /* IGInstagramMediaCollection.m */; };
-		BE73062E148AB4F50055A861 /* IGImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BE73062D148AB4F50055A861 /* IGImageCache.m */; };
 		BE76A232147948AE00B722F4 /* GCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A210147948AE00B722F4 /* GCAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE76A233147948AE00B722F4 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A214147948AE00B722F4 /* DDXMLElementAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE76A234147948AE00B722F4 /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = BE76A217147948AE00B722F4 /* NSString+DDXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -120,18 +115,12 @@
 		BE7CFD7B14770D1700062002 /* MGConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD7A14770D1700062002 /* MGConnection.m */; };
 		BE7CFD7E147711A900062002 /* MemegramAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7CFD7D147711A800062002 /* MemegramAPI.m */; };
 		BE7CFD84147730B300062002 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7CFD83147730B100062002 /* SystemConfiguration.framework */; };
+		BE88E34614C14216006910C5 /* libWFInstagramAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE88E33F14C13846006910C5 /* libWFInstagramAPI.a */; };
 		BE95EEA61478635300452A35 /* YourMemesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE95EEA51478635300452A35 /* YourMemesController.m */; };
 		BEB4B8481474A6BE0096A563 /* InstagramMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB4B8471474A6BE0096A563 /* InstagramMediaCell.m */; };
 		BECCAFF0147866CD0036BC16 /* MemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BECCAFEF147866CC0036BC16 /* MemeCell.m */; };
 		BECEA32F1478714700AF315C /* MemeDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = BECEA32E1478714700AF315C /* MemeDetailController.m */; };
 		BECEA332147873BA00AF315C /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BECEA331147873BA00AF315C /* ImageCell.m */; };
-		BEE7A64A1471EB58002CB0C0 /* IGInstagramAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A6491471EB58002CB0C0 /* IGInstagramAPI.m */; };
-		BEE7A64D1471EBB2002CB0C0 /* IGInstagramAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A64C1471EBB2002CB0C0 /* IGInstagramAuthController.m */; };
-		BEE7A68E14720322002CB0C0 /* IGInstagramMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A68D14720322002CB0C0 /* IGInstagramMedia.m */; };
-		BEE7A696147209F6002CB0C0 /* IGConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A695147209F6002CB0C0 /* IGConnection.m */; };
-		BEE7A69914720A3A002CB0C0 /* IGResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A69814720A3A002CB0C0 /* IGResponse.m */; };
-		BEE7A6A414720C8F002CB0C0 /* IGConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A6A314720C8F002CB0C0 /* IGConnectionDelegate.m */; };
-		BEE7A6A814721639002CB0C0 /* IGAuthDefaultInitialView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A6A714721638002CB0C0 /* IGAuthDefaultInitialView.m */; };
 		BEE7A6AC1472255F002CB0C0 /* UIView+WillFleming.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A6AB1472255F002CB0C0 /* UIView+WillFleming.m */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +132,27 @@
 			remoteGlobalIDString = BE799D8A1471962600CFC615;
 			remoteInfo = Memegram;
 		};
+		BE88E33E14C13846006910C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE88E33614C13846006910C5 /* WFInstagramAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BE88E22E14C12548006910C5;
+			remoteInfo = WFInstagramAPI;
+		};
+		BE88E34014C13846006910C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE88E33614C13846006910C5 /* WFInstagramAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BE88E23E14C12549006910C5;
+			remoteInfo = WFInstagramAPITests;
+		};
+		BE88E34314C13878006910C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE88E33614C13846006910C5 /* WFInstagramAPI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BE88E22D14C12548006910C5;
+			remoteInfo = WFInstagramAPI;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -150,10 +160,6 @@
 		BE26F086147418E200192403 /* NSString+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WillFleming.m"; sourceTree = "<group>"; };
 		BE26F0881474266B00192403 /* NSURL+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+WillFleming.h"; sourceTree = "<group>"; };
 		BE26F0891474266B00192403 /* NSURL+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+WillFleming.m"; sourceTree = "<group>"; };
-		BE26F08B14742C1400192403 /* IGInstagramUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramUser.h; sourceTree = "<group>"; };
-		BE26F08C14742C1400192403 /* IGInstagramUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInstagramUser.m; sourceTree = "<group>"; };
-		BE26F08E14742F8F00192403 /* IGDefaultSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDefaultSerializer.h; sourceTree = "<group>"; };
-		BE26F08F14742F8F00192403 /* IGDefaultSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGDefaultSerializer.m; sourceTree = "<group>"; };
 		BE26F092147430D900192403 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
 		BE26F093147430D900192403 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
 		BE26F095147430D900192403 /* CFilteringJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFilteringJSONSerializer.h; sourceTree = "<group>"; };
@@ -173,8 +179,6 @@
 		BE26F0A5147430D900192403 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		BE26F0A6147430D900192403 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		BE26F0A7147430D900192403 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
-		BE26F0B114744BB500192403 /* IGInstagramFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInstagramFunctions.m; sourceTree = "<group>"; };
-		BE26F0B314744BCA00192403 /* IGInstagramFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramFunctions.h; sourceTree = "<group>"; };
 		BE26F0C2147459E200192403 /* StatusCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCenter.h; sourceTree = "<group>"; };
 		BE26F0C3147459E200192403 /* StatusCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCenter.m; sourceTree = "<group>"; };
 		BE26F0C714745A7D00192403 /* StatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItem.h; sourceTree = "<group>"; };
@@ -234,10 +238,6 @@
 		BE7305DE1489BA140055A861 /* cat-large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cat-large.png"; sourceTree = "<group>"; };
 		BE7305E01489BF350055A861 /* LolgramzAuthInitialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LolgramzAuthInitialView.h; sourceTree = "<group>"; };
 		BE7305E11489BF350055A861 /* LolgramzAuthInitialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LolgramzAuthInitialView.m; sourceTree = "<group>"; };
-		BE7305E71489C9400055A861 /* IGInstagramMediaCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramMediaCollection.h; sourceTree = "<group>"; };
-		BE7305E81489C9400055A861 /* IGInstagramMediaCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInstagramMediaCollection.m; sourceTree = "<group>"; };
-		BE73062C148AB4F50055A861 /* IGImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGImageCache.h; sourceTree = "<group>"; };
-		BE73062D148AB4F50055A861 /* IGImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGImageCache.m; sourceTree = "<group>"; };
 		BE76A20F147948AE00B722F4 /* GCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAlertView.h; sourceTree = "<group>"; };
 		BE76A210147948AE00B722F4 /* GCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAlertView.m; sourceTree = "<group>"; };
 		BE76A213147948AE00B722F4 /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
@@ -342,6 +342,7 @@
 		BE7CFD7C147711A700062002 /* MemegramAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemegramAPI.h; sourceTree = "<group>"; };
 		BE7CFD7D147711A800062002 /* MemegramAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemegramAPI.m; sourceTree = "<group>"; };
 		BE7CFD83147730B100062002 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BE88E33614C13846006910C5 /* WFInstagramAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WFInstagramAPI.xcodeproj; path = ../../WFInstagramAPI/WFInstagramAPI.xcodeproj; sourceTree = "<group>"; };
 		BE95EEA41478635300452A35 /* YourMemesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourMemesController.h; sourceTree = "<group>"; };
 		BE95EEA51478635300452A35 /* YourMemesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourMemesController.m; sourceTree = "<group>"; };
 		BEB4B8461474A6BE0096A563 /* InstagramMediaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramMediaCell.h; sourceTree = "<group>"; };
@@ -352,22 +353,8 @@
 		BECEA32E1478714700AF315C /* MemeDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeDetailController.m; sourceTree = "<group>"; };
 		BECEA330147873BA00AF315C /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		BECEA331147873BA00AF315C /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
-		BEE7A6481471EB58002CB0C0 /* IGInstagramAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramAPI.h; sourceTree = "<group>"; };
-		BEE7A6491471EB58002CB0C0 /* IGInstagramAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInstagramAPI.m; sourceTree = "<group>"; };
-		BEE7A64B1471EBB2002CB0C0 /* IGInstagramAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramAuthController.h; sourceTree = "<group>"; };
-		BEE7A64C1471EBB2002CB0C0 /* IGInstagramAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInstagramAuthController.m; sourceTree = "<group>"; };
 		BEE7A6881471F3AB002CB0C0 /* Development.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		BEE7A68A1471F4A1002CB0C0 /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
-		BEE7A68C14720322002CB0C0 /* IGInstagramMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGInstagramMedia.h; sourceTree = "<group>"; };
-		BEE7A68D14720322002CB0C0 /* IGInstagramMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGInstagramMedia.m; sourceTree = "<group>"; };
-		BEE7A694147209F6002CB0C0 /* IGConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGConnection.h; sourceTree = "<group>"; };
-		BEE7A695147209F6002CB0C0 /* IGConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGConnection.m; sourceTree = "<group>"; };
-		BEE7A69714720A3A002CB0C0 /* IGResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGResponse.h; path = Memegram/IGResponse.h; sourceTree = "<group>"; };
-		BEE7A69814720A3A002CB0C0 /* IGResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGResponse.m; path = Memegram/IGResponse.m; sourceTree = "<group>"; };
-		BEE7A6A214720C8F002CB0C0 /* IGConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGConnectionDelegate.h; path = Memegram/IGConnectionDelegate.h; sourceTree = "<group>"; };
-		BEE7A6A314720C8F002CB0C0 /* IGConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGConnectionDelegate.m; path = Memegram/IGConnectionDelegate.m; sourceTree = "<group>"; };
-		BEE7A6A614721638002CB0C0 /* IGAuthDefaultInitialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGAuthDefaultInitialView.h; sourceTree = "<group>"; };
-		BEE7A6A714721638002CB0C0 /* IGAuthDefaultInitialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGAuthDefaultInitialView.m; sourceTree = "<group>"; };
 		BEE7A6AA1472255F002CB0C0 /* UIView+WillFleming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WillFleming.h"; sourceTree = "<group>"; };
 		BEE7A6AB1472255F002CB0C0 /* UIView+WillFleming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WillFleming.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -377,6 +364,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE88E34614C14216006910C5 /* libWFInstagramAPI.a in Frameworks */,
 				BE2DD06C14846CA400B6C31B /* CoreText.framework in Frameworks */,
 				BE76A23D1479499500B722F4 /* libxml2.dylib in Frameworks */,
 				BE7CFD84147730B300062002 /* SystemConfiguration.framework in Frameworks */,
@@ -655,6 +643,7 @@
 		BE799D8E1471962600CFC615 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE88E33614C13846006910C5 /* WFInstagramAPI.xcodeproj */,
 				BE76A23C1479499500B722F4 /* libxml2.dylib */,
 				BE7CFD83147730B100062002 /* SystemConfiguration.framework */,
 				BE7CFD6E1476E1A600062002 /* Accounts.framework */,
@@ -679,7 +668,6 @@
 				BECEA328147870A200AF315C /* Meme Detail Controller */,
 				BEE7A68F1472057E002CB0C0 /* Instagram Media Controller */,
 				BEE7A6471471EB06002CB0C0 /* MemegramAPI */,
-				BEE7A6451471EAF2002CB0C0 /* InstagramAPI */,
 				BE799DA01471962700CFC615 /* MGAppDelegate.h */,
 				BE799DA11471962700CFC615 /* MGAppDelegate.m */,
 				BE7CFD731476E82E00062002 /* MGAccountHelper.h */,
@@ -789,6 +777,15 @@
 			name = "Finish Meme Controller";
 			sourceTree = "<group>";
 		};
+		BE88E33714C13846006910C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE88E33F14C13846006910C5 /* libWFInstagramAPI.a */,
+				BE88E34114C13846006910C5 /* WFInstagramAPITests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BECEA328147870A200AF315C /* Meme Detail Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,21 +795,6 @@
 				BECEA331147873BA00AF315C /* ImageCell.m */,
 			);
 			name = "Meme Detail Controller";
-			sourceTree = "<group>";
-		};
-		BEE7A6451471EAF2002CB0C0 /* InstagramAPI */ = {
-			isa = PBXGroup;
-			children = (
-				BEE7A693147209DA002CB0C0 /* HTTP */,
-				BEE7A6921472090B002CB0C0 /* Models */,
-				BEE7A69114720903002CB0C0 /* Auth Flow */,
-				BEE7A6481471EB58002CB0C0 /* IGInstagramAPI.h */,
-				BEE7A6491471EB58002CB0C0 /* IGInstagramAPI.m */,
-				BE26F0B314744BCA00192403 /* IGInstagramFunctions.h */,
-				BE26F0B114744BB500192403 /* IGInstagramFunctions.m */,
-			);
-			name = InstagramAPI;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		BEE7A6471471EB06002CB0C0 /* MemegramAPI */ = {
@@ -863,47 +845,6 @@
 			name = "Your Memes Controller";
 			sourceTree = "<group>";
 		};
-		BEE7A69114720903002CB0C0 /* Auth Flow */ = {
-			isa = PBXGroup;
-			children = (
-				BEE7A64B1471EBB2002CB0C0 /* IGInstagramAuthController.h */,
-				BEE7A64C1471EBB2002CB0C0 /* IGInstagramAuthController.m */,
-				BEE7A6A614721638002CB0C0 /* IGAuthDefaultInitialView.h */,
-				BEE7A6A714721638002CB0C0 /* IGAuthDefaultInitialView.m */,
-			);
-			name = "Auth Flow";
-			sourceTree = "<group>";
-		};
-		BEE7A6921472090B002CB0C0 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				BEE7A68C14720322002CB0C0 /* IGInstagramMedia.h */,
-				BEE7A68D14720322002CB0C0 /* IGInstagramMedia.m */,
-				BE26F08B14742C1400192403 /* IGInstagramUser.h */,
-				BE26F08C14742C1400192403 /* IGInstagramUser.m */,
-				BE7305E71489C9400055A861 /* IGInstagramMediaCollection.h */,
-				BE7305E81489C9400055A861 /* IGInstagramMediaCollection.m */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		BEE7A693147209DA002CB0C0 /* HTTP */ = {
-			isa = PBXGroup;
-			children = (
-				BEE7A694147209F6002CB0C0 /* IGConnection.h */,
-				BEE7A695147209F6002CB0C0 /* IGConnection.m */,
-				BEE7A69714720A3A002CB0C0 /* IGResponse.h */,
-				BEE7A69814720A3A002CB0C0 /* IGResponse.m */,
-				BEE7A6A214720C8F002CB0C0 /* IGConnectionDelegate.h */,
-				BEE7A6A314720C8F002CB0C0 /* IGConnectionDelegate.m */,
-				BE26F08E14742F8F00192403 /* IGDefaultSerializer.h */,
-				BE26F08F14742F8F00192403 /* IGDefaultSerializer.m */,
-				BE73062C148AB4F50055A861 /* IGImageCache.h */,
-				BE73062D148AB4F50055A861 /* IGImageCache.m */,
-			);
-			name = HTTP;
-			sourceTree = "<group>";
-		};
 		BEE7A6A91472255F002CB0C0 /* lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -933,6 +874,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BE88E34414C13878006910C5 /* PBXTargetDependency */,
 			);
 			name = Lolgramz;
 			productName = Memegram;
@@ -984,6 +926,12 @@
 			mainGroup = BE799D801471962600CFC615;
 			productRefGroup = BE799D8C1471962600CFC615 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BE88E33714C13846006910C5 /* Products */;
+					ProjectRef = BE88E33614C13846006910C5 /* WFInstagramAPI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BE799D8A1471962600CFC615 /* Lolgramz */,
@@ -991,6 +939,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BE88E33F14C13846006910C5 /* libWFInstagramAPI.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libWFInstagramAPI.a;
+			remoteRef = BE88E33E14C13846006910C5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BE88E34114C13846006910C5 /* WFInstagramAPITests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = WFInstagramAPITests.octest;
+			remoteRef = BE88E34014C13846006910C5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BE799D891471962600CFC615 /* Resources */ = {
@@ -1064,18 +1029,9 @@
 				BE799DA21471962700CFC615 /* MGAppDelegate.m in Sources */,
 				BE799DA51471962700CFC615 /* Memegram.xcdatamodeld in Sources */,
 				BE799DA81471962700CFC615 /* SelectInstagramMediaController.m in Sources */,
-				BEE7A64A1471EB58002CB0C0 /* IGInstagramAPI.m in Sources */,
-				BEE7A64D1471EBB2002CB0C0 /* IGInstagramAuthController.m in Sources */,
-				BEE7A68E14720322002CB0C0 /* IGInstagramMedia.m in Sources */,
-				BEE7A696147209F6002CB0C0 /* IGConnection.m in Sources */,
-				BEE7A69914720A3A002CB0C0 /* IGResponse.m in Sources */,
-				BEE7A6A414720C8F002CB0C0 /* IGConnectionDelegate.m in Sources */,
-				BEE7A6A814721639002CB0C0 /* IGAuthDefaultInitialView.m in Sources */,
 				BEE7A6AC1472255F002CB0C0 /* UIView+WillFleming.m in Sources */,
 				BE26F087147418E200192403 /* NSString+WillFleming.m in Sources */,
 				BE26F08A1474266B00192403 /* NSURL+WillFleming.m in Sources */,
-				BE26F08D14742C1400192403 /* IGInstagramUser.m in Sources */,
-				BE26F09014742F8F00192403 /* IGDefaultSerializer.m in Sources */,
 				BE26F0A8147430D900192403 /* CDataScanner.m in Sources */,
 				BE26F0A9147430D900192403 /* CFilteringJSONSerializer.m in Sources */,
 				BE26F0AA147430D900192403 /* CJSONSerialization.m in Sources */,
@@ -1085,7 +1041,6 @@
 				BE26F0AE147430D900192403 /* CJSONDeserializer.m in Sources */,
 				BE26F0AF147430D900192403 /* CJSONScanner.m in Sources */,
 				BE26F0B0147430D900192403 /* CJSONSerializer.m in Sources */,
-				BE26F0B214744BB500192403 /* IGInstagramFunctions.m in Sources */,
 				BE26F0C4147459E200192403 /* StatusCenter.m in Sources */,
 				BE26F0C914745A7D00192403 /* StatusItem.m in Sources */,
 				BE26F0CC14745B4600192403 /* InstagramMediaDataSource.m in Sources */,
@@ -1139,8 +1094,6 @@
 				BE2DD0C214873F6700B6C31B /* SBJsonParser.m in Sources */,
 				BE2DD0C314873F6700B6C31B /* SBJsonWriter.m in Sources */,
 				BE7305E21489BF350055A861 /* LolgramzAuthInitialView.m in Sources */,
-				BE7305E91489C9400055A861 /* IGInstagramMediaCollection.m in Sources */,
-				BE73062E148AB4F50055A861 /* IGImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1159,6 +1112,11 @@
 			isa = PBXTargetDependency;
 			target = BE799D8A1471962600CFC615 /* Lolgramz */;
 			targetProxy = BE799DC31471962700CFC615 /* PBXContainerItemProxy */;
+		};
+		BE88E34414C13878006910C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WFInstagramAPI;
+			targetProxy = BE88E34314C13878006910C5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1234,14 +1192,22 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../../WFInstagramAPI",
+					"$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lstdc++",
+				);
 				PRODUCT_NAME = Lolgramz;
 				PROVISIONING_PROFILE = "2056226F-5972-4E19-94DA-236B46F89DAF";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2056226F-5972-4E19-94DA-236B46F89DAF";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI $(SDKROOT)/usr/include/libxml2";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1300,12 +1266,20 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../../WFInstagramAPI",
+					"$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lstdc++",
+				);
 				PRODUCT_NAME = Lolgramz;
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI $(SDKROOT)/usr/include/libxml2";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1389,12 +1363,20 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../../WFInstagramAPI",
+					"$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lstdc++",
+				);
 				PRODUCT_NAME = Lolgramz;
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI $(SDKROOT)/usr/include/libxml2";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1409,12 +1391,20 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Memegram/Memegram-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)/../../WFInstagramAPI",
+					"$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
 				INFOPLIST_FILE = "Memegram/Memegram-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lstdc++",
+				);
 				PRODUCT_NAME = Lolgramz;
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../WFInstagramAPI $(SDKROOT)/usr/include/libxml2";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};

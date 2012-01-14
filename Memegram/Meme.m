@@ -10,12 +10,12 @@
 
 #import "MemegramAPI.h"
 #import "MGConnection.h"
-#import "IGResponse.h"
-#import "IGDefaultSerializer.h"
+#import "WFIGResponse.h"
+#import "WFIGDefaultSerializer.h"
 #import <Twitter/Twitter.h>
 #import "MGAccountHelper.h"
-#import "IGInstagramAPI.h"
-#import "IGInstagramUser.h"
+#import "WFInstagramAPI.h"
+#import "WFIGUser.h"
 #import "MGUploader.h"
 #import "MGAppDelegate.h"
 #import "ABNotifier.h"
@@ -74,7 +74,7 @@
     
     [request setHTTPBody:body];
     
-    IGResponse *response = [MGConnection sendRequest:request];
+    WFIGResponse *response = [MGConnection sendRequest:request];
     
     success = [response isSuccess];
     
@@ -118,7 +118,7 @@
   }
   
   NSError *err = nil;
-  NSData *result = [IGDefaultSerializer serializeJSON:attrs error:&err];
+  NSData *result = [WFIGDefaultSerializer serializeJSON:attrs error:&err];
   if (err) {
     DLOG(@"serializing failed: %@", err);
   }
@@ -238,7 +238,7 @@
   NSString *status = self.caption;
   
   if ((nil == status) || 0 == [status length]) {
-    status = [NSString stringWithFormat:@"A lolgram by %@.", [IGInstagramAPI currentUser].username];
+    status = [NSString stringWithFormat:@"A lolgram by %@.", [WFInstagramAPI currentUser].username];
   }
   
   return status;

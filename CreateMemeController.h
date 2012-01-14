@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class IGInstagramMedia;
+@class WFIGMedia;
 
 @interface CreateMemeController : UIViewController
 
-@property (strong, nonatomic) IGInstagramMedia *sourceMedia;
+@property (strong, nonatomic) WFIGMedia *sourceMedia;
 
 @end

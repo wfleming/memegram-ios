@@ -8,7 +8,7 @@
 
 #import "InstagramMediaCell.h"
 
-#import "IGInstagramMedia.h"
+#import "WFIGMedia.h"
 #import "UIView+WillFleming.h"
 
 @implementation InstagramMediaCell
@@ -33,11 +33,11 @@ static const CGFloat frameSize = 1.0;
 }
 
 #pragma mark - Property override
-- (void) setMedia:(__block IGInstagramMedia *)media {
+- (void) setMedia:(__block WFIGMedia *)media {
   _media = media;
   
   __block typeof(self) blockSelf = self;
-  [_media thumbnailCompletionBlock:^(IGInstagramMedia *media, UIImage *image) {
+  [_media thumbnailCompletionBlock:^(WFIGMedia *media, UIImage *image) {
     if (media == blockSelf.media) {
       blockSelf->_imageView.image = image;
     } else {

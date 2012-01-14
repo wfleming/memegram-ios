@@ -11,14 +11,12 @@
 #import "SelectInstagramMediaController.h"
 #import "YourMemesController.h"
 
-#import "IGInstagramAPI.h"
-#import "IGResponse.h"
+#import "WFInstagramAPI.h"
 #import "NSURL+WillFleming.h"
 #import "MGConstants.h"
 #import "MGUploader.h"
 #import "ABNotifier.h"
 #import "LolgramzAuthInitialView.h"
-#import "IGInstagramAuthController.h"
 
 #pragma mark -
 @interface MGAppDelegate (Private)
@@ -45,15 +43,15 @@
                              delegate:nil];
   
   // Setup API base stuff
-  [IGInstagramAPI setClientId:OAUTH_INSTAGRAM_KEY];
-  [IGInstagramAPI setOAuthRedirctURL:OAUTH_INSTAGRAM_REDIRECT_URL];
+  [WFInstagramAPI setClientId:OAUTH_INSTAGRAM_KEY];
+  [WFInstagramAPI setOAuthRedirctURL:OAUTH_INSTAGRAM_REDIRECT_URL];
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  [IGInstagramAPI setAccessToken:[defaults stringForKey:kDefaultsInstagramToken]];
-  [IGInstagramAPI setGlobalErrorHandler:^(IGResponse* response) {
-    void (^logicBlock)(IGResponse*) = ^(IGResponse *response){
+  [WFInstagramAPI setAccessToken:[defaults stringForKey:kDefaultsInstagramToken]];
+  [WFInstagramAPI setGlobalErrorHandler:^(WFIGResponse* response) {
+    void (^logicBlock)(WFIGResponse*) = ^(WFIGResponse *response){
       switch ([response error].code) {
-        case IGErrorOAuthException:
-          [IGInstagramAPI enterAuthFlow];
+        case WFIGErrorOAuthException:
+          [WFInstagramAPI enterAuthFlow];
           break;
         default: {
           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -74,7 +72,7 @@
       });
     }
   }];
-  [IGInstagramAuthController setInitialViewClass:[LolgramzAuthInitialView class]];
+  [WFIGAuthController setInitialViewClass:[LolgramzAuthInitialView class]];
   
   // set up the UI
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -160,14 +158,14 @@
     [defaults setObject:[params objectForKey:kAuthCallbackURLApiTokenParam] forKey:kDefaultsMemegramToken];
     [defaults setObject:[params objectForKey:kAuthCallbackURLInstagramTokenParam] forKey:kDefaultsInstagramToken];
     [defaults synchronize];
-    [IGInstagramAPI setAccessToken:[params objectForKey:kAuthCallbackURLInstagramTokenParam]];
+    [WFInstagramAPI setAccessToken:[params objectForKey:kAuthCallbackURLInstagramTokenParam]];
     //TODO handle failure here (params not present, etc. passed error codes?)
     
     // dismiss our auth controller, get back to the regular application
     UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
     [keyWindow resignKeyWindow];
     keyWindow.hidden = YES;
-    [IGInstagramAPI setAuthWindow:nil];
+    [WFInstagramAPI setAuthWindow:nil];
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -321,7 +319,7 @@
   
   if (!memegramToken) {
     // we must have 2 tokens, so make sure that instagram clears if we don't have a memegram one
-    [IGInstagramAPI setAccessToken:nil];
+    [WFInstagramAPI setAccessToken:nil];
   }
 }
 

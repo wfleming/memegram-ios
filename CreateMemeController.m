@@ -8,7 +8,7 @@
 
 #import "CreateMemeController.h"
 
-#import "IGInstagramMedia.h"
+#import "WFIGMedia.h"
 #import "CreateMemeView.h"
 #import "Meme.h"
 #import "FinishMemeController.h"

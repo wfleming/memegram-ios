@@ -8,14 +8,14 @@
 
 #import "LolgramzAuthInitialView.h"
 
-#import "IGInstagramAuthController.h"
+#import "WFIGAuthController.h"
 
 @implementation LolgramzAuthInitialView {
-  IGInstagramAuthController *_controller;
+  WFIGAuthController *_controller;
   IBOutlet UIButton *_nextButton;
 }
 
-- (id) initWithController:(IGInstagramAuthController*)controller {
+- (id) initWithController:(WFIGAuthController*)controller {
   NSArray *objects = [[NSBundle mainBundle] loadNibNamed:@"AuthView" owner:self options:nil];
   self = [objects objectAtIndex:0];
   self->_controller = controller;

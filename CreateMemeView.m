@@ -8,7 +8,7 @@
 
 #import "CreateMemeView.h"
 
-#import "IGInstagramMedia.h"
+#import "WFIGMedia.h"
 #import "MemeTextView.h"
 #import "UIView+WillFleming.h"
 #import "UIToolbar+WillFleming.h"
@@ -39,7 +39,7 @@
 
 #pragma mark -
 @implementation CreateMemeView {
-  IGInstagramMedia *_originalMedia;
+  WFIGMedia *_originalMedia;
   
   MemeTextView *_activeTextView;
   UIImageView *_imageView;
@@ -58,7 +58,7 @@
 @synthesize activeTextView=_activeTextView, controller;
 
 #pragma mark - overrides
-- (id) initWithInstagramMedia:(IGInstagramMedia*)media {
+- (id) initWithInstagramMedia:(WFIGMedia*)media {
   //TODO - handle figuring out our frame size on iPad
   // this is the size we have to work with with a nav bar, status bar, tab bar on iPhone
   CGRect frame = CGRectMake(0.0, 0.0, 320.0, 367.0);
@@ -165,7 +165,7 @@
     [self addSubview:_activityIndicator];
     
     __block typeof(self) blockSelf = self;
-    [_originalMedia imageCompletionBlock:^(IGInstagramMedia *media, UIImage *image) {
+    [_originalMedia imageCompletionBlock:^(WFIGMedia *media, UIImage *image) {
       __block UIImage *blockImage = image;
       dispatch_async(dispatch_get_main_queue(), ^{
         blockSelf->_addTextViewButtonItem.enabled = YES;

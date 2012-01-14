@@ -8,13 +8,13 @@
 
 #import "KKGridViewCell.h"
 
-@class IGInstagramMedia;
+@class WFIGMedia;
 
 @interface InstagramMediaCell : KKGridViewCell {
-  IGInstagramMedia *_media;
+  WFIGMedia *_media;
   UIImageView *_imageView;
 }
 
-@property (strong, nonatomic) IGInstagramMedia *media;
+@property (strong, nonatomic) WFIGMedia *media;
 
 @end

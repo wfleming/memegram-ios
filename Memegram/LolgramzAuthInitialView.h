@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-#import "IGAuthDefaultInitialView.h"
+#import "WFIGAuthDefaultInitialView.h"
 
-@interface LolgramzAuthInitialView : UIView <IGAuthInitialView>
+@interface LolgramzAuthInitialView : UIView <WFIGAuthInitialView>
 
 - (IBAction) nextButtonTapped:(id)sender;
 

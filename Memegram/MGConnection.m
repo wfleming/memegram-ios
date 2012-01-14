@@ -11,7 +11,7 @@
 
 @implementation MGConnection
 
-+ (IGResponse *)sendRequest:(NSMutableURLRequest *)request {
++ (WFIGResponse *)sendRequest:(NSMutableURLRequest *)request {
   [request setValue:[MemegramAPI apiToken] forHTTPHeaderField:@"X-Auth-Token"];
   return [super sendRequest:request];
 }

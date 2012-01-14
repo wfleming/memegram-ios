@@ -9,8 +9,7 @@
 #import "SelectInstagramMediaController.h"
 
 #import "InstagramMediaDataSource.h"
-#import "IGInstagramAPI.h"
-#import "IGInstagramMedia.h"
+#import "WFInstagramAPI.h"
 #import "CreateMemeController.h"
 #import "UIView+WillFleming.h"
 
@@ -170,7 +169,7 @@
     }];
     
     [self.gridView setDidSelectIndexPathBlock:^(KKGridView *gridView, KKIndexPath *indexPath) {
-      IGInstagramMedia *media = [[self dataSource] objectAtIndexPath:indexPath];
+      WFIGMedia *media = [[self dataSource] objectAtIndexPath:indexPath];
       CreateMemeController *controller = [[CreateMemeController alloc] init];
       controller.sourceMedia = media;
       [self.navigationController pushViewController:controller animated:YES];

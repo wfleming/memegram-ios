@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class IGInstagramMedia, MemeTextView;
+@class WFIGMedia, MemeTextView;
 
 @interface CreateMemeView : UIView
 
@@ -16,7 +16,7 @@
 @property (weak, nonatomic) UIViewController *controller;
 
 // designated initializer
-- (id) initWithInstagramMedia:(IGInstagramMedia*)media;
+- (id) initWithInstagramMedia:(WFIGMedia*)media;
 
 - (void) removeTextView:(MemeTextView*)textView;
 

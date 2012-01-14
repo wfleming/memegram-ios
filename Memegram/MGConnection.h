@@ -6,8 +6,8 @@
 //  Copyright (c) 2011 Endeca Technologies. All rights reserved.
 //
 
-#import "IGConnection.h"
+#import "WFIGConnection.h"
 
-@interface MGConnection : IGConnection
+@interface MGConnection : WFIGConnection
 
 @end

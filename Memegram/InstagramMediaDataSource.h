@@ -10,7 +10,7 @@
 
 #import "KKGridView.h"
 
-@class SelectInstagramMediaController, IGInstagramMedia;
+@class SelectInstagramMediaController, WFIGMedia;
 
 @interface InstagramMediaDataSource : NSObject
 
@@ -24,6 +24,6 @@
 
 - (NSUInteger) numberOfItemsInGridView:(KKGridView*)gridView;
 - (KKGridViewCell*) gridView:(KKGridView*)gridView cellForItemAtIndexPath:(KKIndexPath*)indexPath;
-- (IGInstagramMedia*) objectAtIndexPath:(KKIndexPath*)indexPath;
+- (WFIGMedia*) objectAtIndexPath:(KKIndexPath*)indexPath;
 
 @end

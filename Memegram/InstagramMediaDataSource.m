@@ -10,14 +10,14 @@
 
 #import "SelectInstagramMediaController.h"
 #import "InstagramMediaCell.h"
-#import "IGInstagramAPI.h"
-#import "IGInstagramMedia.h"
-#import "IGInstagramUser.h"
-#import "IGInstagramMediaCollection.h"
+#import "WFInstagramAPI.h"
+#import "WFIGMedia.h"
+#import "WFIGUser.h"
+#import "WFIGMediaCollection.h"
 
 #pragma mark -
 @interface InstagramMediaDataSource ()
-@property (strong, nonatomic) IGInstagramMediaCollection *mediaItems;
+@property (strong, nonatomic) WFIGMediaCollection *mediaItems;
 @end
 
 #pragma mark -
@@ -25,7 +25,7 @@
   __weak SelectInstagramMediaController *_controller; 
   BOOL _isLoading;
   BOOL _isLoaded;
-  IGInstagramMediaCollection *_mediaItems;
+  WFIGMediaCollection *_mediaItems;
 }
 
 
@@ -72,7 +72,7 @@
     __block NSError *error = nil;
     
     if (!more) {
-      blockSelf.mediaItems = [[IGInstagramAPI currentUser] recentMediaError:&error];
+      blockSelf.mediaItems = [[WFInstagramAPI currentUser] recentMediaError:&error];
     } else if (blockSelf.mediaItems && [blockSelf.mediaItems hasNextPage]) {
       [blockSelf.mediaItems loadAndMergeNextPageWithError:&error];
     }
@@ -96,14 +96,14 @@
 }
 
 - (KKGridViewCell*) gridView:(KKGridView*)gridView cellForItemAtIndexPath:(KKIndexPath*)indexPath; {
-  IGInstagramMedia *media = [self objectAtIndexPath:indexPath]; 
+  WFIGMedia *media = [self objectAtIndexPath:indexPath]; 
   InstagramMediaCell *cell = [InstagramMediaCell cellForGridView:gridView];
   cell.media = media;
   
   return cell;
 }
 
-- (IGInstagramMedia*) objectAtIndexPath:(KKIndexPath*)indexPath {
+- (WFIGMedia*) objectAtIndexPath:(KKIndexPath*)indexPath {
   return [self.mediaItems objectAtIndex:indexPath.index];
 }
 
