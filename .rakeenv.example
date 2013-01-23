@@ -1,0 +1,8 @@
+set(:app_name, 'Lolgramz')
+set(:environment, 'staging') 
+set(:xcode_configuration, 'TestFlight')
+set(:codesign_identity, 'iPhone Distribution: William Fleming') 
+set(:provisioning_profile_path, 'provision.mobileprovision') 
+set(:testflight_team_token, '4524dec9cbbdc5c5c7d39838884e01c4_NDIxOTIyMDExLTExLTIwIDA5OjU5OjMwLjE3MjU4MQ')
+set(:testflight_api_token, '64f86839a999f7f2d2042a6c9284eb0c_MjIyOTg4MjAxMS0xMS0xOSAxODo1Nzo1Ny4xMzgxMjc')
+set(:testflight_distribution_lists, 'all')
