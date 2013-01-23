@@ -1,0 +1,15 @@
+//
+//  Development.xcconfig
+//
+
+// Used when you're developing locally - not on phone, but on simulator
+// (phone won't work thanks to DNS lookup of .dev host)
+
+GCC_PREPROCESSOR_DEFINITIONS = API_BASE_URL=@\"http:\/\/memegram.dev\/api\/v1\" OAUTH_INSTAGRAM_REDIRECT_URL=@\"http:\/\/memegram.dev/auth/instagram/callback?client=ios\" OAUTH_INSTAGRAM_KEY=@\"YOUR_KEY\" FACEBOOK_APP_ID=@\"YOUR_KEY\" DEBUG
+
+// debug settings for running on phone against prod web
+//GCC_PREPROCESSOR_DEFINITIONS = API_BASE_URL=@\"http:\/\/lolgramz.com\/api\/v1\" OAUTH_INSTAGRAM_REDIRECT_URL=@\"http:\/\/lolgramz.com/auth/instagram/callback\" OAUTH_INSTAGRAM_KEY=@\"YOUR_KEY\" FACEBOOK_APP_ID=@\"146782638760723\" DEBUG
+
+// If you want to develop on your phone, copy the local.xccoconfig.example
+// to local.xcconfig and edit the settings there.
+#include "local.xcconfig"

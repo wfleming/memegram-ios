@@ -1,0 +1,8 @@
+//
+//  Production.xcconfig
+//
+
+// Used when you're developing locally - not on phone, but on simulator
+// (phone won't work thanks to DNS lookup of .dev host)
+
+GCC_PREPROCESSOR_DEFINITIONS = API_BASE_URL=@\"http:\/\/lolgramz.com\/api\/v1\" OAUTH_INSTAGRAM_REDIRECT_URL=@\"http:\/\/lolgramz.com/auth/instagram/callback\" OAUTH_INSTAGRAM_KEY=@\"YOUR_KEY\" FACEBOOK_APP_ID=@\"YOUR_KEY\"
